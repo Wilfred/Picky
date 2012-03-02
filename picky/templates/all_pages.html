@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+	{% for page in pages %}
+	<li>{{ page.name }}</li>
+	{% empty %}
+        <li>No pages yet.</li>
+	{% endfor %}
+</ul>
+
+<p>Hello world again</p>
+{% endblock %}
