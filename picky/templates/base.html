@@ -4,8 +4,11 @@
 	    <title>Picky</title>
     </head>
     <body>
-
-	    <h1>Picky</h1>
+	    <h3>Picky</h3>
+            <ul>
+                <li><a href="{% url all_pages %}">All Pages</a></li>
+                <li><a href="{% url create_page %}">New Page</a></li>
+            </ul>
 	    {% block content %}{% endblock %}
     </body>
 </html>
