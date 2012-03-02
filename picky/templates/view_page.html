@@ -3,6 +3,6 @@
 {% block content %}
 <h1>{{ page.name }}</h1>
 
-<p>{{ page.content }}</p>
+<p>{{ page.get_rendered_content|safe }}</p>
 
 {% endblock %}
