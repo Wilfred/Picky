@@ -28,3 +28,11 @@ def create_page(request):
 
     return render_to_response("page_edit.html", template_vars,
                               RequestContext(request))
+
+
+def view_page(request, page_slug):
+    page = Page.objects.get(name_slug=page_slug)
+    template_vars = {'page': page}
+    
+    return render_to_response("view_page.html", template_vars,
+                              RequestContext(request))
