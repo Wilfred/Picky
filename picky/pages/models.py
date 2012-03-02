@@ -4,7 +4,7 @@ from docutils.core import publish_parts
 
 class Page(models.Model):
     name = models.CharField(max_length=200, unique=True)
-    name_slug = models.CharField(max_length=200, unique=True)
+    name_slug = models.CharField(max_length=200, unique=True, editable=False)
 
     content = models.TextField()
 
@@ -13,3 +13,9 @@ class Page(models.Model):
         parts = publish_parts(self.content, writer_name="html")
         html_snippet = parts['body']
         return html_snippet
+
+    def save(self):
+        # We do the minimum modification possible to produce a
+        # workable, attractive URL.
+        self.name_slug = self.name.strip().replace(' ', '_')
+        return super(Page, self).save()
