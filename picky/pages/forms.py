@@ -21,7 +21,7 @@ class PageForm(ModelForm):
         if self.instance.id:
             # We are editing an existing Page, so we only want to
             # check for other pages with the same slug.
-            same_slug_pages = same_slug_pages.exclude(id=self.instance)
+            same_slug_pages = same_slug_pages.exclude(id=self.instance.id)
 
         if same_slug_pages.exists():
             raise ValidationError("That name clashes with another page's URL.")
