@@ -2,6 +2,8 @@ from django.db import models
 
 from docutils.core import publish_parts
 
+from .utils import slugify
+
 class Page(models.Model):
     name = models.CharField(max_length=200, unique=True)
     name_slug = models.CharField(max_length=200, unique=True, editable=False)
@@ -17,5 +19,5 @@ class Page(models.Model):
     def save(self):
         # We do the minimum modification possible to produce a
         # workable, attractive URL.
-        self.name_slug = self.name.strip().replace(' ', '_')
+        self.name_slug = slugify(self.name)
         return super(Page, self).save()
