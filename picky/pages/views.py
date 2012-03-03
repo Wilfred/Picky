@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
 
 from .models import Page
@@ -23,6 +23,24 @@ def create_page(request):
             return HttpResponseRedirect(reverse('all_pages'))
     else:
         form = PageForm()
+
+    template_vars = {'form': form}
+
+    return render_to_response("page_edit.html", template_vars,
+                              RequestContext(request))
+
+
+def edit_page(request, page_id):
+    page = get_object_or_404(Page, id=page_id)
+
+    if request.POST:
+        form = PageForm(request.POST, instance=page)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('view_page', args=[page.name_slug]))
+    else:
+        form = PageForm(instance=page)
 
     template_vars = {'form': form}
 

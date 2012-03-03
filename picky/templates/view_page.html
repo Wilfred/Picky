@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<ul class="nav nav-pills">
+    <li class="active"><a href="">Latest Version</a></li>
+    <li><a href="{% url edit_page page.id %}">Edit</a></li>
+</ul>
+
 <h1>{{ page.name }}</h1>
 
 <p>{{ page.get_rendered_content|safe }}</p>
