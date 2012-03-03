@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>Editing/creating</p>
 
-<form method="post">
+<form method="post" class="well create-page">
 {% csrf_token %}
 {{ form }}
-<input type="submit">
+<label></label><!-- grim hack to push button down -->
+<button type="submit" class="btn btn-primary">
+	<i class="icon-ok-sign icon-white"></i>
+	Save Page
+</button>
 </form>
 
-<p>Hello world again</p>
 {% endblock %}
