@@ -7,6 +7,7 @@ from .utils import slugify
 class Page(models.Model):
     name = models.CharField(max_length=200, unique=True)
     name_slug = models.CharField(max_length=200, unique=True, editable=False)
+    name_lower = models.CharField(max_length=200, editable=False)
 
     content = models.TextField()
 
@@ -20,4 +21,9 @@ class Page(models.Model):
         # We do the minimum modification possible to produce a
         # workable, attractive URL.
         self.name_slug = slugify(self.name)
+
+        # Since we sort pages case insensitively, we store the
+        # lowercase name.
+        self.name_lower = self.name.lower()
+        
         return super(Page, self).save()

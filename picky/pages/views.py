@@ -8,7 +8,7 @@ from .forms import PageForm
 
 
 def all_pages(request):
-    template_vars = {'pages': Page.objects.order_by('name')}
+    template_vars = {'pages': Page.objects.order_by('name_lower')}
     return render_to_response("all_pages.html", template_vars,
                               RequestContext(request))
 
