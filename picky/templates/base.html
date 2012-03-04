@@ -19,6 +19,10 @@
 					    <li><a href="{% url create_page %}">New Page</a></li>
 					    <li><a href="{% url all_users %}">Users</a></li>
 				    </ul>
+
+				    <ul class="nav pull-right">
+					    <li><a href="#">{{ user.username|default:"Not logged in" }}</a></li>
+				    </ul>
 			    </div>
 		    </div>
 	    </div>
