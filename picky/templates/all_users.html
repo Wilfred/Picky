@@ -3,12 +3,28 @@
 {% block content %}
 <h1>All Users</h1>
 
-<ul>
+{% if users %}
+<table class="table table-striped table-bordered">
+    <thead>
+            <tr>
+                <td>Username</td>
+                <td>Created</td>
+                <td>Last seen</td>
+            </tr>
+    </thead>
+    <tbody>
 	{% for user in users %}
-	<li>{{ user.email }}</li>
-	{% empty %}
-        <li>No users yet.</li>
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.date_joined }}</td>
+            <td>{{ user.last_login }}</td>
+        </tr>
 	{% endfor %}
-</ul>
+    </tbody>
+</table>
+
+{% else %}
+<p>No users yet.</p>
+{% endif %}
 
 {% endblock %}
