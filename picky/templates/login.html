@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Login</h1>
+
+<p>Hello world.
+</p>
+
+<form method="post" class="well">
+{% csrf_token %}
+{{ form }}
+<label></label><!-- grim hack to push button down -->
+<button type="submit" class="btn btn-primary">
+	Log In
+</button>
+</form>
+
+
+{% endblock %}
