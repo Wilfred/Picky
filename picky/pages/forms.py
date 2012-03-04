@@ -1,4 +1,4 @@
-from django.forms import ModelForm, ValidationError
+from django.forms import ModelForm, ValidationError, Textarea
 
 from .models import Page
 from .utils import slugify
@@ -7,6 +7,7 @@ from .utils import slugify
 class PageForm(ModelForm):
     class Meta:
         model = Page
+        widgets = {'content': Textarea(attrs={'rows': 30})}
 
     def clean_name(self):
         """Check that this name doesn't match any other name when
