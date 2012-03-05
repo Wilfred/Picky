@@ -6,11 +6,12 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
+from milkman.dairy import milkman
+
+from .models import Page
 
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+class RenderingTest(TestCase):
+    def test_basic_rendering(self):
+        page = milkman.deliver(Page, content="hello world")
+        self.assertEqual(page.get_rendered_content().strip(), "<p>hello world</p>")
