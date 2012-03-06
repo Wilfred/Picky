@@ -21,8 +21,12 @@
 				    </ul>
 
 				    <ul class="nav pull-right">
+					    {% if user.is_authenticated %}
 					    <li><a href="#">{{ user.username|default:"Not logged in" }}</a></li>
 					    <li><a href="{% url logout %}">log out</a></li>
+					    {% else %}
+					    <li><a href="#">Not logged in</a></li>
+					    {% endif %}
 				    </ul>
 			    </div>
 		    </div>
