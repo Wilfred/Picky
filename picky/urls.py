@@ -6,7 +6,7 @@ from django.views.generic.simple import redirect_to
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', redirect_to, {'url': '/pages/'}),
+    url(r'^$', redirect_to, {'url': '/pages/'}, name="index"),
     url(r'^', include('pages.urls')),
     url(r'^', include('users.urls')),
 
