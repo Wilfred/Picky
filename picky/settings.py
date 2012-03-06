@@ -116,6 +116,7 @@ INSTALLED_APPS = (
 
     'pages',
     'users',
+    'site_config',
 )
 
 LOGIN_URL = '/user/login/'
