@@ -118,7 +118,7 @@ INSTALLED_APPS = (
     'users',
 )
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/user/login/'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
