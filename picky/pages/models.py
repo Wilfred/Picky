@@ -14,7 +14,7 @@ class Page(models.Model):
     def get_rendered_content(self):
         """Render the reStructured text as an HTML snippet."""
         parts = publish_parts(self.content, writer_name="html")
-        html_snippet = parts['body']
+        html_snippet = parts['html_body']
         return html_snippet
 
     def save(self):
