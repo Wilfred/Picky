@@ -29,7 +29,7 @@ def create_page(request):
 
     template_vars = {'form': form}
 
-    return render_to_response("pages/page_edit.html", template_vars,
+    return render_to_response("pages/page_create.html", template_vars,
                               RequestContext(request))
 
 
@@ -46,7 +46,7 @@ def edit_page(request, page_id):
     else:
         form = PageForm(instance=page)
 
-    template_vars = {'form': form}
+    template_vars = {'form': form, 'page': page}
 
     return render_to_response("pages/page_edit.html", template_vars,
                               RequestContext(request))

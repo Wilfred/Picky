@@ -1,9 +1,6 @@
-{% extends 'pages/base.html' %}
-
-{% block page_edit_state %}active{% endblock %}
+{% extends 'base.html' %}
 
 {% block content %}
-{{ block.super }}
 
 <form method="post" class="well create-page">
 {% csrf_token %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Picky | {{ page.name }}{% endblock %}
+
+{% block content %}
+<ul class="nav nav-pills">
+    <li class="{% block page_view_state %}{% endblock %}">
+	    <a href="{% url view_page page.name_slug %}">View: {{ page.name }}</a>
+    </li>
+    <li class="{% block page_edit_state %}{% endblock %}">
+	    <a href="{% url edit_page page.id %}">Edit</a>
+    </li>
+</ul>
+
+{% endblock %}

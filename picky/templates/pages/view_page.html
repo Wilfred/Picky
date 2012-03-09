@@ -1,12 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'pages/base.html' %}
 
-{% block title %}Picky | {{ page.name }}{% endblock %}
+{% block page_view_state %}active{% endblock %}
 
 {% block content %}
-<ul class="nav nav-pills">
-    <li class="active"><a href="">View: {{ page.name }}</a></li>
-    <li><a href="{% url edit_page page.id %}">Edit</a></li>
-</ul>
+{{ block.super }}
 
 <p>{{ page.get_rendered_content|safe }}</p>
 
