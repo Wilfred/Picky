@@ -20,9 +20,21 @@ class RenderingTest(TestCase):
 
     def test_h1_rendered(self):
         page = milkman.deliver(Page, content="foo\n===")
-        self.assertIn('<h1 class="title">foo</h1>', page.get_rendered_content())
+        self.assertIn('<h1>foo</h1>', page.get_rendered_content())
 
     def test_h2_rendered(self):
-        page = milkman.deliver(Page, content="bar\n===\n\nfoo\n---")
-        self.assertIn('<h2 class="subtitle" id="foo">foo</h2>', page.get_rendered_content())
+        page = milkman.deliver(Page, content="""
+bar
+===
+
+foo 1
+-----
+
+foo 2
+-----
+
+""")
+
+        self.assertIn('<h2>foo 1</h2>', page.get_rendered_content())
+        self.assertIn('<h2>foo 2</h2>', page.get_rendered_content())
         

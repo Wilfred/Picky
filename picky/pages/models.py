@@ -13,7 +13,8 @@ class Page(models.Model):
 
     def get_rendered_content(self):
         """Render the reStructured text as an HTML snippet."""
-        parts = publish_parts(self.content, writer_name="html")
+        parts = publish_parts(self.content, writer_name="html",
+                              settings_overrides={'doctitle_xform': False})
         html_snippet = parts['html_body']
         return html_snippet
 
