@@ -11,7 +11,7 @@ from .forms import PageForm
 @login_required
 def all_pages(request):
     template_vars = {'pages': Page.objects.order_by('name_lower')}
-    return render_to_response("all_pages.html", template_vars,
+    return render_to_response("pages/all_pages.html", template_vars,
                               RequestContext(request))
 
 
@@ -29,7 +29,7 @@ def create_page(request):
 
     template_vars = {'form': form}
 
-    return render_to_response("page_edit.html", template_vars,
+    return render_to_response("pages/page_edit.html", template_vars,
                               RequestContext(request))
 
 
@@ -48,7 +48,7 @@ def edit_page(request, page_id):
 
     template_vars = {'form': form}
 
-    return render_to_response("page_edit.html", template_vars,
+    return render_to_response("pages/page_edit.html", template_vars,
                               RequestContext(request))
 
 
@@ -57,5 +57,5 @@ def view_page(request, page_slug):
     page = Page.objects.get(name_slug=page_slug)
     template_vars = {'page': page}
     
-    return render_to_response("view_page.html", template_vars,
+    return render_to_response("pages/view_page.html", template_vars,
                               RequestContext(request))
