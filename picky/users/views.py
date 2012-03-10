@@ -18,6 +18,9 @@ def all_users(request):
 
 @login_required
 def create_user(request):
+    if not request.user.is_superuser:
+        return permission_denied(request)
+    
     if request.POST:
         form = UserForm(request.POST)
 
@@ -31,6 +34,13 @@ def create_user(request):
 
     return render_to_response("users/create_user.html", template_vars,
                               RequestContext(request))
+
+
+def permission_denied(request):
+    response = render_to_response("users/permission_denied.html", {},
+                                  RequestContext(request))
+    response.status = 403
+    return response
 
 
 @login_required
