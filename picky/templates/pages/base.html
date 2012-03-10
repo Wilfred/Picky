@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Picky | {{ page.name }}{% endblock %}
+{% block title %}{{ block.super }} | {{ page.name }}{% endblock %}
 
 {% block content %}
 <ul class="nav nav-pills">
