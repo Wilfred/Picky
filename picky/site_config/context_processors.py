@@ -6,4 +6,9 @@ def include_config(request):
     configuration in the template context.
 
     """
-    return {'config': SiteConfig.objects.get()}
+    try:
+        site_config = SiteConfig.objects.get()
+    except SiteConfig.DoesNotExist:
+        site_config = SiteConfig.objects.create()
+        
+    return {'config': site_config}
