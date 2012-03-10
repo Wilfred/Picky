@@ -12,6 +12,7 @@
                 <th>Admin</th>
                 <th>Created</th>
                 <th>Last seen</th>
+                <th>Modify</th>
             </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
             <td>{{ user.is_superuser|yesno }}</td>
             <td>{{ user.date_joined }}</td>
             <td>{{ user.last_login }}</td>
+            <td><a href="{% url edit_user user.id %}">Edit</a></td>
         </tr>
 	{% endfor %}
     </tbody>

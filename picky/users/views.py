@@ -36,6 +36,28 @@ def create_user(request):
                               RequestContext(request))
 
 
+@login_required
+def edit_user(request, user_id):
+    if not request.user.is_superuser:
+        return permission_denied(request)
+    
+    user = User.objects.get(id=user_id)
+    
+    if request.POST:
+        form = UserForm(request.POST, instance=user)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('all_users'))
+    else:
+        form = UserForm(instance=user)
+
+    template_vars = {'form': form, 'user': user}
+
+    return render_to_response("users/edit_user.html", template_vars,
+                              RequestContext(request))
+    
+
 def permission_denied(request):
     response = render_to_response("users/permission_denied.html", {},
                                   RequestContext(request))

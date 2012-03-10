@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 
 class UserForm(ModelForm):
     # todo: mask password
+    # todo: confirm password
     password = CharField()
-    
+
     class Meta:
         model = User
         # todo: make email required
@@ -19,5 +20,3 @@ class UserForm(ModelForm):
         user.save()
 
         return user
-
-
