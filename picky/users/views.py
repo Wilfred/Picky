@@ -12,7 +12,7 @@ from .forms import UserForm
 @login_required
 def all_users(request):
     template_vars = {'users': User.objects.all()}
-    return render_to_response("all_users.html", template_vars,
+    return render_to_response("users/all_users.html", template_vars,
                               RequestContext(request))
 
 
@@ -29,7 +29,7 @@ def create_user(request):
 
     template_vars = {'form': form}
 
-    return render_to_response("create_user.html", template_vars,
+    return render_to_response("users/create_user.html", template_vars,
                               RequestContext(request))
 
 
