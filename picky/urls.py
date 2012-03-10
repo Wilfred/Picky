@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', redirect_to, {'url': '/pages/'}, name="index"),
     url(r'^', include('pages.urls')),
     url(r'^', include('users.urls')),
+    url(r'^', include('site_config.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

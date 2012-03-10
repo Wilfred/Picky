@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post" class="well">
+{% csrf_token %}
+{{ form }}
+<label></label><!-- grim hack to push button down -->
+<button type="submit" class="btn btn-primary">
+	<i class="icon-ok-sign icon-white"></i>
+	Save Settings
+</button>
+</form>
+
+{% endblock %}
