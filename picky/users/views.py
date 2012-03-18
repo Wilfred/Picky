@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -62,10 +62,11 @@ def edit_user(request, user_id):
 def delete_user(request, user_id):
     if not request.user.is_superuser:
         return permission_denied(request)
-    
-    user = User.objects.get(id=user_id)
-    
-    if request.POST:
+
+    user = get_object_or_404(User, id=user_id)
+
+    # Note that request.POST is empty so it's falsy.
+    if request.method == 'POST':
         user.delete()
         return HttpResponseRedirect(reverse('all_users'))
     else:
