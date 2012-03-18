@@ -1,7 +1,10 @@
 from django.test import TestCase
+from django.core.urlresolvers import reverse
+
 from milkman.dairy import milkman
 
 from .models import Page
+from users.test_base import UserTest
 
 
 class RenderingTest(TestCase):
@@ -30,4 +33,13 @@ foo 2
 
         self.assertIn('<h2>foo 1</h2>', page.get_rendered_content())
         self.assertIn('<h2>foo 2</h2>', page.get_rendered_content())
+
+
+class PageDeletingTest(UserTest):
+    def test_page_delete(self):
+        page = milkman.deliver(Page)
+
+        self.client.post(reverse('delete_page', args=[page.id]))
+        self.assertFalse(Page.objects.filter(id=page.id).exists())
         
+
