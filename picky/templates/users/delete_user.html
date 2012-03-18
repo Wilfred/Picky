@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Deleting {{ user.username }}</h1>
+
+<form method="post" class="well">
+{% csrf_token %}
+
+<p>You are about to delete {{ user.username }}. The account was
+created on {{ user.date_joined }} and was last used on {{ user.last_login }}.
+</p>
+	
+<button type="submit" class="btn btn-danger">
+	Delete
+</button>
+</form>
+
+
+{% endblock %}

@@ -56,7 +56,24 @@ def edit_user(request, user_id):
 
     return render_to_response("users/edit_user.html", template_vars,
                               RequestContext(request))
+
+
+@login_required
+def delete_user(request, user_id):
+    if not request.user.is_superuser:
+        return permission_denied(request)
     
+    user = User.objects.get(id=user_id)
+    
+    if request.POST:
+        user.delete()
+        return HttpResponseRedirect(reverse('all_users'))
+    else:
+        template_vars = {'user': user}
+        return render_to_response("users/delete_user.html", template_vars,
+                                  RequestContext(request))
+
+
 
 def permission_denied(request):
     response = render_to_response("users/permission_denied.html", {},
