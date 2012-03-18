@@ -1,0 +1,22 @@
+{% extends 'pages/base.html' %}
+
+{% block page_delete_state %}active{% endblock %}
+
+{% block content %}
+{{ block.super }}
+
+<h1>Deleting {{ page.name }}</h1>
+
+<form method="post" class="well">
+{% csrf_token %}
+
+<p>You are about to delete {{ page.name }}.
+</p>
+	
+<button type="submit" class="btn btn-danger">
+	Delete {{ page.name }}
+</button>
+</form>
+
+
+{% endblock %}

@@ -10,6 +10,9 @@
     <li class="{% block page_edit_state %}{% endblock %}">
 	    <a href="{% url edit_page page.id %}">Edit</a>
     </li>
+    <li class="{% block page_delete_state %}{% endblock %}">
+	    <a href="{% url delete_page page.id %}">Delete</a>
+    </li>
 </ul>
 
 {% endblock %}
