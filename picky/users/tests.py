@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+from .test_base import UserTest, SuperuserTest
+
 
 class LoginTest(TestCase):
     def test_login_on_404(self):
@@ -10,12 +12,9 @@ class LoginTest(TestCase):
 
         self.assertTemplateUsed(response, "users/login.html")
 
-class SuperuserOnlyTest(TestCase):
+
+class SuperuserOnlyTest(UserTest):
     """Check that a normal user can't access views intended for superusers."""
-    def setUp(self):
-        self.test_user = User.objects.create_user('testuser', 'test@example.com', 'testpassword')
-        self.client.login(username="testuser", password="testpassword")
-    
     def test_create_user(self):
         response = self.client.get(reverse('create_user'))
         self.assertTemplateUsed(response, "users/permission_denied.html")
@@ -29,14 +28,7 @@ class SuperuserOnlyTest(TestCase):
         self.assertTemplateUsed(response, "users/permission_denied.html")
 
 
-class SuperuserTest(TestCase):
-    def setUp(self):
-        self.test_user = User.objects.create_user('testuser', 'test@example.com', 'testpassword')
-        self.test_user.is_superuser = True
-        self.test_user.save()
-        
-        self.client.login(username="testuser", password="testpassword")
-    
+class UserDeleteTest(SuperuserTest):
     def test_delete_user(self):
         user_to_delete = User.objects.create_user('delete_me', 'test@example.com', 'testpassword')
         
