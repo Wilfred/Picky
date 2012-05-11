@@ -43,3 +43,11 @@ class PageDeletingTest(UserTest):
         self.assertFalse(Page.objects.filter(id=page.id).exists())
         
 
+class PageVersioningTest(UserTest):
+    def test_page_edit(self):
+        page = milkman.deliver(Page)
+
+        page.title = 'new title'
+        page.save()
+
+        self.assertEqual(page.version, 2)
