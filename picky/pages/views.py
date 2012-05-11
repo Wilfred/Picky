@@ -68,7 +68,7 @@ def delete_page(request, page_id):
 
 @login_required
 def view_page(request, page_slug):
-    page = Page.objects.get(name_slug=page_slug)
+    page = Page.objects.get(name_slug=page_slug, is_latest_version=True)
     template_vars = {'page': page}
     
     return render_to_response("pages/view_page.html", template_vars,

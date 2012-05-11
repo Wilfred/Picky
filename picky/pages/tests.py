@@ -45,9 +45,24 @@ class PageDeletingTest(UserTest):
 
 class PageVersioningTest(UserTest):
     def test_page_edit(self):
-        page = milkman.deliver(Page)
+        page = milkman.deliver(Page, content='foo')
 
-        page.title = 'new title'
+        page.content = 'bar'
         page.save()
 
+        self.assertTrue(page.is_latest_version)
         self.assertEqual(page.version, 2)
+
+        # check we have an old revision still
+        page = Page.objects.get(version=1)
+        self.assertFalse(page.is_latest_version)
+
+    def test_view_shows_latest(self):
+        page = milkman.deliver(Page, name='foo', content='foo')
+
+        page.content = 'bar'
+        page.save()
+
+        response = self.client.get(reverse('view_page', args=[page.name_slug]))
+        self.assertEqual(response.context['page'], page)
+
