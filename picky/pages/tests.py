@@ -35,6 +35,16 @@ foo 2
         self.assertIn('<h2>foo 2</h2>', page.get_rendered_content())
 
 
+class PageCreationTest(UserTest):
+    def test_duplicate_page_name(self):
+        milkman.deliver(Page, name='foo')
+
+        self.client.post(reverse('create_page'),
+                         {'name': 'foo', 'content': 'bar'})
+
+        self.assertEqual(Page.objects.count(), 1)
+
+
 class PageDeletingTest(UserTest):
     def test_page_delete(self):
         page = milkman.deliver(Page)
