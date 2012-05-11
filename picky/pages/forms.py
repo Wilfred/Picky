@@ -17,7 +17,8 @@ class PageForm(ModelForm):
         name = self.cleaned_data['name']
         name_slug = slugify(name)
 
-        same_slug_pages = Page.objects.filter(name_slug=name_slug)
+        same_slug_pages = Page.objects.filter(name_slug=name_slug,
+                                              is_latest_version=True)
 
         if self.instance.id:
             # We are editing an existing Page, so we only want to
