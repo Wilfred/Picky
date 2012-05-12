@@ -11,7 +11,9 @@ class Page(models.Model):
 
     version = models.IntegerField(default=1, editable=False)
     is_latest_revision = models.BooleanField(default=True, editable=False)
-    current_revision = models.ForeignKey('self', editable=False)
+    # we allow current_revision to be nullable, since we need to have
+    # created the page before we can have a link to it.
+    current_revision = models.ForeignKey('self', editable=False, null=True)
 
     content = models.TextField()
 
@@ -40,6 +42,8 @@ class Page(models.Model):
             self.version += 1
             
         else: # page creation
+            # create the page so we can have a pointer to it
+            super(Page, self).save()
             self.current_revision = self
         
         # We do the minimum modification possible to produce a
