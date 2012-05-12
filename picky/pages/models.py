@@ -11,7 +11,7 @@ class Page(models.Model):
 
     version = models.IntegerField(default=1, editable=False)
     is_latest_version = models.BooleanField(default=True, editable=False)
-    current_version = models.ForeignKey('self', editable=False, null=True)
+    current_version = models.ForeignKey('self', editable=False)
 
     content = models.TextField()
 
