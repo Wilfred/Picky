@@ -22,17 +22,25 @@ class Page(models.Model):
         html_snippet = parts['html_body']
         return html_snippet
 
+    def create_revision(self):
+        """Take the last saved state of this page, and save it as a
+        separate revision. This ensures that we can update the latest
+        version without losing old states.
+
+        """
+        last_saved_state = Page.objects.get(id=self.id)
+        last_saved_state.is_latest_version = False
+        last_saved_state.id = None
+        super(Page, last_saved_state).save() # avoiding infinite loop
+
     def save(self):
         # if this was editing an existing page:
         if self.id:
-            # first, make an old revision of the previous state
-            old_revision = Page.objects.get(id=self.id)
-            old_revision.is_latest_version = False
-            super(Page, old_revision).save() # avoiding infinite loop
-
-            # now create a new revision
-            self.id = None
+            self.create_revision()
             self.version += 1
+            
+        else: # page creation
+            self.current_version = self
         
         # We do the minimum modification possible to produce a
         # workable, attractive URL.
