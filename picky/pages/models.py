@@ -10,8 +10,8 @@ class Page(models.Model):
     name_lower = models.CharField(max_length=200, editable=False)
 
     version = models.IntegerField(default=1, editable=False)
-    is_latest_version = models.BooleanField(default=True, editable=False)
-    current_version = models.ForeignKey('self', editable=False)
+    is_latest_revision = models.BooleanField(default=True, editable=False)
+    current_revision = models.ForeignKey('self', editable=False)
 
     content = models.TextField()
 
@@ -29,7 +29,7 @@ class Page(models.Model):
 
         """
         last_saved_state = Page.objects.get(id=self.id)
-        last_saved_state.is_latest_version = False
+        last_saved_state.is_latest_revision = False
         last_saved_state.id = None
         super(Page, last_saved_state).save() # avoiding infinite loop
 
@@ -40,7 +40,7 @@ class Page(models.Model):
             self.version += 1
             
         else: # page creation
-            self.current_version = self
+            self.current_revision = self
         
         # We do the minimum modification possible to produce a
         # workable, attractive URL.
