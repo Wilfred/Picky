@@ -10,7 +10,8 @@ from .forms import PageForm
 
 @login_required
 def all_pages(request):
-    template_vars = {'pages': Page.objects.order_by('name_lower')}
+    pages = Page.objects.filter(is_latest_revision=True).order_by('name_lower')
+    template_vars = {'pages': pages}
     return render_to_response("pages/all_pages.html", template_vars,
                               RequestContext(request))
 
