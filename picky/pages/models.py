@@ -8,8 +8,10 @@ class Page(models.Model):
     name = models.CharField(max_length=200)
     name_slug = models.CharField(max_length=200, editable=False)
     name_lower = models.CharField(max_length=200, editable=False)
+
     version = models.IntegerField(default=1, editable=False)
     is_latest_version = models.BooleanField(default=True, editable=False)
+    current_version = models.ForeignKey('self', editable=False, null=True)
 
     content = models.TextField()
 
