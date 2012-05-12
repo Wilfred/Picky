@@ -30,10 +30,10 @@ class Page(models.Model):
         version without losing old states.
 
         """
-        last_saved_state = Page.objects.get(id=self.id)
-        last_saved_state.is_latest_revision = False
-        last_saved_state.id = None
-        super(Page, last_saved_state).save() # avoiding infinite loop
+        last_saved_revision = Page.objects.get(id=self.id)
+        last_saved_revision.is_latest_revision = False
+        last_saved_revision.id = None
+        super(Page, last_saved_revision).save() # avoiding infinite loop
 
     def save(self):
         # if this was editing an existing page:

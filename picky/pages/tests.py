@@ -67,12 +67,12 @@ class PageVersioningTest(UserTest):
         page.content = 'bar'
         page.save()
 
-        self.assertTrue(page.is_latest_version)
+        self.assertTrue(page.is_latest_revision)
         self.assertEqual(page.version, 2)
 
         # check we have an old revision still
         page = Page.objects.get(version=1)
-        self.assertFalse(page.is_latest_version)
+        self.assertFalse(page.is_latest_revision)
 
     def test_view_shows_latest(self):
         page = milkman.deliver(Page, name='foo', content='foo')
