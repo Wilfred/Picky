@@ -1,0 +1,27 @@
+{% extends 'pages/base.html' %}
+
+{% block page_history_state %}active{% endblock %}
+
+{% block content %}
+{{ block.super }}
+
+<h2>History: {{ page.name }}</h2>
+
+<table class="table table-striped table-bordered">
+    <thead>
+            <tr>
+                <th>Name</th>
+                <th>Version</th>
+            </tr>
+    </thead>
+    <tbody>
+	    {% for revision in all_revisions %}
+            <tr>
+                <td>{{ revision.name }}</td>
+                <td>{{ revision.version }}</td>
+            </tr>
+	    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -74,3 +74,17 @@ def view_page(request, page_slug):
     
     return render_to_response("pages/view_page.html", template_vars,
                               RequestContext(request))
+
+
+@login_required
+def view_page_history(request, page_id):
+    # we allow users to link to the history via any page revision ID
+    page_revision = Page.objects.get(id=page_id)
+
+    current_revision = page_revision.current_revision
+    all_revisions = Page.objects.filter(current_revision=current_revision).order_by('-version')
+
+    template_vars = {'page': current_revision,
+                     'all_revisions': all_revisions}
+    return render_to_response("pages/view_page_history.html", template_vars,
+                              RequestContext(request))

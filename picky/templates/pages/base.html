@@ -7,6 +7,9 @@
     <li class="{% block page_view_state %}{% endblock %}">
 	    <a href="{% url view_page page.name_slug %}">View: {{ page.name }}</a>
     </li>
+    <li class="{% block page_history_state %}{% endblock %}">
+	    <a href="{% url view_page_history page.id %}">View History</a>
+    </li>
     <li class="{% block page_edit_state %}{% endblock %}">
 	    <a href="{% url edit_page page.id %}">Edit</a>
     </li>
