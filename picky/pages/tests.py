@@ -38,7 +38,7 @@ foo 2
 class PageCreationTest(UserTest):
     def test_page_creation(self):
         self.client.post(reverse('create_page'),
-                         {'name': 'foo'})
+                         {'name': 'foo', 'content': 'bar'})
 
         response = self.client.get(reverse('view_page', args=['foo']))
         self.assertEqual(response.status_code, 200)
