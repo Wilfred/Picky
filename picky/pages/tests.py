@@ -36,6 +36,13 @@ foo 2
 
 
 class PageCreationTest(UserTest):
+    def test_page_creation(self):
+        self.client.post(reverse('create_page'),
+                         {'name': 'foo'})
+
+        response = self.client.get(reverse('view_page', args=['foo']))
+        self.assertEqual(response.status_code, 200)
+        
     def test_duplicate_page_name(self):
         milkman.deliver(Page, name='foo')
 
