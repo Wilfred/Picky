@@ -32,5 +32,7 @@ def configure_site(request):
 
 @login_required
 def not_found(request):
-    return render_to_response("site_config/404.html", {},
-                              RequestContext(request))
+    response = render_to_response("site_config/404.html", {},
+                                 RequestContext(request))
+    response.status_code = 404
+    return response
