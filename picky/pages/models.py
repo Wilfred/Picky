@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import truncate_words
 
 from docutils.core import publish_parts
 
@@ -55,3 +56,6 @@ class Page(models.Model):
         self.name_lower = self.name.lower()
         
         super(Page, self).save()
+
+    def __unicode__(self):
+        return "%s %s" % (self.name, truncate_words(self.content, 4))
