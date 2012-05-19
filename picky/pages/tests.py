@@ -83,3 +83,12 @@ class PageVersioningTest(UserTest):
         response = self.client.get(reverse('view_page', args=[page.name_slug]))
         self.assertEqual(response.context['page'], page)
 
+    def test_view_old_version(self):
+        page = milkman.deliver(Page, name='foo', content='foo')
+
+        page.content = 'bar'
+        page.save()
+
+        page_v1 = Page.objects.get(version=1)
+        response = self.client.get(reverse('view_page', args=[page.name_slug]) + '?version=1')
+        self.assertEqual(response.context['page'], page_v1)

@@ -69,7 +69,19 @@ def delete_page(request, page_id):
 
 @login_required
 def view_page(request, page_slug):
-    page = Page.objects.get(name_slug=page_slug, is_latest_revision=True)
+    version_specified = request.GET.get('version')
+    try:
+        version_specified = int(version_specified)
+    except (TypeError, ValueError):
+        version_specified = None
+
+    # todo: what if two pages had the same name for a given version
+    # number?
+    if version_specified:
+        page = Page.objects.get(name_slug=page_slug, version=version_specified)
+    else:
+        page = Page.objects.get(name_slug=page_slug, is_latest_revision=True)
+
     template_vars = {'page': page}
     
     return render_to_response("pages/view_page.html", template_vars,

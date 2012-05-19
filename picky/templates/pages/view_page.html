@@ -5,6 +5,8 @@
 {% block content %}
 {{ block.super }}
 
+<p><em>Warning: You are viewing version {{ page.version }}.</em><p>
+
 <p>{{ page.get_rendered_content|safe }}</p>
 
 {% endblock %}
