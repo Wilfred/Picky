@@ -78,9 +78,9 @@ def view_page(request, page_slug):
     # todo: what if two pages had the same name for a given version
     # number?
     if version_specified:
-        page = Page.objects.get(name_slug=page_slug, version=version_specified)
+        page = get_object_or_404(Page, name_slug=page_slug, version=version_specified)
     else:
-        page = Page.objects.get(name_slug=page_slug, is_latest_revision=True)
+        page = get_object_or_404(Page, name_slug=page_slug, is_latest_revision=True)
 
     template_vars = {'page': page}
     
