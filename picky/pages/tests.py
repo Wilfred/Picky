@@ -67,12 +67,10 @@ class PageVersioningTest(UserTest):
         page.content = 'bar'
         page.save()
 
-        self.assertTrue(page.is_latest_revision)
-        self.assertEqual(page.version, 2)
+        self.assertEqual(page.total_revisions, 2)
 
-        # check we have an old revision still
-        page = Page.objects.get(version=1)
-        self.assertFalse(page.is_latest_revision)
+        # check we have an old revision with the original content
+        self.assertEqual(page.get_content(1), 'foo')
 
     def test_view_shows_latest(self):
         page = milkman.deliver(Page, name='foo', content='foo')
@@ -89,9 +87,9 @@ class PageVersioningTest(UserTest):
         page.content = 'bar'
         page.save()
 
-        page_v1 = Page.objects.get(version=1)
+        page_v1_content = page.get_rendered_content(version=1)
         response = self.client.get(reverse('view_page', args=[page.name_slug]) + '?version=1')
-        self.assertEqual(response.context['page'], page_v1)
+        self.assertEqual(response.context['content'], page_v1_content)
 
 class PageViewTest(UserTest):
     def test_nonexistent_page(self):
@@ -99,3 +97,10 @@ class PageViewTest(UserTest):
             reverse('view_page', args=["no-page-with-this-name"]))
 
         self.assertEqual(response.status_code, 404)
+
+    def test_page_history(self):
+        page = milkman.deliver(Page, name='foo', content='foo')
+        response = self.client.get(
+            reverse('view_page_history', args=[page.id]))
+
+        self.assertEqual(response.status_code, 200)

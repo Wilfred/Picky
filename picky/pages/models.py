@@ -6,47 +6,35 @@ from docutils.core import publish_parts
 from .utils import slugify
 
 class Page(models.Model):
-    name = models.CharField(max_length=200)
-    name_slug = models.CharField(max_length=200, editable=False)
+    name = models.CharField(max_length=200, unique=True)
+    name_slug = models.CharField(max_length=200, editable=False, unique=True)
     name_lower = models.CharField(max_length=200, editable=False)
-
-    version = models.IntegerField(default=1, editable=False)
-    is_latest_revision = models.BooleanField(default=True, editable=False)
-    # we allow current_revision to be nullable, since we need to have
-    # created the page before we can have a link to it.
-    current_revision = models.ForeignKey('self', editable=False, null=True)
 
     content = models.TextField()
 
-    def get_rendered_content(self):
+    total_revisions = models.IntegerField(default=0, editable=False)
+
+    def get_rendered_content(self, version=None):
         """Render the reStructured text as an HTML snippet."""
-        parts = publish_parts(self.content, writer_name="html",
+        parts = publish_parts(self.get_content(version), writer_name="html",
                               settings_overrides={'doctitle_xform': False})
         html_snippet = parts['html_body']
         return html_snippet
 
-    def create_revision(self):
-        """Take the last saved state of this page, and save it as a
-        separate revision. This ensures that we can update the latest
-        version without losing old states.
+    def get_content(self, version=None):
+        """Either the current content of this page or an older version."""
+        if version:
+            revision = PageRevision.objects.get(page=self, version=version)
+            return revision.content
+        else:
+            return self.content
 
-        """
-        last_saved_revision = Page.objects.get(id=self.id)
-        last_saved_revision.is_latest_revision = False
-        last_saved_revision.id = None
-        super(Page, last_saved_revision).save() # avoiding infinite loop
+    def get_all_versions(self):
+        return PageRevision.objects.filter(page=self).order_by('version')
 
     def save(self):
-        # if this was editing an existing page:
-        if self.id:
-            self.create_revision()
-            self.version += 1
-            
-        else: # page creation
-            # create the page so we can have a pointer to it
-            super(Page, self).save()
-            self.current_revision = self
-        
+        self.total_revisions += 1
+
         # We do the minimum modification possible to produce a
         # workable, attractive URL.
         self.name_slug = slugify(self.name)
@@ -57,5 +45,17 @@ class Page(models.Model):
         
         super(Page, self).save()
 
+        PageRevision.objects.create(
+            page=self, content=self.content, version=self.total_revisions)
+
     def __unicode__(self):
         return "%s %s" % (self.name, truncate_words(self.content, 4))
+
+
+class PageRevision(models.Model):
+    class Meta:
+        ordering = ["-version"]
+
+    content = models.TextField()
+    page = models.ForeignKey('Page')
+    version = models.IntegerField(default=1, editable=False)

@@ -17,7 +17,7 @@
     <tbody>
 	    {% for revision in all_revisions %}
             <tr>
-                <td>{{ revision.name }}</td>
+                <td>{{ page.name }}</td>
                 <td>
 			{{ revision.version }}
 			(<a href="{% url view_page page.name_slug %}?version={{ revision.version }}">view
