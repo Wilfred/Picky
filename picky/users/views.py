@@ -11,7 +11,7 @@ from .forms import UserForm
 
 @login_required
 def all_users(request):
-    template_vars = {'users': User.objects.all()}
+    template_vars = {'users': User.objects.order_by('email')}
     return render_to_response("users/all_users.html", template_vars,
                               RequestContext(request))
 
