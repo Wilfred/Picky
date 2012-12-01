@@ -56,3 +56,4 @@ class PageRevision(models.Model):
     content = models.TextField()
     page = models.ForeignKey('Page')
     version = models.IntegerField(default=1, editable=False)
+    time = models.DateTimeField(auto_now_add=True, null=True)
