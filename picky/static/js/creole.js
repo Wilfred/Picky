@@ -1,4 +1,4 @@
-xo/*!
+/*!
  * Copyright (c) 2011 Ivan Fomichev
  * http://github.com/codeholic/jscreole
  * Licensed under MIT license, see http://www.opensource.org/licenses/mit-license.php
