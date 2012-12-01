@@ -8,12 +8,26 @@ GPLv2 license. Django. Python. Meeting real needs.
 
 A wiki should be:
 
-1. Effortless to write. That requires a simple syntax. [No gotchas](http://www.wilfred.me.uk/blog/2012/07/30/why-markdown-is-not-my-favourite-language/).
-2. Effortless to interlink. That requires WikiWords becoming links automatically.
-3. Safe to edit. That requires history of all edits.
-4. Available to anyone who wants to contribute. That requires a simple permissions model.
-5. Reliable. That requires thorough unit tests.
-6. Simple accounts. That requires emails for logging in, and optional editing without logging in.
+1. Effortless to write. The syntax should be simple and
+[without gotchas](http://www.wilfred.me.uk/blog/2012/07/30/why-markdown-is-not-my-favourite-language/).
+
+2. Effortless to interlink. Link syntax should be very lightweight,
+or even use WikiWords as automatic links.
+
+3. Safe to edit. The entire history of a page should be kept.
+
+4. Available to anyone who wants to contribute. A permissions model is
+a necessary evil, but should be as simple as possible.
+
+5. Reliable. Thorough unit tests of all major functionality.
+
+6. Simple accounts. Use emails as usernames (less to forget), and
+allow anonymous editing.
+
+7. Extremely editable. The home page should be editable too.
+
+8. About the content. The wiki should support (ideally threaded) discussion,
+but discourage comments being written inline.
 
 ### Development
 
