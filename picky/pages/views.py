@@ -23,8 +23,8 @@ def create_page(request):
         form = PageForm(request.POST)
 
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('all_pages'))
+            page = form.save()
+            return HttpResponseRedirect(reverse('view_page', args=[page.name_slug]))
     else:
         form = PageForm()
 
