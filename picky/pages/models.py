@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.text import truncate_words
 
-from docutils.core import publish_parts
+from creole import creole2html
 
 from .utils import slugify
 
@@ -15,11 +15,8 @@ class Page(models.Model):
     total_revisions = models.IntegerField(default=0, editable=False)
 
     def get_rendered_content(self, version=None):
-        """Render the reStructured text as an HTML snippet."""
-        parts = publish_parts(self.get_content(version), writer_name="html",
-                              settings_overrides={'doctitle_xform': False})
-        html_snippet = parts['html_body']
-        return html_snippet
+        """Render the creole source as an HTML snippet."""
+        return creole2html(self.get_content(version))
 
     def get_content(self, version=None):
         """Either the current content of this page or an older version."""

@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 
@@ -10,24 +11,19 @@ from users.test_base import UserTest
 class RenderingTest(TestCase):
     def test_basic_rendering(self):
         page = milkman.deliver(Page, content="hello world")
-        self.assertEqual(page.get_rendered_content().strip(), """<div class="document">
-<p>hello world</p>
-</div>""")
+        self.assertEqual(page.get_rendered_content().strip(), "<p>hello world</p>")
 
     def test_h1_rendered(self):
-        page = milkman.deliver(Page, content="foo\n===")
-        self.assertIn('<h1>foo</h1>', page.get_rendered_content())
+        page = milkman.deliver(Page, content="= foo")
+        self.assertEqual(page.get_rendered_content(), '<h1>foo</h1>')
 
     def test_h2_rendered(self):
         page = milkman.deliver(Page, content="""
-bar
-===
+= bar
 
-foo 1
------
+== foo 1
 
-foo 2
------
+== foo 2
 
 """)
 
