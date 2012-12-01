@@ -17,6 +17,7 @@ def deploy():
 
         with cd("picky"):
             virtualenv('python manage.py migrate')
+            virtualenv('python manage.py collectstatic --noinput')
 
     restart()
 
