@@ -21,7 +21,7 @@ class Page(models.Model):
     def get_content(self, version=None):
         """Either the current content of this page or an older version."""
         if version:
-            revision = self.pagerevision_set.filter(version=version)
+            revision = self.pagerevision_set.get(version=version)
             return revision.content
         else:
             return self.content
