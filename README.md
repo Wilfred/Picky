@@ -26,7 +26,7 @@ password, and a table called 'picky':
 
 You also need to install the dependencies:
 
-    $ virtualenv ~/.py_envs/picky -p python2
+    $ virtualenv ~/.py_envs/picky -p python2.7
     $ . ~/.py_envs/picky/bin/activate
     $ pip install -r requirements.pip
     
