@@ -35,3 +35,10 @@ Running the app is then simply:
     $ cd picky
     $ python manage.py syncdb
     $ python manage.py runserver
+
+### Deploying
+
+There's a Fabric file that deploys my personal instance. You'll need
+to modify this for your own production instance.
+
+   $ fab deploy
