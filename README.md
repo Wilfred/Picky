@@ -13,6 +13,7 @@ A wiki should be:
 3. Safe to edit. That requires history of all edits.
 4. Available to anyone who wants to contribute. That requires a simple permissions model.
 5. Reliable. That requires thorough unit tests.
+6. Simple accounts. That requires emails for logging in, and optional editing without logging in.
 
 ### Development
 
