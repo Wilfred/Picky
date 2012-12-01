@@ -1,7 +1,9 @@
 Django==1.4.2
 South==0.7.6
+django-nose==1.1
 docutils==0.9.1
 milkman==0.4.5
+nose==1.2.1
 psycopg2==2.4.1
 python-creole==1.0.6
 wsgiref==0.1.2

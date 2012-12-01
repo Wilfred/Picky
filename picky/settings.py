@@ -118,6 +118,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    # django apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -125,12 +126,17 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # third party apps
     'south',
+    'django_nose',
 
+    # picky apps
     'pages',
     'users',
     'site_config',
 )
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 LOGIN_URL = '/user/login/'
 
