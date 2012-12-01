@@ -162,3 +162,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from live_settings import *
+except ImportError:
+    pass
