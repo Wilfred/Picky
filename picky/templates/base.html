@@ -5,6 +5,7 @@
 	    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
 	    <link href="{{ STATIC_URL }}css/bootstrap-responsive.min.css" rel="stylesheet">
 	    <link href="{{ STATIC_URL }}css/picky.css" rel="stylesheet">
+            {% block extra-js %}{% endblock %}
     </head>
     <body>
 	    <div class="navbar">
@@ -41,6 +42,7 @@
 			    <div class="span4">
 			    </div>
 		    </div>
+		    {% block whole-row-content %}{% endblock %}
             </div>
     </body>
 </html>
