@@ -28,7 +28,7 @@ You also need to install the dependencies:
 
     $ virtualenv ~/.py_envs/picky -p python2
     $ . ~/.py_envs/picky/bin/activate
-    $ pip install -r requirements.txt
+    $ pip install -r requirements.pip
     
 Running the app is then simply:
 
