@@ -32,4 +32,5 @@ You also need to install the dependencies:
 Running the app is then simply:
 
     $ cd picky
+    $ python manage.py syncdb
     $ python manage.py runserver
