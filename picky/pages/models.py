@@ -21,13 +21,13 @@ class Page(models.Model):
     def get_content(self, version=None):
         """Either the current content of this page or an older version."""
         if version:
-            revision = PageRevision.objects.get(page=self, version=version)
+            revision = self.pagerevision_set.filter(version=version)
             return revision.content
         else:
             return self.content
 
-    def get_all_versions(self):
-        return PageRevision.objects.filter(page=self).order_by('version')
+    def get_latest_revision(self):
+        return self.pagerevision_set.order_by('-version')[0]
 
     def save(self):
         self.total_revisions += 1
