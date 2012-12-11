@@ -20,7 +20,15 @@
         <h2>Comments</h2>
         <hr>
 
-        <form method="post" class="well create-page" target="{% url new_comment page.id %}">
+        {% for comment in comments %}
+        <div class="well">
+            <div class="comment-body">{{ comment.text }}</div>
+
+            <span class="author">{{ comment.user.username }}, {{ comment.time }}</span>
+        </div>
+        {% endfor %}
+
+        <form method="post" class="well" action="{% url new_comment page.id %}">
             {% csrf_token %}
             {{ form }}
             <label></label><!-- grim hack to push button down -->

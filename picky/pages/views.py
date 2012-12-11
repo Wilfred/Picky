@@ -83,11 +83,13 @@ def view_page(request, page_slug):
     if not 0 < version_specified < page.total_revisions:
         version_specified = None
 
+    comments = page.comment_set.all()
+
     form = CommentForm()
 
     content = page.get_rendered_content(version_specified)
     template_vars = {'page': page, 'content': content,
-                     'form': form,
+                     'comments': comments, 'form': form,
                      'version_specified': version_specified}
     
     return render_to_response("pages/view_page.html", template_vars,
