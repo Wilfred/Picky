@@ -28,3 +28,8 @@ div {
 .time-info {
     font-style: italic;
 }
+
+.comment {
+    border-bottom: 1px dotted orange;
+    margin-bottom: 10px;
+}
