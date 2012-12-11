@@ -1,0 +1,30 @@
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 1000px;
+    border: 1px solid green;
+}
+
+.content {
+    border: 1px solid black;
+    float: left;
+    width: 598px;
+}
+
+.sidebar {
+    border: 1px solid red;
+    float: left;
+    width: 398px;
+}
+
+#page-title {
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+.time-info {
+    font-style: italic;
+}
