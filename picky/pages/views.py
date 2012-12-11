@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Page, PageRevision
 from .forms import PageForm
+from comments.forms import CommentForm
 
 
 @login_required
@@ -82,8 +83,11 @@ def view_page(request, page_slug):
     if not 0 < version_specified < page.total_revisions:
         version_specified = None
 
+    form = CommentForm()
+
     content = page.get_rendered_content(version_specified)
     template_vars = {'page': page, 'content': content,
+                     'form': form,
                      'version_specified': version_specified}
     
     return render_to_response("pages/view_page.html", template_vars,

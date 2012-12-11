@@ -7,5 +7,8 @@ urlpatterns = patterns('',
     url(r'^pages/edit/(?P<page_id>\d+)$', 'pages.views.edit_page', name='edit_page'),
     url(r'^pages/delete/(?P<page_id>\d+)$', 'pages.views.delete_page', name='delete_page'),
 
+    url(r'^pages/new_comment/(?P<page_id>\d+)$', 'comments.views.new_comment', name='new_comment'),
+                       
+
     url(r'^page/(?P<page_slug>.*)$', 'pages.views.view_page', name='view_page'),
 )

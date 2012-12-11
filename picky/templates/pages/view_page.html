@@ -2,13 +2,34 @@
 
 {% block page_view_state %}active{% endblock %}
 
-{% block content %}
+{% block whole-row-content %}
 {{ block.super }}
 
-{% if version_specified %}
-<p><em>Warning: You are viewing version {{ version_specified }}.</em></p>
-{% endif %}
+<div class="row">
+    <div class="span6">
 
-{{ content|safe }}
+        {% if version_specified %}
+        <p><em>Warning: You are viewing version {{ version_specified }}.</em></p>
+        {% endif %}
+
+        {{ content|safe }}
+
+    </div>
+
+    <div class="span6">
+        <h2>Comments</h2>
+        <hr>
+
+        <form method="post" class="well create-page" target="{% url new_comment page.id %}">
+            {% csrf_token %}
+            {{ form }}
+            <label></label><!-- grim hack to push button down -->
+            <button type="submit" class="btn btn-primary">
+	        Add Comment
+            </button>
+        </form>
+        
+    </div>
+        
 
 {% endblock %}
