@@ -132,6 +132,7 @@ INSTALLED_APPS = (
 
     # picky apps
     'pages',
+    'comments',
     'users',
     'site_config',
 )
