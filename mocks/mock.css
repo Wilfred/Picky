@@ -37,3 +37,7 @@ div {
 .clearfix {
     clear: both;
 }
+
+.site-header h2 {
+    display: inline;
+}
