@@ -33,3 +33,7 @@ div {
     border-bottom: 1px dotted orange;
     margin-bottom: 10px;
 }
+
+.clearfix {
+    clear: both;
+}
