@@ -34,6 +34,14 @@ div {
     margin-bottom: 10px;
 }
 
+.comment p {
+    margin: 0;
+}
+
+.comment .comment-author {
+    font-style: italic;
+}
+
 .clearfix {
     clear: both;
 }
