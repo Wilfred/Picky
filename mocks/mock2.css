@@ -2,6 +2,11 @@ body {
     padding-top: 50px;
 }
 
+a {
+    color: inherit;
+    font-weight: bold;
+}
+
 .sidebar {
     position: absolute;
     width: 350px;
