@@ -13,6 +13,7 @@ h1 {
  
 p, ul, ol, span {
   font: 400 14px/1.6 'Open Sans', Verdana, Helvetica, sans-serif;
+  text-align: justify;
 }
 
 .sidebar {
