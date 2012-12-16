@@ -6,8 +6,8 @@
  */
 
 body {
-    padding-top: 50px;
     background: #F7F7F7;
+    margin: 0;
 }
 
 * {
@@ -37,9 +37,32 @@ p, ul, ol, span {
     text-align: justify;
 }
 
+.header {
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    background-color: #BFAEF9;
+    border-bottom: 10px solid #433478;
+}
+
+.header .site-name {
+    padding-top: 20px;
+    max-width: 1000px;
+    text-align: right;
+    margin: 0;
+}
+
+.header * {
+    margin: 0;
+    color: #433478;
+    font-weight: 400;
+    font-family: 'Bree Serif', Georgia, serif;
+}
+
 .sidebar {
     position: absolute;
     width: 380px;
+    top: 140px;
 }
 
 .sidebar * {
@@ -52,6 +75,7 @@ p, ul, ol, span {
     position: absolute;
     left: 400px;
     max-width: 600px;
+    top: 140px;
 }
 
 .content > :first-child {
