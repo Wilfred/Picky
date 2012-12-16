@@ -36,15 +36,6 @@ p, ul, ol, span {
     margin-top: 0;
 }
 
-#comment {
-    border: 1px solid black;
-    padding-bottom: 10px;
-}
-
-#comment > :first-child {
-    margin-top: 0;
-}
-
-#comment .comment-author {
+.comment .comment-author {
     font-style: italic;
 }
