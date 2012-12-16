@@ -45,6 +45,10 @@ p, ul, ol, span {
     border-bottom: 10px solid #433478;
 }
 
+.header a {
+    color: #433478;
+}
+
 .header .site-name {
     padding-top: 20px;
     max-width: 1000px;
@@ -54,7 +58,6 @@ p, ul, ol, span {
 
 .header * {
     margin: 0;
-    color: #433478;
     font-weight: 400;
     font-family: 'Bree Serif', Georgia, serif;
 }
