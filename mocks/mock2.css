@@ -1,5 +1,17 @@
+/* Colour scheme:
+ * Background: #F7F7F7
+ * Foreground: #474747
+ * Colour: #BFAEF9
+ * Contrast colour: #433478
+ */
+
 body {
     padding-top: 50px;
+    background: #F7F7F7;
+}
+
+* {
+    color: #474747;
 }
 
 a {
