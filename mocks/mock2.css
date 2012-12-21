@@ -78,15 +78,19 @@ p, ul, ol, span {
     font-style: italic;
 }
 
-/* edit button styling */
+
 
 #edit-button {
     margin-top: 40px;
+}
+
+.picky-button {
     font-size: 20px;
     float: right;
 }
 
 .button {
+
     display: inline-block;
     zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
     *display: inline;
@@ -138,4 +142,9 @@ p, ul, ol, span {
 .edit-box textarea {
     width: 460px;
     height: 600px;
+}
+
+.preview-meta h2 {
+    margin: 0;
+    float: left;
 }
