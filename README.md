@@ -31,6 +31,9 @@ names.
 
 Wiki links should have a unintrusive GUI to aid linking to existing pages.
 
+Code snippets should have automatic highlighting, with the option of
+specifying the language if needs be.
+
 #### History
 
 Every edit should be associated with a user, a time, and an optional
