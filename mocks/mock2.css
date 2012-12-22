@@ -148,3 +148,11 @@ p, ul, ol, span {
     margin: 0;
     float: left;
 }
+
+li.comment {
+    list-style-type: none;
+}
+
+#comments > ol {
+    padding: 0;
+}
