@@ -54,14 +54,23 @@ Editing without logging in should be possible.
 Wherever possible, all users should be given the power to change
 things.
 
-#### Reliable
+#### Technology
 
 Clean code and thorough unit tests.
+
+HTML 5, but should work without JS enabled.
+
+JS should be used when beginning / finishing editing a page, to speed
+up the UI.
 
 #### Editing
 
 The site should be maximally editable: page content, page titles and
 the site name.
+
+Users should be able to upload attachments (images for pages, and
+other useful files). These should have the same history model as pages
+-- undoable, with edit summaries.
 
 #### Discussions
 
@@ -83,6 +92,10 @@ but discourage flamewars and vandalism.
 Internal and external links should be styled differently. Internal
 links to nonexistent pages should be styled differently, and load up
 the page editor if clicked.
+
+Whenever a username is shown, an avatar should be alongside to make it
+easy to skim through to find things from the same user (even anonymous
+editors).
 
 ### Development
 
