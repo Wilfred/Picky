@@ -159,3 +159,27 @@ li.comment {
 #comments > ol {
     padding: 0;
 }
+
+table {
+    width: 100%;
+    border: 1px solid #BFAEF9;
+    border-radius: 4px 4px 4px 4px;
+}
+
+table td, table th {
+    text-align: left;
+    border-top: 1px solid #BFAEF9;
+    padding: 8px;
+}
+
+table th + th,
+table td + td,
+table th + td,
+table td + th {
+    border-left: 1px solid #BFAEF9;
+}
+
+table thead:last-child tr:last-child th:last-child,
+table tbody:last-child tr:last-child td:last-child {
+    
+}
