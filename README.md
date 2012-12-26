@@ -39,7 +39,8 @@ specifying the language if needs be.
 Every edit should be associated with a user, a time, and an optional
 summary. All old states of a page should be preserved.
 
-Basic summaries should be auto-generated ('edited section Foo').
+Basic summaries should be auto-generated ('edited section Foo',
+'created page', etc).
 
 The age of the page (creation and last edited timestamps) should be
 prominent to help in the case of poorly maintained content.
