@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.shortcuts import render_to_response, get_object_or_404, redirect
+from django.shortcuts import render_to_response, get_object_or_404, redirect, render
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
@@ -92,17 +92,23 @@ def view_page(request, page_slug):
     if not 0 < version_specified < page.total_revisions:
         version_specified = None
 
-    comments = page.comment_set.all()
-
-    form = CommentForm()
-
     content = page.get_rendered_content(version_specified)
     template_vars = {'page': page, 'content': content,
-                     'comments': comments, 'form': form,
                      'version_specified': version_specified}
     
     return render_to_response("pages/view_page.html", template_vars,
                               RequestContext(request))
+
+
+@login_required
+def view_page_comments(request, page_slug):
+    page = get_object_or_404(Page, name_slug=page_slug)
+    comments = page.comment_set.all()
+
+    form = CommentForm()
+
+    template_vars = {'page': page, 'comments': comments, 'form': form}
+    return render(request, "pages/view_page_comments.html", template_vars)
 
 
 @login_required

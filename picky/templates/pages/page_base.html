@@ -10,6 +10,9 @@
     <li class="{% block page_edit_state %}{% endblock %}">
 	    <a href="{% url edit_page page.id %}">Edit</a>
     </li>
+    <li class="{% block page_comments_state %}{% endblock %}">
+	    <a href="{% url view_page_comments page.name_slug %}">Comments</a>
+    </li>
     <li class="{% block page_history_state %}{% endblock %}">
 	    <a href="{% url view_page_history page.id %}">History</a>
     </li>
