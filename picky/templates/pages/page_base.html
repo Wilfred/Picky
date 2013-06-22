@@ -8,13 +8,13 @@
 	    <a href="{% url view_page page.name_slug %}">View</a>
     </li>
     <li class="{% block page_edit_state %}{% endblock %}">
-	    <a href="{% url edit_page page.id %}">Edit</a>
+	    <a href="{% url edit_page page.name_slug %}">Edit</a>
     </li>
     <li class="{% block page_comments_state %}{% endblock %}">
 	    <a href="{% url view_page_comments page.name_slug %}">Comments</a>
     </li>
     <li class="{% block page_history_state %}{% endblock %}">
-	    <a href="{% url view_page_history page.id %}">History</a>
+	    <a href="{% url view_page_history page.name_slug %}">History</a>
     </li>
     <li class="{% block page_actions_state %}{% endblock %}">
 	    <a href="{% url view_page_actions page.name_slug %}">Actions</a>

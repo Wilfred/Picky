@@ -36,8 +36,8 @@ def create_page(request):
 
 
 @login_required
-def edit_page(request, page_id):
-    page = get_object_or_404(Page, id=page_id)
+def edit_page(request, page_slug):
+    page = get_object_or_404(Page, name_slug=page_slug)
 
     if request.POST:
         form = PageForm(request.POST, instance=page)
@@ -112,9 +112,8 @@ def view_page_comments(request, page_slug):
 
 
 @login_required
-def view_page_history(request, page_id):
-    # we allow users to link to the history via any page revision ID
-    page = Page.objects.get(id=page_id)
+def view_page_history(request, page_slug):
+    page = get_object_or_404(Page, name_slug=page_slug)
     all_revisions = PageRevision.objects.filter(page=page)
 
     template_vars = {'page': page,
