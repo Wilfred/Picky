@@ -6,7 +6,7 @@
 
 {% for comment in comments %}
 <div class="well">
-    <div class="comment-body">{{ comment.text }}</div>
+    <div class="comment-body">{{ comment.get_rendered_content|safe }}</div>
 
     <span class="author">{{ comment.user.username }}, {{ comment.time }}</span>
 </div>
