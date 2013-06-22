@@ -12,7 +12,7 @@
 </div>
 {% endfor %}
 
-<form method="post" class="well" action="{% url new_comment page.id %}">
+<form method="post" class="well" action="{% url new_comment page.name_slug %}">
     {% csrf_token %}
     {{ form }}
     <label></label><!-- grim hack to push button down -->
