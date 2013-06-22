@@ -10,12 +10,17 @@ class PageForm(ModelForm):
         widgets = {'content': Textarea(attrs={'rows': 30})}
 
     def clean_name(self):
-        """Check that this name doesn't match any other name when
-        converted to a slug.
+        """Check that this name doesn't match any other name when converted to
+        a slug. We also check that this page name won't introduce a
+        clash with other URLs.
 
         """
         name = self.cleaned_data['name']
         name_slug = slugify(name)
+
+        # don't allow slashes in names
+        if '/' in name_slug:
+            raise ValidationError("You can't have / in a page name.")
 
         same_slug_pages = Page.objects.filter(name_slug=name_slug)
 
