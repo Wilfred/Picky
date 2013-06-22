@@ -45,6 +45,9 @@ Basic summaries should be auto-generated ('edited section Foo',
 The age of the page (creation and last edited timestamps) should be
 prominent to help in the case of poorly maintained content.
 
+When viewing all history, the user should be able to get an overview
+(e.g. collapse changes by week/month).
+
 #### Accounts
 
 Logging in should be with an email address and password; it's easier
