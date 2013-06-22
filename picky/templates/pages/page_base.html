@@ -17,7 +17,7 @@
 	    <a href="{% url view_page_history page.id %}">History</a>
     </li>
     <li class="{% block page_actions_state %}{% endblock %}">
-	    <a href="{% url page_actions page.id %}">Actions</a>
+	    <a href="{% url view_page_actions page.name_slug %}">Actions</a>
     </li>
 </ul>
 

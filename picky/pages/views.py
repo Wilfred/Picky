@@ -55,8 +55,8 @@ def edit_page(request, page_id):
 
 
 @login_required
-def view_page_actions(request, page_id):
-    page = get_object_or_404(Page, id=page_id)
+def view_page_actions(request, page_slug):
+    page = get_object_or_404(Page, name_slug=page_slug)
     template_vars = {'page': page}
 
     return render_to_response("pages/page_actions.html", template_vars,
@@ -64,8 +64,8 @@ def view_page_actions(request, page_id):
 
 
 @login_required
-def delete_page(request, page_id):
-    page = get_object_or_404(Page, id=page_id)
+def delete_page(request, page_slug):
+    page = get_object_or_404(Page, name_slug=page_slug)
 
     # Note that request.POST is empty so it's falsy.
     if request.method == 'POST':
