@@ -37,7 +37,8 @@ specifying the language if needs be.
 #### History
 
 Every edit should be associated with a user, a time, and an optional
-summary. All old states of a page should be preserved.
+summary. All old states of a page should be preserved. Deletes should
+be reversible.
 
 Basic summaries should be auto-generated ('edited section Foo',
 'created page', etc).
