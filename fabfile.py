@@ -16,8 +16,8 @@ def deploy():
         virtualenv('pip install -r requirements.pip')
 
         with cd("picky"):
-            virtualenv('python manage.py migrate')
             virtualenv('python manage.py syncdb')
+            virtualenv('python manage.py migrate')
             virtualenv('python manage.py collectstatic --noinput')
 
     restart()
