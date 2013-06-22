@@ -1,6 +1,6 @@
 from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 
@@ -20,5 +20,4 @@ def new_comment(request, page_slug):
     comment.user = request.user
     comment.save()
 
-    return HttpResponseRedirect(reverse('view_page', args=[page.name_slug]))
-
+    return redirect('view_page_comments', page.name_slug)
