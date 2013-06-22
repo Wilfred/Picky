@@ -52,9 +52,10 @@ When viewing all history, the user should be able to get an overview
 #### Accounts
 
 Logging in should be with an email address and password; it's easier
-to remember.
+to remember. Alternatively, users should be able to simply use a
+pre-existing account (Twitter, Facebook) etc.
 
-Editing without logging in should be possible.
+Anonymous editing should also be possible.
 
 Wherever possible, all users should be given the power to change
 things.
