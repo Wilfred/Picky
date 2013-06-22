@@ -10,8 +10,8 @@ from pages.models import Page
 
 @login_required
 @require_http_methods(["POST"])
-def new_comment(request, page_id):
-    page = get_object_or_404(Page, id=page_id)
+def new_comment(request, page_slug):
+    page = get_object_or_404(Page, name_slug=page_slug)
     
     # todo: set page, user and parent comment
     form = CommentForm(request.POST)
