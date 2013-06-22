@@ -2,7 +2,7 @@
 
 {% block title %}{{ block.super }} | {{ page.name }}{% endblock %}
 
-{% block content %}
+{% block tab_bar %}
 <ul class="nav nav-tabs">
     <li class="{% block page_view_state %}{% endblock %}">
 	    <a href="{% url view_page page.name_slug %}">View</a>

@@ -3,8 +3,6 @@
 {% block page_actions_state %}active{% endblock %}
 
 {% block content %}
-{{ block.super }}
-
 <a class="btn btn-danger" href="{% url delete_page page.id %}">Delete Page</a>
 
 {% endblock %}
