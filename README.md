@@ -105,12 +105,16 @@ editors).
 
 ### Development
 
-Picky uses Postgresql. Create an account called 'postgres' with no
-password, and a table called 'picky':
+Picky uses Postgresql. Create an account and a database:
 
-    $ psql -U postgres
-    psql> CREATE DATABASE picky;
-    psql> \q
+    $ sudo -u postgres psql template1
+    psql (9.1.4)
+    Type "help" for help.
+
+    template1=# create role picky superuser login password '5de9522f713d30d7e5155c';
+    CREATE ROLE
+    template1=# create database picky owner picky;
+    CREATE DATABASE
 
 You also need to install the dependencies:
 
@@ -122,6 +126,7 @@ Running the app is then simply:
 
     $ cd picky
     $ python manage.py syncdb
+    $ python manage.py migrate
     $ python manage.py runserver
 
 ### Deploying
