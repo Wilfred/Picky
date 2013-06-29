@@ -25,6 +25,15 @@
     font-weight: 400;
 }
 
+.sidebar * {
+    margin: 0;
+    text-align: right;
+}
+.sidebar #actions {
+    margin-top: 30px;
+    list-style: none;
+}
+
 .create-page input, .create-page textarea,
 .create-page select, .create-page .uneditable-input {
 	width: 520px;
