@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.contrib.auth.decorators import login_required
 
 from .models import SiteConfig
@@ -28,6 +28,11 @@ def configure_site(request):
     
     return render_to_response("site_config/configure_site.html", template_vars,
                               RequestContext(request))
+
+
+@login_required
+def view_meta(request):
+    return render(request, "site_config/meta.html")
 
 
 @login_required

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Meta</h1>
+
+<h2>Pages</h2>
+
+<ul>
+    <li><a href="{% url all_pages %}">All Pages</a></li>
+    <li><a href="{% url create_page %}">New Page</a></li>
+</ul>
+
+<h2>Admin</h2>
+<ul>
+    <li><a href="{% url all_users %}">Users</a></li>
+    <li><a href="{% url configure_site %}">Site Settings</a></li>
+</ul>
+
+{% endblock %}
