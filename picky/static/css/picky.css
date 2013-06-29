@@ -1,3 +1,28 @@
+body {
+    background: #F7F7F7;
+    margin: 0;
+}
+
+* {
+    color: #474747;
+    font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    font-family: 'Bree Serif', Georgia, serif;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p, ul, ol, span {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 23px;
+}
+
 .header-background {
     position: absolute;
     width: 100%;
@@ -15,7 +40,7 @@
     color: #433478;
 }
 
-.header .site-name {
+.header div {
     padding-top: 20px;
     text-align: right;
 }
@@ -23,6 +48,7 @@
 .header * {
     margin: 0;
     font-weight: 400;
+    font-family: 'Bree Serif', Georgia, serif;
 }
 
 .sidebar * {
