@@ -34,6 +34,19 @@ Wiki links should have a unintrusive GUI to aid linking to existing pages.
 Code snippets should have automatic highlighting, with the option of
 specifying the language if needs be.
 
+#### Links
+
+External links should be highlighted differently to internal links,
+e.g. `http://www.example.com` vs `/page/foo`. Absolute paths to
+internal links (e.g. `http://wiki.example.com/page/foo`) should be
+canonicalised and highlighted as internal.
+
+Links to external sites should be fetched and cached when they are
+first added to the page. A popover should give the user the ability to
+access the cached version, the link should otherwise still go to the
+live site. Good wiki content has links to the canonical references;
+this external information should be preserved.
+
 #### History
 
 Every edit should be associated with a user, a time, and an optional
@@ -48,6 +61,9 @@ prominent to help in the case of poorly maintained content.
 
 When viewing all history, the user should be able to get an overview
 (e.g. collapse changes by week/month).
+
+It should be possible to see diffs between page revisions, with the
+changed lines highlighted.
 
 #### Accounts
 
