@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-	    <title>{% block title %}{{ config.site_name }}{% endblock %}</title>
-	    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
-	    <link href="{{ STATIC_URL }}css/bootstrap-responsive.min.css" rel="stylesheet">
-	    <link href="{{ STATIC_URL }}css/picky.css" rel="stylesheet">
-            <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css">
-            <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic" rel="stylesheet" type="text/css">
-            {% block extra-js %}{% endblock %}
+	<title>{% block title %}{{ config.site_name }}{% endblock %}</title>
+	<link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{ STATIC_URL }}css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="{{ STATIC_URL }}css/picky.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic" rel="stylesheet" type="text/css">
+        {% block extra-js %}{% endblock %}
     </head>
     <body>
         <div class="header-background">
         </div>
 
-	    <div class="container">
-                <div class="header row">
-                    <div class="span12">
-                        <h2><a href="{% url index %}">{{ config.site_name }}</a></h2>
-                        <a href="{% url create_page %}">new</a>
-                        <a href="{% url meta %}">meta</a>
-		        {% if request.user.is_authenticated %}
-		        <a href="{% url logout %}">logout</a>
-		        {% else %}
-		        <a href="#">Not logged in</a>
-		        {% endif %}
-                    </div>
+	<div class="container">
+            <div class="header row">
+                <div class="span12">
+                    <h2><a href="{% url index %}">{{ config.site_name }}</a></h2>
+                    <a href="{% url create_page %}">new</a>
+                    <a href="{% url meta %}">meta</a>
+		    {% if request.user.is_authenticated %}
+		    <a href="{% url logout %}">logout</a>
+		    {% else %}
+		    <a href="#">Not logged in</a>
+		    {% endif %}
                 </div>
-
-                {% block tab_bar %}{% endblock %}
-		    <div class="row">
-			    <div class="span8">
-				    {% block content %}{% endblock %}
-			    </div>
-			    <div class="span4">
-			    </div>
-		    </div>
-		    {% block whole-row-content %}{% endblock %}
             </div>
+
+            {% block tab_bar %}{% endblock %}
+	    <div class="row">
+		<div class="span8">
+		    {% block content %}{% endblock %}
+		</div>
+		<div class="span4">
+		</div>
+	    </div>
+	    {% block whole-row-content %}{% endblock %}
+        </div>
     </body>
 </html>
