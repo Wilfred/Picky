@@ -52,7 +52,7 @@ class PageDeletingTest(UserTest):
     def test_page_delete(self):
         page = milkman.deliver(Page)
 
-        self.client.post(reverse('delete_page', args=[page.id]))
+        self.client.post(reverse('delete_page', args=[page.name_slug]))
         self.assertFalse(Page.objects.filter(id=page.id).exists())
         
 
@@ -97,6 +97,6 @@ class PageViewTest(UserTest):
     def test_page_history(self):
         page = milkman.deliver(Page, name='foo', content='foo')
         response = self.client.get(
-            reverse('view_page_history', args=[page.id]))
+            reverse('view_page_history', args=[page.name_slug]))
 
         self.assertEqual(response.status_code, 200)
