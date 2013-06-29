@@ -3,6 +3,6 @@
 {% block page_actions_state %}active{% endblock %}
 
 {% block inner-content %}
-<a class="btn btn-danger" href="{% url delete_page page.id %}">Delete Page</a>
+<a class="btn btn-danger" href="{% url delete_page page.name_slug %}">Delete Page</a>
 
 {% endblock %}

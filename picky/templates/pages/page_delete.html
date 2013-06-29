@@ -2,9 +2,7 @@
 
 {% block page_actions_state %}active{% endblock %}
 
-{% block content %}
-<h1>Deleting {{ page.name }}</h1>
-
+{% block inner-content %}
 <form method="post" class="well">
 {% csrf_token %}
 
