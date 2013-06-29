@@ -8,29 +8,23 @@
 <script src="{{ STATIC_URL }}js/live_preview.js" rel="stylesheet"></script>
 {% endblock %}
 
-{% block whole-row-content %}
+{% block inner-content %}
 
 <div class="row">
-    <div class="span6">
+    <form method="post" class="well create-page">
+        {% csrf_token %}
+        {{ form }}
+        <label></label><!-- grim hack to push button down -->
+        <button type="submit" class="btn btn-primary">
+	    <i class="icon-ok-sign icon-white"></i>
+	    Save Page
+        </button>
+    </form>
 
-        <form method="post" class="well create-page">
-            {% csrf_token %}
-            {{ form }}
-            <label></label><!-- grim hack to push button down -->
-            <button type="submit" class="btn btn-primary">
-	        <i class="icon-ok-sign icon-white"></i>
-	        Save Page
-            </button>
-        </form>
-
+    <div class="alert alert-info">Live Preview
     </div>
-
-    <div class="span6">
-        <div class="alert alert-info">Live Preview
-        </div>
-        <div id="preview">
+    <div id="preview">
         {{ page.get_rendered_content|safe }}
-        </div>
     </div>
 </div>
 

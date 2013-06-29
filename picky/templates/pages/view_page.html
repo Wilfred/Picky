@@ -2,16 +2,12 @@
 
 {% block page_view_state %}active{% endblock %}
 
-{% block whole-row-content %}
-<div class="row">
-    <div class="span6">
+{% block inner-content %}
 
-        {% if version_specified %}
-        <p><em>Warning: You are viewing version {{ version_specified }}.</em></p>
-        {% endif %}
+{% if version_specified %}
+<p><em>Warning: You are viewing version {{ version_specified }}.</em></p>
+{% endif %}
 
-        {{ content|safe }}
-
-    </div>
+{{ content|safe }}
 
 {% endblock %}
