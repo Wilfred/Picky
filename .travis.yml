@@ -3,5 +3,6 @@ python:
   - 2.7
 install: pip install -r requirements.pip --use-mirrors
 before_script:
-  - psql -c 'create database picky;' -U postgres
+  - psql -c "create role picky superuser login password '5de9522f713d30d7e5155c';" -U postgres
+  - psql -c "create database picky owner picky;" -U postgres
 script: python picky/manage.py test
