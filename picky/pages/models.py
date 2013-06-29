@@ -26,6 +26,14 @@ class Page(models.Model):
         else:
             return self.content
 
+    def get_creation_time(self):
+        first_revision = self.pagerevision_set.order_by('version')[0]
+        return first_revision.time
+
+    def get_last_edit_time(self):
+        last_revision = self.pagerevision_set.order_by('-version')[0]
+        return last_revision.time
+
     def get_latest_revision(self):
         return self.pagerevision_set.order_by('-version')[0]
 
