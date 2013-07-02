@@ -1,4 +1,4 @@
-Picky: An opinonated wiki
+Picky: An opinionated wiki
 
 GPLv2 license. Django. Python. Meeting real needs.
 
