@@ -47,7 +47,7 @@ access the cached version, the link should otherwise still go to the
 live site. Good wiki content has links to the canonical references;
 this external information should be preserved.
 
-#### History
+#### Changes
 
 Every edit should be associated with a user, a time, and an optional
 summary. All old states of a page should be preserved. Deletes should
@@ -65,16 +65,40 @@ When viewing all history, the user should be able to get an overview
 It should be possible to see diffs between page revisions, with the
 changed lines highlighted.
 
+It should be possible to subscribe to page changes, page comments, or
+changes by a certain user. This should support email
+notifications. Each of these change categories should also be
+available as an RSS feed. If a user subscribes to things, he/she
+should be able to see only subscribed changes on the 'recent changes'
+page if he/she chooses.
+
+#### Error pages
+
+The 500 error page should not be scary, nor should the user feel they
+did something wrong. It should be clear, comprehensible and include a
+link to the GitHub issue tracker.
+
+The 404 error page should be maximally helpful. It should suggest
+pages with similar spelling, pages which previously had that name, and
+make it easy to create a page with that name.
+
+The 403 page should be clear and explicit.
+
 #### Accounts
 
 Logging in should be with an email address and password; it's easier
 to remember. Alternatively, users should be able to simply use a
 pre-existing account (Twitter, Facebook) etc.
 
-Anonymous editing should also be possible.
+Anonymous editing should also be possible, but may require a CAPTCHA.
 
 Wherever possible, all users should be given the power to change
 things.
+
+Users need to be able to be banned if necessary.
+
+Anything associated with a user (comments, changes) should prominently
+display an avatar, to visually group actions by the same user.
 
 #### Technology
 
@@ -100,24 +124,44 @@ All wikis have discussions, but not all wiki separate the discussion
 from the content (cf. Ward's Wiki vs MediaWiki).
 
 Users should be able to leave comments. Comments should be
-threaded. Comments should be shown on the article itself, rather than
-on a separate page. Comment syntax should be the same as pages.
+threaded. Comment syntax should be the same as pages.
+
+It should be possible to vote up comments, and comments should be
+displayed ordered by votes. Deep trees should be collapsed according
+to voting, but collapsing trees should be togglable by the user.
+
+#### Media
+
+It should be possible to upload files. It should be possible to
+display uploaded images on articles.
 
 #### User Interface
 
-The interface should be as simple as possible. Editing should be
-effortless.
+The interface should be as simple as possible. A wiki is fundamentally
+about reading and editing text, so the design should reflect
+this. Editing should be effortless.
 
 The interface should encourage users to make positive contributions,
 but discourage flamewars and vandalism.
 
-Internal and external links should be styled differently. Internal
-links to nonexistent pages should be styled differently, and load up
-the page editor if clicked.
+The design should clearly distinguish content (e.g. the text of a
+page) from metadata (e.g. when a page was last edited) and from UI
+components (e.g. buttons). There should be a consistent visual design
+for each of these categories.
+
+The colour scheme should be very simple, with a colour associated with
+each of the major wiki actions (viewing, editing, history). This
+colour language should be used consistently and pervasively to provide
+visual cues (e.g. all edit buttons the same colour).
 
 Whenever a username is shown, an avatar should be alongside to make it
 easy to skim through to find things from the same user (even anonymous
 editors).
+
+#### Tags
+
+It should be possible to tag pages. A tag a simple string associated
+with a page that enables users to view other page that have the same tag.
 
 ### Development
 
