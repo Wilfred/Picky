@@ -1,0 +1,65 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin-left: 200px;
+    margin-top: 100px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.page-actions {
+    margin-bottom: 20px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.page-actions div {
+    text-align: center;
+}
+.page-actions a {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: black;
+}
+.page-actions a:hover {
+    text-decoration: none;
+}
+.page-actions div:hover {
+    border-left: 10px solid black;
+    border-right: 10px solid black;
+}
+.page-actions .view-action:hover {
+    border-left: 10px solid green;
+    border-right: 10px solid green;
+}
+.page-actions .edit-action:hover {
+    border-left: 10px solid blue;
+    border-right: 10px solid blue;
+}
+.page-actions .comment-action:hover {
+    border-left: 10px solid green;
+    border-right: 10px solid green;
+}
+.page-actions .changes-action:hover {
+    border-left: 10px solid purple;
+    border-right: 10px solid purple;
+}
+
+.page-content * {
+    line-height: 36px;
+    text-align: justify;
+    font-size: 16px;
+}
+.page-meta {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 16px;
+
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
