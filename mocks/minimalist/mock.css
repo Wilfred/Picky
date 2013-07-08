@@ -1,0 +1,65 @@
+/* POSITIONING */
+body {
+    margin-left: 100px;
+}
+.main {
+    width: 500px;
+    padding-top: 50px;
+}
+.header {
+    width: 500px;
+}
+.header .right-links {
+    float: right;
+}
+h1 {
+    padding: 10px 0;
+}
+p, ul, ol {
+    margin-bottom: 9px;
+}
+.page-tools {
+}
+
+/* TYPOGRAPHY */
+h1 {
+    font-size: 39px;
+}
+h2 {
+    font-size: 22px;
+}
+h3 {
+    font-size: 18px;
+}
+h4, h5, h6 {
+    font-size: 16px;
+    font-weight: bold;
+}
+p, ul, ol, li  {
+    font-size: 16px;
+    line-height: 24px;
+}
+h1, h2, h3, h4 {
+    font-family: serif;
+}
+
+.page-meta {
+    text-transform: uppercase;
+    color: gray;
+}
+
+/* LISTS */
+ul {
+    list-style-type: square;
+    margin-left: 0;
+}
+
+/* META */
+.meta-links * {
+    text-transform: uppercase;
+    color: gray;
+    font-size: 13px;
+}
+.meta-links .active {
+    color: black;
+}
