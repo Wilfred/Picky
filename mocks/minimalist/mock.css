@@ -60,6 +60,9 @@ ul {
     color: gray;
     font-size: 13px;
 }
+.meta-links a:hover {
+    color: black;
+}
 .meta-links .active {
     color: black;
 }
