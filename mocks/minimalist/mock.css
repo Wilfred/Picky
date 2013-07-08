@@ -13,10 +13,11 @@ body {
     float: right;
 }
 h1 {
-    padding: 10px 0;
+    margin: 18px 0 10px 0;
 }
 p, ul, ol {
-    margin-bottom: 9px;
+    margin-top: 16px;
+    margin-bottom: 24px;
 }
 .page-tools {
 }
@@ -59,6 +60,12 @@ ul {
     text-transform: uppercase;
     color: gray;
     font-size: 13px;
+}
+.meta-links a {
+    padding-left: 16px;
+}
+.meta-links a:first-child {
+    padding-left: 0;
 }
 .meta-links a:hover {
     color: black;
