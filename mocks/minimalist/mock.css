@@ -62,10 +62,10 @@ ul {
     font-size: 13px;
 }
 .meta-links a {
-    padding-left: 16px;
+    margin-left: 16px;
 }
 .meta-links a:first-child {
-    padding-left: 0;
+    margin-left: 0;
 }
 .meta-links a:hover {
     color: black;
