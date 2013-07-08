@@ -73,3 +73,6 @@ ul {
 .meta-links .active {
     color: black;
 }
+.timestamp {
+    border-bottom: 1px dotted gray;
+}
