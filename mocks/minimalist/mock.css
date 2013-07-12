@@ -4,7 +4,9 @@ body {
 }
 .main {
     width: 500px;
+    margin-right: 50px;
     padding-top: 50px;
+    float: left;
 }
 .header {
     width: 500px;
@@ -78,7 +80,12 @@ ul {
     margin-top: -24px;
 }
 
-/* COMMENTS */
-.comment .meta-links {
-    
+/* EDITING */
+.editor {
+    width: 490px;
+    height: 600px;
+}
+.page-preview {
+    float: left;
+    width: 500px;
 }
