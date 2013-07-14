@@ -13,8 +13,8 @@ features have been implemented yet.
 
 A wiki is a collection of documents, edited by a community. It
 encourages everyone to contribute. Adding or modifying content should
-be effortless, to encourage users to keep the content thorough and
-up-to-date.
+be effortless, to encourage users to keep the content high quality,
+thorough and up-to-date.
 
 #### Syntax
 
