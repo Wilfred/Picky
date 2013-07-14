@@ -85,8 +85,12 @@ ul {
 
 /* EDITING */
 .editor {
-    height: 600px;
-}
-.page-preview {
     float: left;
+}
+.editor input, .editor textarea {
+    width: 490px;
+}
+#preview {
+    float: left;
+    padding-left: 20px;
 }
