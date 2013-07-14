@@ -10,7 +10,7 @@
         {% block extra-js %}{% endblock %}
     </head>
     <body>
-        <div class="header meta-links">
+        <div class="header meta-links column">
             <a href="{% url index %}">{{ config.site_name }}</a>
 
             <div class="right-links">
@@ -23,10 +23,12 @@
 		{% endif %}
             </div>
         </div>
-        
-	<div class="main">
-            {% block tab_bar %}{% endblock %}
 
+        <div class="column">
+            {% block tab_bar %}{% endblock %}
+        </div>
+        
+	<div class="main column">
 	    {% block content %}{% endblock %}
         </div>
         

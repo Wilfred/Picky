@@ -4,12 +4,13 @@ body {
 }
 .main {
     margin-right: 50px;
-    padding-top: 50px;
     float: left;
 }
-.header {
+
+.column {
     width: 500px;
 }
+
 .header {
     margin-bottom: 50px;
 }
@@ -84,10 +85,8 @@ ul {
 
 /* EDITING */
 .editor {
-    width: 490px;
     height: 600px;
 }
 .page-preview {
     float: left;
-    width: 500px;
 }
