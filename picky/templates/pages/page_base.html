@@ -2,37 +2,20 @@
 
 {% block title %}{{ block.super }} | {{ page.name }}{% endblock %}
 
-{% block whole-row-content %}
-<div class="row">
-    <div class="sidebar span4">
-        <h1 id="page-title">{{ page.name }}</h1>
-        <p class="last-edited">last edited {{ page.get_last_edit_time|timesince }} ago</p>
-        <p class="created">created {{ page.get_creation_time|timesince }} ago</p>
-
-        <ul id="actions">
-            <li class="{% block page_view_state %}{% endblock %}">
-	        <a href="{% url view_page page.name_slug %}">view</a>
-            </li>
-            <li class="{% block page_edit_state %}{% endblock %}">
-	        <a href="{% url edit_page page.name_slug %}"><i class="icon-edit"></i> edit</a>
-            </li>
-            <li class="{% block page_comments_state %}{% endblock %}">
-	        <a href="{% url view_page_comments page.name_slug %}"><i class="icon-comment"></i> comments ({{ page.comment_set.count }})</a>
-            </li>
-            <li class="{% block page_history_state %}{% endblock %}">
-	        <a href="{% url view_page_history page.name_slug %}"><i class="icon-fast-backward"></i> changes ({{ page.pagerevision_set.count }})</a>
-            </li>
-            <li class="{% block page_actions_state %}{% endblock %}">
-	        <a href="{% url view_page_actions page.name_slug %}">actions</a>
-            </li>
-        </ul>
-    </div>
-    <div class="span8">
-
-        {% block inner-content %}{% endblock %}
-
-    </div>
+{% block tab_bar %}
+<div class="meta-links">
+    <a href="{% url view_page page.name_slug %}" class="{% block page_view_state %}{% endblock %}">view</a>
+    <a href="{% url edit_page page.name_slug %}" class="{% block page_edit_state %}{% endblock %}">edit</a>
+    <a href="{% url view_page_comments page.name_slug %}" class="{% block page_comments_state %}{% endblock %}">{{ page.comment_set.count }} comments</a>
+    <a href="{% url view_page_history page.name_slug %}" class="{% block page_history_state %}{% endblock %}">{{ page.pagerevision_set.count }} changes</a>
+    <a href="{% url view_page_actions page.name_slug %}" class="{% block page_actions_state %}{% endblock %}">actions</a>
 </div>
+{% endblock %}
+
+{% block content %}
+<h1 id="page-title">{{ page.name }}</h1>
+
+{% block inner-content %}{% endblock %}
 
 {% endblock %}
 

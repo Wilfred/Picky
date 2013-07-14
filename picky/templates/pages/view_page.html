@@ -10,4 +10,11 @@
 
 {{ content|safe }}
 
+<div class="meta-links footer">
+    <p>created <span class="timestamp" title="{{ page.get_creation_time|date:"%d %M %Y" }}">{{ page.get_creation_time|timesince }} ago</span>,
+        updated <span class="timestamp" title="{{ page.get_last_edit_time|date:"%d %M %Y" }}">{{ page.get_last_edit_time|timesince }} ago</span>
+    </p>
+</div>
+
+
 {% endblock %}
