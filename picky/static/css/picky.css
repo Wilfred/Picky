@@ -3,13 +3,15 @@ body {
     margin-left: 100px;
 }
 .main {
-    width: 500px;
     margin-right: 50px;
     padding-top: 50px;
     float: left;
 }
 .header {
     width: 500px;
+}
+.header {
+    margin-bottom: 50px;
 }
 .header .right-links {
     float: right;
