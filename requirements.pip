@@ -3,6 +3,7 @@ Fabric==1.5.1
 South==0.7.6
 django-nose==1.1
 docutils==0.9.1
+ipython==0.13.2
 milkman==0.4.5
 nose==1.2.1
 paramiko==1.9.0
