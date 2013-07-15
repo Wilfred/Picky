@@ -7,7 +7,7 @@ from .utils import slugify
 class PageForm(ModelForm):
     class Meta:
         model = Page
-        widgets = {'content': Textarea(attrs={'rows': 30})}
+        widgets = {'content': Textarea(attrs={'rows': 22})}
 
     def clean_name(self):
         """Check that this name doesn't match any other name when converted to
