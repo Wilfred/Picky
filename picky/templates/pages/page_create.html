@@ -1,15 +1,28 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block whole-row-content %}
 
-<form method="post" class="well create-page">
-{% csrf_token %}
-{{ form }}
-<label></label><!-- grim hack to push button down -->
-<button type="submit" class="btn btn-primary">
-	<i class="icon-ok-sign icon-white"></i>
-	Save Page
-</button>
-</form>
+<h1>Create A Page</h1>
+
+<div class="editor-wrapper">
+    <div class="editor column">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <label></label><!-- grim hack to push button down -->
+            <button type="submit" class="btn btn-primary">
+	        <i class="icon-ok-sign icon-white"></i>
+	        Save Page
+            </button>
+        </form>
+    </div>
+
+    <div id="preview" class="column">
+        {{ page.get_rendered_content|safe }}
+    </div>
+
+    <div class="clearfix">
+    </div>
+</div>
 
 {% endblock %}
