@@ -79,8 +79,11 @@ def delete_page(request, page_slug):
 
 @login_required
 def view_page(request, page_slug):
-    page = get_object_or_404(Page, name_slug=page_slug)
-
+    try:
+        page = Page.objects.get(name_slug=page_slug)
+    except Page.DoesNotExist:
+        return page_404(request, page_slug)
+        
     # get the requested version number from the user
     version_specified = request.GET.get('version')
     try:
@@ -120,3 +123,12 @@ def view_page_history(request, page_slug):
                      'all_revisions': all_revisions}
     return render_to_response("pages/view_page_history.html", template_vars,
                               RequestContext(request))
+
+
+def page_404(request, page_slug):
+    """Return a helpful 404 if the user was looking for a page that
+    doesn't exist.
+
+    """
+    return render(request, "pages/no_such_page.html",
+                  {'name_slug': page_slug})
