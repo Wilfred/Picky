@@ -1,9 +1,8 @@
 from django.db import models
 from django.utils.text import truncate_words
+from django.template.defaultfilters import slugify
 
 from creole import creole2html
-
-from .utils import slugify
 
 class Page(models.Model):
     name = models.CharField(max_length=200, unique=True)
