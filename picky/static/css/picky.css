@@ -88,8 +88,12 @@ ul {
 }
 .editor input, .editor textarea {
     width: 490px;
+    color: black;
 }
 #preview {
     float: left;
     padding-left: 40px;
+}
+#preview * {
+    color: gray;
 }
