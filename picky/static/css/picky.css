@@ -89,6 +89,7 @@ ul {
 .editor input, .editor textarea {
     width: 490px;
     color: black;
+    font-size: 16px;
 }
 #preview {
     float: left;
