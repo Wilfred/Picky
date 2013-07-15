@@ -1,6 +1,6 @@
 /* POSITIONING */
 body {
-    margin-left: 100px;
+    margin-left: 80px;
 }
 .main {
     margin-right: 50px;
@@ -91,5 +91,5 @@ ul {
 }
 #preview {
     float: left;
-    padding-left: 20px;
+    padding-left: 40px;
 }
