@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import patterns, url
 
 urlpatterns = patterns('',
+    url(r'^$', 'pages.views.index', name='index'),
     url(r'^all_pages/$', 'pages.views.all_pages', name='all_pages'),
     url(r'^new_page/$', 'pages.views.create_page', name='create_page'),
     url(r'^new_page/(?P<page_slug>[^/]+)$', 'pages.views.create_page', name='create_page'),

@@ -10,6 +10,11 @@ from comments.forms import CommentForm
 
 
 @login_required
+def index(request):
+    return redirect('view_page', 'Home')
+
+
+@login_required
 def all_pages(request):
     pages = Page.objects.order_by('name_lower')
     template_vars = {'pages': pages}
