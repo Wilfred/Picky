@@ -18,7 +18,7 @@ def all_pages(request):
 
 
 @login_required
-def create_page(request):
+def create_page(request, page_slug=None):
 
     if request.POST:
         form = PageForm(request.POST)
@@ -27,7 +27,8 @@ def create_page(request):
             page = form.save()
             return HttpResponseRedirect(reverse('view_page', args=[page.name_slug]))
     else:
-        form = PageForm()
+        # todo: unslugify
+        form = PageForm(initial={'name': page_slug})
 
     template_vars = {'form': form}
 

@@ -5,6 +5,7 @@
 {% block content %}
 <h1>No Such Page</h1>
 
-There's no page called '{{ name_slug }}'.
+<p>There's no page called '{{ name_slug }}'. Would you like to
+<a href="{% url create_page name_slug %}">create it?</p>
 
 {% endblock %}
