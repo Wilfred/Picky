@@ -36,6 +36,9 @@ class Page(models.Model):
     def get_latest_revision(self):
         return self.pagerevision_set.order_by('-version')[0]
 
+    def get_change_count(self):
+        return self.pagerevision_set.count() - 1
+
     def save(self):
         self.total_revisions += 1
 
