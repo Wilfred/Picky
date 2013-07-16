@@ -100,3 +100,21 @@ class PageViewTest(UserTest):
             reverse('view_page_history', args=[page.name_slug]))
 
         self.assertEqual(response.status_code, 200)
+
+
+class IndexTest(UserTest):
+    def test_index_render_404(self):
+        """If there's no home page yet, we should get a helpful 404."""
+        response = self.client.get(reverse('index'), follow=True)
+
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, "pages/no_such_page.html")
+
+    def test_index_renders(self):
+        """If we do have a home page, we should display it."""
+        milkman.deliver(Page, name="home", name_slug="home")
+        
+        response = self.client.get(reverse('index'), follow=True)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "pages/view_page.html")
