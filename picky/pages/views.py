@@ -137,4 +137,4 @@ def page_404(request, page_slug):
 
     """
     return render(request, "pages/no_such_page.html",
-                  {'name_slug': page_slug})
+                  {'name_slug': page_slug}, status=404)
