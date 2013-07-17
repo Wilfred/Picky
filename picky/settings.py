@@ -139,12 +139,6 @@ INSTALLED_APPS = (
     'site_config',
 )
 
-# log events to sentry on production
-if not DEBUG:
-    RAVEN_CONFIG = {
-        'dsn': 'https://640f236087e14c158071e723d0be3452:4ee9325016af41918cb29812a508443d@app.getsentry.com/9875',
-    }
-
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 LOGIN_URL = '/user/login/'
@@ -176,3 +170,9 @@ try:
     from live_settings import *
 except ImportError:
     pass
+
+# log events to sentry on production
+if not DEBUG:
+    RAVEN_CONFIG = {
+        'dsn': 'https://640f236087e14c158071e723d0be3452:4ee9325016af41918cb29812a508443d@app.getsentry.com/9875',
+    }
