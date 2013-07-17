@@ -94,7 +94,5 @@ ul {
 #preview {
     float: left;
     padding-left: 40px;
-}
-#preview * {
     color: gray;
 }
