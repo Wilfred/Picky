@@ -19,21 +19,21 @@ def relative_time(dt):
         return "1 minute ago"
 
     elif timesince < timedelta(hours=1):
-        return "%d minutes ago" % timesince.total_seconds() / 60
+        return "%d minutes ago" % (timesince.total_seconds() / 60)
 
     elif timesince < timedelta(hours=2):
         return "1 hour ago"
 
     elif timesince < timedelta(days=1):
-        return "%d hours ago" % timesince.total_seconds() / (60 * 60)
+        return "%d hours ago" % (timesince.total_seconds() / (60 * 60))
 
     elif timesince < timedelta(days=2):
         return "1 day ago"
 
     elif timesince < timedelta(days=15):
-        return "%d days ago" % timesince.total_seconds() / (60 * 60 * 24)
+        return "%d days ago" % (timesince.total_seconds() / (60 * 60 * 24))
 
     elif timesince < timedelta(days=90):
-        return "%d weeks ago" % timesince.total_seconds() / (60 * 60 * 24 * 7)
+        return "%d weeks ago" % (timesince.total_seconds() / (60 * 60 * 24 * 7))
 
-    return "%d months ago" % timesince.total_seconds() / (60 * 60 * 24 * 7 * 30)
+    return "%d months ago" % (timesince.total_seconds() / (60 * 60 * 24 * 7 * 30))
