@@ -27,8 +27,8 @@ p, ul, ol {
 }
 
 /* TYPOGRAPHY */
-* {
-    font-family: 'Open Sans', Verdana, Helvetica, sans-serif !important;
+body {
+    font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 h1 {
     font-size: 39px;
