@@ -10,6 +10,9 @@ register = template.Library()
 
 @register.filter
 def relative_time(dt):
+    if not dt:
+        return "never"
+    
     timesince = now() - dt
     
     if timesince < timedelta(minutes=1):
