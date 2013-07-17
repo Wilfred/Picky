@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+from django.template.defaultfilters import slugify
 from django.shortcuts import render_to_response, get_object_or_404, redirect, render
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -88,6 +89,11 @@ def view_page(request, page_slug):
     try:
         page = Page.objects.get(name_slug=page_slug)
     except Page.DoesNotExist:
+        # if our link was an unslugified page name:
+        if Page.objects.filter(name_slug=slugify(page_slug)).exists():
+            # then redirect to the canonical url
+            return redirect('view_page', slugify(page_slug))
+    
         return page_404(request, page_slug)
         
     # get the requested version number from the user

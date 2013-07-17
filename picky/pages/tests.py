@@ -101,6 +101,16 @@ class PageViewTest(UserTest):
 
         self.assertEqual(response.status_code, 200)
 
+    # todo: check crash on '30 minutes ago'
+
+    def test_page_slugifies(self):
+        """Check that we redirect unslugified page URLs."""
+        page = milkman.deliver(Page, name="Foo Bar")
+        
+        response = self.client.get(
+            reverse('view_page', args=[page.name]), follow=True)
+        self.assertEqual(response.status_code, 200)
+
 
 class IndexTest(UserTest):
     def test_index_render_404(self):
