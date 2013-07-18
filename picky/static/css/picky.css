@@ -27,7 +27,7 @@ p, ul, ol {
 }
 
 /* TYPOGRAPHY */
-body {
+body, p {
     font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 h1 {
