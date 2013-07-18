@@ -67,3 +67,6 @@ class PageRevision(models.Model):
     page = models.ForeignKey('Page')
     version = models.IntegerField(default=1, editable=False)
     time = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __unicode__(self):
+        return u"%s at %s" %(self.page.name, self.time)
