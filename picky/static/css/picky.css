@@ -88,6 +88,7 @@ ul {
 /* EDITING */
 .editor {
     float: left;
+    padding-right: 40px;
 }
 .editor input, .editor textarea {
     width: 490px;
@@ -96,6 +97,5 @@ ul {
 }
 #preview {
     float: left;
-    padding-left: 40px;
     color: gray;
 }
