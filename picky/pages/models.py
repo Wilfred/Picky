@@ -56,7 +56,7 @@ class Page(models.Model):
             page=self, content=self.content, version=self.total_revisions)
 
     def __unicode__(self):
-        return "%s %s" % (self.name, truncate_words(self.content, 4))
+        return u"%s %s" % (self.name, truncate_words(self.content, 4))
 
 
 class PageRevision(models.Model):
