@@ -2,6 +2,11 @@
     "use strict";
     
     function creoleToHtml(creoleSource) {
+        /* Return the creole source rendered to html.
+         *
+         * We wrap the output in a div tag, so we can easily use it
+         * with jQuery.
+         */
         var parser = new creole({
             linkFormat: '/page/'
         });
@@ -9,7 +14,7 @@
         var div = document.createElement('div');
         parser.parse(div, creoleSource);
 
-        return div.innerHTML;
+        return $(div).outerHTML();
     }
 
     function showPreview() {
