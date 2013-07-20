@@ -1,6 +1,7 @@
 Django==1.4.2
 Fabric==1.5.1
 South==0.7.6
+beautifulsoup4==4.2.1
 django-nose==1.1
 docutils==0.9.1
 ipython==0.13.2
