@@ -99,3 +99,7 @@ ul {
     float: left;
     color: gray;
 }
+
+img.favicon {
+    vertical-align: middle;
+}
