@@ -71,6 +71,9 @@ ul {
 .meta-links a:first-child {
     margin-left: 0;
 }
+.meta-links a:visited {
+    color: gray;
+}
 .meta-links a:hover {
     color: black;
 }
