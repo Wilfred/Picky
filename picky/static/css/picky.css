@@ -99,6 +99,10 @@ ul {
     color: gray;
 }
 
+/* HYPERLINKS */
 img.favicon {
     vertical-align: middle;
+}
+a:visited {
+    color: #800080
 }
