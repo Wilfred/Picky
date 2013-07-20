@@ -1,8 +1,21 @@
+from urllib import quote
+
 from django.db import models
 from django.utils.text import truncate_words
 from django.template.defaultfilters import slugify
 
+from bs4 import BeautifulSoup
 from creole import creole2html
+
+
+def is_external(url):
+    # FIXME: detect when external URLs are actually for the current
+    # host
+    if url.startswith('http://') or url.startswith('https://'):
+        return True
+
+    return False
+
 
 class Page(models.Model):
     name = models.CharField(max_length=200, unique=True)
@@ -15,7 +28,20 @@ class Page(models.Model):
 
     def get_rendered_content(self, version=None):
         """Render the creole source as an HTML snippet."""
-        return creole2html(self.get_content(version))
+        rendered_creole = creole2html(self.get_content(version))
+
+        # add favicons to external URLs
+        soup = BeautifulSoup(rendered_creole)
+        for a_tag in soup.find_all('a'):
+            url = a_tag['href']
+            if is_external(url):
+                favicon = soup.new_tag('img')
+                favicon['src'] = "//getfavicon.appspot.com/" + quote(url)
+                favicon['class'] = 'favicon'
+                
+                a_tag.insert_before(favicon)
+
+        return unicode(soup)
 
     def get_content(self, version=None):
         """Either the current content of this page or an older version."""
