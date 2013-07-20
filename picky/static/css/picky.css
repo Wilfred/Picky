@@ -16,17 +16,14 @@ body {
 .header .right-links {
     float: right;
 }
-h1 {
-    margin: 0 0 10px 0;
-}
-p, ul, ol {
-    margin-top: 16px;
-    margin-bottom: 24px;
-}
 .page-tools {
 }
 
 /* TYPOGRAPHY */
+p, ul, ol, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 24px;
+    line-height: 24px;
+}
 body, p {
     font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
 }
