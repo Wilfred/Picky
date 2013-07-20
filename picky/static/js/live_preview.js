@@ -1,6 +1,6 @@
 function creoleToHtml(creoleSource) {
     var parser = new creole({
-        linkFormat: '#'
+        linkFormat: '/page/'
     });
 
     var div = document.createElement('div');
