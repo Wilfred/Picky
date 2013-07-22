@@ -1,5 +1,7 @@
+Creoleparser==0.7.4
 Django==1.4.2
 Fabric==1.5.1
+Genshi==0.7
 South==0.7.6
 beautifulsoup4==4.2.1
 django-nose==1.1
@@ -10,6 +12,5 @@ nose==1.2.1
 paramiko==1.9.0
 psycopg2==2.4.1
 pycrypto==2.6
-python-creole==1.0.6
 raven==3.3.12
 wsgiref==0.1.2

@@ -5,7 +5,7 @@ from django.utils.text import truncate_words
 from django.template.defaultfilters import slugify
 
 from bs4 import BeautifulSoup
-from creole import creole2html
+from creoleparser import text2html
 
 
 def is_external(url):
@@ -28,7 +28,7 @@ class Page(models.Model):
 
     def get_rendered_content(self, version=None):
         """Render the creole source as an HTML snippet."""
-        rendered_creole = creole2html(self.get_content(version))
+        rendered_creole = text2html(self.get_content(version))
 
         # add favicons to external URLs
         soup = BeautifulSoup(rendered_creole)
