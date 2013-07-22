@@ -1,4 +1,7 @@
 from __future__ import unicode_literals
+
+import re
+
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 
@@ -9,13 +12,25 @@ from users.test_base import UserTest
 
 
 class RenderingTest(TestCase):
+    def assertEqualIgnoringWhitespace(self, string1, string2):
+        """Assert that strings are equal, other than whitespace differences."""
+        # remove leading/trailing whitespace
+        string1 = string1.strip()
+        string2 = string2.strip()
+
+        # collapse and normalise whitespace
+        string1 = re.sub(r'\W+', ' ', string1)
+        string2 = re.sub(r'\W+', ' ', string2)
+
+        self.assertEqual(string1, string2)
+    
     def test_basic_rendering(self):
         page = milkman.deliver(Page, content="hello world")
-        self.assertEqual(page.get_rendered_content().strip(), "<p>hello world</p>")
+        self.assertEqualIgnoringWhitespace(page.get_rendered_content(), "<p>hello world</p>")
 
     def test_h1_rendered(self):
         page = milkman.deliver(Page, content="= foo")
-        self.assertEqual(page.get_rendered_content(), '<h1>foo</h1>')
+        self.assertEqualIgnoringWhitespace(page.get_rendered_content(), '<h1>foo</h1>')
 
     def test_h2_rendered(self):
         page = milkman.deliver(Page, content="""
