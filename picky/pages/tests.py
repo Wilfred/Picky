@@ -49,6 +49,10 @@ class RenderingTest(TestCase):
         page = milkman.deliver(Page, content="hello\nworld")
         self.assertEqualIgnoringWhitespace(page.get_rendered_content(), "<p>hello world</p>")
 
+    def test_br_rendering(self):
+        page = milkman.deliver(Page, content="hello\\\\world")
+        self.assertEqualIgnoringWhitespace(page.get_rendered_content(), "<p>hello<br/>world</p>")
+
 
 class PageCreationTest(UserTest):
     def test_page_creation(self):

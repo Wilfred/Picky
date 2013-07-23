@@ -41,7 +41,7 @@ class Page(models.Model):
                 
                 a_tag.insert_before(favicon)
 
-        return unicode(soup)
+        return soup.find('body').encode_contents()
 
     def get_content(self, version=None):
         """Either the current content of this page or an older version."""
