@@ -19,8 +19,8 @@ class RenderingTest(TestCase):
         string2 = string2.strip()
 
         # collapse and normalise whitespace
-        string1 = re.sub(r'\W+', ' ', string1)
-        string2 = re.sub(r'\W+', ' ', string2)
+        string1 = re.sub(r'\s+', ' ', string1)
+        string2 = re.sub(r'\s+', ' ', string2)
 
         self.assertEqual(string1, string2)
     
