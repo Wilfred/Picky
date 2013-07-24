@@ -142,5 +142,6 @@ def page_404(request, page_slug):
     doesn't exist.
 
     """
+    page_name = page_slug.replace('_', ' ')
     return render(request, "pages/no_such_page.html",
-                  {'name_slug': page_slug}, status=404)
+                  {'page_name': page_name}, status=404)
