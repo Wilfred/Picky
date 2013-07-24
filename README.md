@@ -34,7 +34,7 @@ Wiki links should have a unintrusive GUI to aid linking to existing pages.
 Code snippets should have automatic highlighting, with the option of
 specifying the language if needs be.
 
-#### Links
+#### External Links
 
 External links should be highlighted differently to internal links,
 e.g. `http://www.example.com` vs `/page/foo`. Absolute paths to
@@ -46,6 +46,17 @@ first added to the page. A popover should give the user the ability to
 access the cached version, the link should otherwise still go to the
 live site. Good wiki content has links to the canonical references;
 this external information should be preserved.
+
+#### Internal Links
+
+A page title should be free text, there should be no issues with
+characters like '#' (Wikipedia had this problem). Page URLs should
+allow non-ASCII characters. Page titles are more likely to contain
+hyphens than underscores, so spaces should be replaced by underscores
+to maximise URL readability.
+
+Links to nonexistent pages should be styled differently to legitimate
+URLs.
 
 #### Changes
 
