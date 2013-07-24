@@ -12,7 +12,7 @@ from comments.forms import CommentForm
 
 @login_required
 def index(request):
-    return redirect('view_page', 'home')
+    return redirect('view_page', 'Home')
 
 
 @login_required

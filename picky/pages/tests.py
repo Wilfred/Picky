@@ -145,7 +145,7 @@ class IndexTest(UserTest):
 
     def test_index_renders(self):
         """If we do have a home page, we should display it."""
-        milkman.deliver(Page, name="home", name_slug="home")
+        milkman.deliver(Page, name="Home", name_slug="home")
         
         response = self.client.get(reverse('index'), follow=True)
 
