@@ -1,12 +1,12 @@
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.template.defaultfilters import slugify
 from django.shortcuts import render_to_response, get_object_or_404, redirect, render
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
 from .models import Page, PageRevision
 from .forms import PageForm
+from .utils import slugify
 from comments.forms import CommentForm
 
 

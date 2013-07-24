@@ -2,7 +2,8 @@ from urllib import quote
 
 from django.db import models
 from django.utils.text import truncate_words
-from django.template.defaultfilters import slugify
+
+from .utils import slugify
 
 from bs4 import BeautifulSoup
 from creoleparser import text2html

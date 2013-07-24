@@ -1,7 +1,7 @@
 from django.forms import ModelForm, ValidationError, Textarea
-from django.template.defaultfilters import slugify
 
 from .models import Page
+from .utils import slugify
 
 
 class PageForm(ModelForm):
