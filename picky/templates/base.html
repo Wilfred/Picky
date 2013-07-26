@@ -7,7 +7,6 @@
 	<link href="{{ STATIC_URL }}css/picky.css" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic" rel="stylesheet" type="text/css">
-        {% block extra-js %}{% endblock %}
     </head>
     <body>
         <div class="header meta-links column">
@@ -33,5 +32,7 @@
         </div>
         
 	{% block whole-row-content %}{% endblock %}
+
+        {% block extra-js %}{% endblock %}
     </body>
 </html>
