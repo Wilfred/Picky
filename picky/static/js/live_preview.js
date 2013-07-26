@@ -53,6 +53,9 @@
         $preview.html(addFavicons(creoleToHtml(pageSource)));
     }
 
+    // render the content on initial pageload
+    showPreview();
+    
     $(document).ready(function() {
         $("#id_content").keyup(showPreview);
     });
