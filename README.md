@@ -94,7 +94,7 @@ make it easy to create a page with that name.
 
 The 403 page should be clear and explicit.
 
-#### Accounts
+#### Users
 
 Logging in should be with an email address and password; it's easier
 to remember. Alternatively, users should be able to simply use a
@@ -105,10 +105,13 @@ Anonymous editing should also be possible, but may require a CAPTCHA.
 Wherever possible, all users should be given the power to change
 things.
 
-Users need to be able to be banned if necessary.
+Users (both anonymous and signed-in) need to be able to be banned if
+necessary.
 
 Anything associated with a user (comments, changes) should prominently
 display an avatar, to visually group actions by the same user.
+
+Users should be able to have a page about themselves.
 
 #### Technology
 
