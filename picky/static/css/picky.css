@@ -138,3 +138,11 @@ tr:nth-child(2n) {
 td, th {
     border: 2px solid grey;
 }
+
+/* PREFORMATTED & CODE */
+pre {
+    border: 0;
+    padding: 0;
+    margin: 0 0 24px 0;
+    background-color: transparent;
+}
