@@ -208,3 +208,14 @@ There's a Fabric file that deploys my personal instance. You'll need
 to modify this for your own production instance.
 
    $ fab deploy
+
+### Known bugs
+
+Live preview renders links `ftp://foo` as anchor tags but server-side
+does not. Also, in the following table:
+
+    |= Header title               |= Another header title     |
+    | {{{ //not italic text// }}} | {{{ **not bold text** }}} |
+    | //italic text//             | **  bold text **          |
+
+the live preview does not wrap the escaped content in `<code>` tags.
