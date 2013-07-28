@@ -123,3 +123,18 @@ img.favicon {
 a:visited {
     color: #800080
 }
+
+/* TABLES */
+table {
+    margin-bottom: 24px;
+    width: 100%;
+
+    border: 1px solid black;
+    
+}
+tr:nth-child(2n) {
+    background: #f5f5f5;
+}
+td, th {
+    border: 2px solid grey;
+}
