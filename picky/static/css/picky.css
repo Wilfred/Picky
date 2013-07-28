@@ -90,9 +90,11 @@ ul ul, ul ol, ol ul, ol ol {
 }
 .meta-links a:hover {
     color: black;
+    text-decoration: none;
+    border-bottom: 1px solid black;
 }
 .meta-links .active {
-    color: black;
+    border-bottom: 1px solid gray;
 }
 .timestamp {
     border-bottom: 1px dotted gray;
