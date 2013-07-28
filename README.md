@@ -11,10 +11,9 @@ features have been implemented yet.
 
 #### Purpose
 
-A wiki is a collection of documents, edited by a community. It
-encourages everyone to contribute. Adding or modifying content should
-be effortless, to encourage users to keep the content high quality,
-thorough and up-to-date.
+A wiki should foster high quality content written by a community. It
+should aid many users getting involved through effortless editing and
+facilitating building consensus.
 
 #### Syntax
 
