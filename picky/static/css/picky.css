@@ -20,14 +20,17 @@ body {
 }
 
 /* TYPOGRAPHY */
+body, p, pre, code {
+    font-size: 16px;
+}
+body, p {
+    font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
+}
 p, ul, ol, h1, h2, h3, h4, h5, h6 {
     line-height: 24px;
 }
 p, ul, ol {
     margin-bottom: 24px;
-}
-body, p {
-    font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
     color: inherit;
@@ -46,11 +49,13 @@ h3 {
 h4, h5, h6 {
     font-size: 16px;
 }
+h5, h6 {
+    font-style: italic;
+}
 p, ul, ol, li, pre, code  {
-    font-size: 16px;
     line-height: 24px;
 }
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Bree Serif', Georgia, serif !important;
     font-weight: normal;
 }
