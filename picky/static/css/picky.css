@@ -46,7 +46,7 @@ h3 {
 h4, h5, h6 {
     font-size: 16px;
 }
-p, ul, ol, li  {
+p, ul, ol, li, pre, code  {
     font-size: 16px;
     line-height: 24px;
 }
