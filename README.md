@@ -219,6 +219,3 @@ does not. Also, in the following table:
     | //italic text//             | **  bold text **          |
 
 the live preview does not wrap the escaped content in `<code>` tags.
-
-Live preview renders `{{{foo}}}` as `<tt>foo</tt>` whereas server-side
-uses `<code>`.
