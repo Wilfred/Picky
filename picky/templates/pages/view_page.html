@@ -8,7 +8,9 @@
 <p><em>Warning: You are viewing version {{ version_specified }}.</em></p>
 {% endif %}
 
-{{ content|safe }}
+<div class="page">
+    {{ content|safe }}
+</div>
 
 {% load relative_time %}
 

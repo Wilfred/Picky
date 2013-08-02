@@ -99,9 +99,6 @@ ul ul, ul ol, ol ul, ol ol {
 .timestamp {
     border-bottom: 1px dotted gray;
 }
-.meta-links.footer {
-    margin-top: -24px;
-}
 
 /* EDITING */
 .editor {
@@ -116,6 +113,16 @@ ul ul, ul ol, ol ul, ol ol {
 #preview {
     float: left;
     color: gray;
+}
+
+/* PAGES */
+.page > :last-child {
+    margin-bottom: 0;
+}
+
+/* COMMENTS */
+.comment > :last-child {
+    margin-bottom: 0;
 }
 
 /* HYPERLINKS */
