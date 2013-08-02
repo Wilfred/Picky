@@ -138,7 +138,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-LOGIN_URL = reverse_lazy('login')
+LOGIN_URL = reverse_lazy('login_picker')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGIN_ERROR_URL = '/login-error/'
 
