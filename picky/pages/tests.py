@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import re
@@ -52,6 +53,12 @@ class RenderingTest(TestCase):
     def test_br_rendering(self):
         page = milkman.deliver(Page, content="hello\\\\world")
         self.assertEqualIgnoringWhitespace(page.get_rendered_content(), "<p>hello<br/>world</p>")
+
+    def test_unicode_rendering(self):
+        content = u"Tú"
+        page = milkman.deliver(Page, content=content)
+        self.assertEqualIgnoringWhitespace(
+            page.get_rendered_content(), "<p>Tú</p>")
 
 
 class PageCreationTest(UserTest):
