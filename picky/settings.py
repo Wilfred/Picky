@@ -138,9 +138,9 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-LOGIN_URL          = '/login-form/'
+LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
-LOGIN_ERROR_URL    = '/login-error/'
+LOGIN_ERROR_URL = '/login-error/'
 
 SOCIAL_AUTH_FORCE_POST_DISCONNECT = True
 
@@ -173,8 +173,6 @@ INSTALLED_APPS = (
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-LOGIN_URL = '/user/login/'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
