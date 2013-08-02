@@ -2,13 +2,21 @@
 
 {% block page_comments_state %}active{% endblock %}
 
+{% load relative_time %}
+
 {% block inner-content %}
 
 {% for comment in comments %}
-<div class="well">
-    <div class="comment-body">{{ comment.get_rendered_content|safe }}</div>
+<div class="comment-wrapper">
+    <div class="comment">
+        {{ comment.get_rendered_content|safe }}
+    </div>
 
-    <span class="author">{{ comment.user.username }}, {{ comment.time }}</span>
+    <div class="meta-links footer">
+        <p>{{ comment.user.username }},
+            <span class="timestamp" title="{{ comment.time|date:"d M Y H:i" }}">{{ comment.time|relative_time }}</span>
+        </p>
+    </div>
 </div>
 {% endfor %}
 
