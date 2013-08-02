@@ -30,6 +30,9 @@ Running the app is then simply:
     $ python manage.py migrate
     $ python manage.py runserver
 
+You will need to remove the Twitter login on login_picker.html, as
+your local settings won't have the necessary keys.
+
 ### Deploying
 
 There's a Fabric file that deploys my personal instance. You'll need

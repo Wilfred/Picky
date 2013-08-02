@@ -6,6 +6,7 @@
 {% load url from future %}
 <ul>
     <li><a href="{% url 'socialauth_begin' 'google' %}">Google</a></li>
+    <li><a href="{% url 'socialauth_begin' 'twitter' %}">Twitter</a></li>
     <li><a href="{% url 'login' %}">{{ config.site_name }} Account</a></li>
 </ul>
 
