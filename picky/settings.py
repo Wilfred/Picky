@@ -142,6 +142,8 @@ LOGIN_URL          = '/login-form/'
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGIN_ERROR_URL    = '/login-error/'
 
+SOCIAL_AUTH_FORCE_POST_DISCONNECT = True
+
 ROOT_URLCONF = 'picky.urls'
 
 TEMPLATE_DIRS = (
