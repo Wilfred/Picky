@@ -138,6 +138,19 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+SOCIAL_AUTH_PIPELINE = (
+    # default
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.user.get_username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details',
+
+    # customisation
+    'picky.users.social_auth.new_users_inactive'
+)
+
 LOGIN_URL = reverse_lazy('login_picker')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGIN_ERROR_URL = '/login-error/'
