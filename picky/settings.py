@@ -1,4 +1,6 @@
 import os
+from django.core.urlresolvers import reverse_lazy
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -137,7 +139,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 LOGIN_URL          = '/login-form/'
-LOGIN_REDIRECT_URL = '/logged-in/'
+LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGIN_ERROR_URL    = '/login-error/'
 
 ROOT_URLCONF = 'picky.urls'
