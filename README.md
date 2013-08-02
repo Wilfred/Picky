@@ -29,6 +29,8 @@ facilitating building consensus.
 12. User Interface
 13. Tags
 14. Longevity
+15. Hypertext
+16. Maintenance
 
 #### Syntax
 
