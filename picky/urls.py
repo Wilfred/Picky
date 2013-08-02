@@ -30,6 +30,9 @@ urlpatterns = patterns('',
     url(r'^settings/$', 'site_config.views.configure_site', name='configure_site'),
     url(r'^meta/$', 'site_config.views.view_meta', name='meta'),
 
+    # todo: move to /user/social/login
+    url(r'', include('social_auth.urls')),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

@@ -10,17 +10,20 @@
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic" rel="stylesheet" type="text/css">
     </head>
     <body>
+        {% load url from future %}
         <div class="header meta-links column">
-            <a href="{% url index %}">{{ config.site_name }}</a>
+            <a href="{% url 'index' %}">{{ config.site_name }}</a>
 
             <div class="right-links">
-                <a href="{% url create_page %}">new</a>
-                <a href="{% url meta %}">meta</a>
+                <a href="{% url 'create_page' %}">new</a>
+                <a href="{% url 'meta' %}">meta</a>
 		{% if request.user.is_authenticated %}
-		<a href="{% url logout %}">logout</a>
+		<a href="{% url 'logout' %}">logout</a>
 		{% else %}
-		<a href="{% url login %}">login</a>
+		<a href="{% url 'login' %}">login</a>
 		{% endif %}
+
+                <a href="{% url 'socialauth_begin' 'google' %}">social login</a>
             </div>
         </div>
 
