@@ -28,6 +28,7 @@ facilitating building consensus.
 11. Media
 12. User Interface
 13. Tags
+14. Longevity
 
 #### Syntax
 
@@ -189,6 +190,16 @@ editors).
 
 It should be possible to tag pages. A tag a simple string associated
 with a page that enables users to view other page that have the same tag.
+
+#### Longevity
+
+The wiki should be able to run for ten years without problem. This
+requires pure dependencies (e.g. pure Python dependencies rather than
+Python C modules). External dependencies (e.g. database) should be
+well-established, actively maintained tools. JavaScript should be
+hosted on the site itself. In addition to logging in with accounts
+from social networks, users should be able to create 'native' accounts
+that don't depend on the availability of other sites.
 
 ### Development
 
