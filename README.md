@@ -15,6 +15,20 @@ A wiki should foster high quality content written by a community. It
 should aid many users getting involved through effortless editing and
 facilitating building consensus.
 
+1. Purpose
+2. Syntax
+3. External Links
+4. Internal Links
+5. Changes
+6. Error Pages
+7. Users
+8. Technology
+9. Editing
+10. Discussions
+11. Media
+12. User Interface
+13. Tags
+
 #### Syntax
 
 The syntax should be lightweight and
