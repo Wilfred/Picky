@@ -144,9 +144,10 @@ td, th {
 }
 
 /* PREFORMATTED & CODE */
-pre {
+pre, code {
     border: 0;
     padding: 0;
     margin: 0 0 24px 0;
     background-color: transparent;
+    color: black;
 }
