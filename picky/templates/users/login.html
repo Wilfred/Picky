@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Login</h1>
+<h1>{{ config.site_name }} Login</h1>
 
 <form method="post" class="well">
 {% csrf_token %}
