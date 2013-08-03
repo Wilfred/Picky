@@ -4,6 +4,50 @@ GPLv2 license. Django. Python. Meeting real needs.
 
 [![Build Status](https://secure.travis-ci.org/Wilfred/Picky.png?branch=master)](http://travis-ci.org/Wilfred/Picky)
 
+### Development
+
+Picky uses Postgresql. Create an account and a database:
+
+    $ sudo -u postgres psql template1
+    psql (9.1.4)
+    Type "help" for help.
+
+    template1=# create role picky superuser login password '5de9522f713d30d7e5155c';
+    CREATE ROLE
+    template1=# create database picky owner picky;
+    CREATE DATABASE
+
+You also need to install the dependencies:
+
+    $ virtualenv ~/.py_envs/picky -p python2.7
+    $ . ~/.py_envs/picky/bin/activate
+    $ pip install -r requirements.pip
+    
+Running the app is then simply:
+
+    $ cd picky
+    $ python manage.py syncdb
+    $ python manage.py migrate
+    $ python manage.py runserver
+
+### Deploying
+
+There's a Fabric file that deploys my personal instance. You'll need
+to modify this for your own production instance.
+
+   $ fab deploy
+
+### Known bugs
+
+Live preview renders links `ftp://foo` as anchor tags but server-side
+does not. Also, in the following table:
+
+    |= Header title               |= Another header title     |
+    | {{{ //not italic text// }}} | {{{ **not bold text** }}} |
+    | //italic text//             | **  bold text **          |
+
+the live preview does not wrap the escaped content in `<code>` tags.
+
 ### Philosophy/Aims
 
 This sections sets out the design goals of Picky. Not all these
@@ -29,8 +73,6 @@ facilitating building consensus.
 12. User Interface
 13. Tags
 14. Longevity
-15. Hypertext
-16. Maintenance
 
 #### Syntax
 
@@ -202,47 +244,3 @@ well-established, actively maintained tools. JavaScript should be
 hosted on the site itself. In addition to logging in with accounts
 from social networks, users should be able to create 'native' accounts
 that don't depend on the availability of other sites.
-
-### Development
-
-Picky uses Postgresql. Create an account and a database:
-
-    $ sudo -u postgres psql template1
-    psql (9.1.4)
-    Type "help" for help.
-
-    template1=# create role picky superuser login password '5de9522f713d30d7e5155c';
-    CREATE ROLE
-    template1=# create database picky owner picky;
-    CREATE DATABASE
-
-You also need to install the dependencies:
-
-    $ virtualenv ~/.py_envs/picky -p python2.7
-    $ . ~/.py_envs/picky/bin/activate
-    $ pip install -r requirements.pip
-    
-Running the app is then simply:
-
-    $ cd picky
-    $ python manage.py syncdb
-    $ python manage.py migrate
-    $ python manage.py runserver
-
-### Deploying
-
-There's a Fabric file that deploys my personal instance. You'll need
-to modify this for your own production instance.
-
-   $ fab deploy
-
-### Known bugs
-
-Live preview renders links `ftp://foo` as anchor tags but server-side
-does not. Also, in the following table:
-
-    |= Header title               |= Another header title     |
-    | {{{ //not italic text// }}} | {{{ **not bold text** }}} |
-    | //italic text//             | **  bold text **          |
-
-the live preview does not wrap the escaped content in `<code>` tags.
