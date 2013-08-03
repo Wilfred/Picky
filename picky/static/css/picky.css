@@ -134,6 +134,9 @@ img.favicon {
 a:visited {
     color: #800080
 }
+a.nonexistent {
+    color: red;
+}
 
 /* TABLES */
 table {

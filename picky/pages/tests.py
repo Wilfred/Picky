@@ -60,6 +60,12 @@ class RenderingTest(TestCase):
         self.assertEqualIgnoringWhitespace(
             page.get_rendered_content(), "<p>Tú</p>")
 
+    def test_nonexistent_url_rendering(self):
+        page = milkman.deliver(Page, content="[[no_such_page]]")
+        self.assertEqualIgnoringWhitespace(
+            page.get_rendered_content(),
+            '<p><a class="nonexistent" href="/page/no_such_page">no_such_page</a></p>')
+
 
 class PageCreationTest(UserTest):
     def test_page_creation(self):

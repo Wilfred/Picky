@@ -48,6 +48,8 @@ does not. Also, in the following table:
 
 the live preview does not wrap the escaped content in `<code>` tags.
 
+Live preview currently does not label nonexistent pages.
+
 ### Philosophy/Aims
 
 This sections sets out the design goals of Picky. Not all these
