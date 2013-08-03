@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls.defaults import patterns, url
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^new_page/$', 'pages.views.create_page', name='create_page'),
     url(r'^new_page/(?P<page_slug>[^/]+)$', 'pages.views.create_page', name='create_page'),
                        
-    url(r'^page/(?P<page_slug>[^/]+)$', 'pages.views.view_page', name='view_page'),
+    url(r'^page/(?P<page_slug>[^/]+)/$', 'pages.views.view_page', name='view_page'),
     url(r'^page/(?P<page_slug>[^/]+)/edit/$', 'pages.views.edit_page', name='edit_page'),
     url(r'^page/(?P<page_slug>[^/]+)/history/$', 'pages.views.view_page_history', name='view_page_history'),
 
