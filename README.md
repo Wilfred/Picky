@@ -74,6 +74,7 @@ facilitating building consensus.
 13. Tags
 14. Longevity
 15. Hypertext
+16. Search
 
 #### Syntax
 
@@ -259,3 +260,8 @@ The wiki should therefore combat link rot, show reverse links ('what
 links to this page?'), allow previewing of links without visiting the
 page, have an explicit content license, and (of course!) store history
 of pages.
+
+#### Search
+
+The wiki must have a search feature that indexes the full text of
+pages, preferably including historical versions.
