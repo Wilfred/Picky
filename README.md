@@ -53,12 +53,6 @@ the live preview does not wrap the escaped content in `<code>` tags.
 This sections sets out the design goals of Picky. Not all these
 features have been implemented yet.
 
-#### Purpose
-
-A wiki should foster high quality content written by a community. It
-should aid many users getting involved through effortless editing and
-facilitating building consensus.
-
 1. Purpose
 2. Syntax
 3. External Links
@@ -75,6 +69,13 @@ facilitating building consensus.
 14. Longevity
 15. Hypertext
 16. Search
+17. Maintenance
+
+#### Purpose
+
+A wiki should foster high quality content written by a community. It
+should aid many users getting involved through effortless editing and
+facilitating building consensus.
 
 #### Syntax
 
@@ -249,6 +250,7 @@ well-established, actively maintained tools. JavaScript should be
 hosted on the site itself. In addition to logging in with accounts
 from social networks, users should be able to create 'native' accounts
 that don't depend on the availability of other sites.
+
 #### Hypertext
 
 The wiki design should be based on the principles of traditional
@@ -265,3 +267,13 @@ of pages.
 
 The wiki must have a search feature that indexes the full text of
 pages, preferably including historical versions.
+
+#### Maintenance
+
+The wiki should be easy to set up, to make it easy for people to set
+up the wiki for use within their organisation. Therefore the wiki code
+should be as self-contained as possible, with minimal server
+dependencies.
+
+Once set up, the wiki should require very little maintenance, so the
+users are as self-sufficient as possible.
