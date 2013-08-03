@@ -123,6 +123,7 @@ class PageViewTest(UserTest):
             reverse('view_page', args=["no-page-with-this-name"]))
 
         self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, "pages/no_such_page.html")
 
     def test_page_history(self):
         page = milkman.deliver(Page, name='foo', content='foo')
