@@ -73,6 +73,7 @@ facilitating building consensus.
 12. User Interface
 13. Tags
 14. Longevity
+15. Hypertext
 
 #### Syntax
 
@@ -247,3 +248,14 @@ well-established, actively maintained tools. JavaScript should be
 hosted on the site itself. In addition to logging in with accounts
 from social networks, users should be able to create 'native' accounts
 that don't depend on the availability of other sites.
+#### Hypertext
+
+The wiki design should be based on the principles of traditional
+hypertext. Early hypertext designs, such as Xanadu, included
+transclusion (including parts of other pages), strove to avoid broken
+links, version control, and rights management.
+
+The wiki should therefore combat link rot, show reverse links ('what
+links to this page?'), allow previewing of links without visiting the
+page, have an explicit content license, and (of course!) store history
+of pages.
