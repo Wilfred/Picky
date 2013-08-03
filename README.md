@@ -190,6 +190,9 @@ Users should be able to upload attachments (images for pages, and
 other useful files). These should have the same history model as pages
 -- undoable, with edit summaries.
 
+Edit conflicts should be detected and the site should try to help fix
+the situation.
+
 #### Discussions
 
 All wikis have discussions, but not all wiki separate the discussion
