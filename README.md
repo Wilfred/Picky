@@ -265,6 +265,12 @@ links to this page?'), allow previewing of links without visiting the
 page, have an explicit content license, and (of course!) store history
 of pages.
 
+Discovering existing content is very
+important. [Everything2](http://en.wikipedia.org/wiki/Everything2#Soft_links)
+detects where users go next to calculate related pages. Stack Overflow
+displays similar question. The wiki should therefore show similar
+pages to help users discover or merge related pages.
+
 #### Search
 
 The wiki must have a search feature that indexes the full text of
