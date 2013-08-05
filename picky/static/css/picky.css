@@ -112,6 +112,8 @@ ul ul, ul ol, ol ul, ol ol {
 }
 #preview {
     float: left;
+}
+#preview * {
     color: gray;
 }
 
