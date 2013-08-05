@@ -127,9 +127,9 @@ ul ul, ul ol, ol ul, ol ol {
 
 /* HYPERLINKS */
 img.favicon {
-    vertical-align: middle;
+    vertical-align: sub;
     max-height: 16px;
-    padding-right: 5px;
+    padding-right: 3px;
 }
 a:visited {
     color: #800080
