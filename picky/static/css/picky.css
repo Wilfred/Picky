@@ -112,8 +112,6 @@ ul ul, ul ol, ol ul, ol ol {
 }
 #preview {
     float: left;
-}
-#preview * {
     color: gray;
 }
 
@@ -161,5 +159,5 @@ pre, code {
     padding: 0;
     margin: 0 0 24px 0;
     background-color: transparent;
-    color: black;
+    color: inherit;
 }
