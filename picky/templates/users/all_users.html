@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>All Users</h1>
+<h1>Users</h1>
 
 <p>Current user: {{ request.user.username }}
 </p>
 
 {% if active_users %}
+<h2>Active Users</h2>
 <table class="table table-striped table-bordered">
     <thead>
             <tr>
@@ -40,6 +41,8 @@
 {% endif %}
 
 {% if inactive_users %}
+<h2>Inactive Users</h2>
+
 <table class="table table-striped table-bordered">
     <thead>
             <tr>
@@ -67,9 +70,6 @@
 	{% endfor %}
     </tbody>
 </table>
-
-{% else %}
-<p>No inactive users yet.</p>
 {% endif %}
 
 <p><a href="{% url create_user %}">Create a user.</a>
