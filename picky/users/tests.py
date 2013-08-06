@@ -10,7 +10,7 @@ class LoginTest(TestCase):
         """Test that we force the user to log in, even for non-existent URLs."""
         response = self.client.get('/i-dont-exist', follow=True)
 
-        self.assertTemplateUsed(response, "users/login.html")
+        self.assertTemplateUsed(response, "users/login_picker.html")
 
 
 class SuperuserOnlyTest(UserTest):
