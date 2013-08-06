@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     url(r'^user/login/$', 'users.views.login_picker', name="login_picker"),
     url(r'^user/login/native/$', 'django.contrib.auth.views.login', {'template_name': 'users/login.html'}, name="login"),
     url(r'^user/logout/$', 'users.views.logout_user', name="logout"),
+    url(r'^user/not_active/$', 'users.views.user_not_active', name="user_not_active"),
 
     url(r'^settings/$', 'site_config.views.configure_site', name='configure_site'),
     url(r'^meta/$', 'site_config.views.view_meta', name='meta'),

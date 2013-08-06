@@ -153,7 +153,7 @@ SOCIAL_AUTH_PIPELINE = (
 
 LOGIN_URL = reverse_lazy('login_picker')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
-LOGIN_ERROR_URL = '/login-error/'
+LOGIN_ERROR_URL = reverse_lazy('user_not_active')
 
 SOCIAL_AUTH_FORCE_POST_DISCONNECT = True
 

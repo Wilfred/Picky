@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.shortcuts import render_to_response, get_object_or_404, render
+from django.shortcuts import (render_to_response, get_object_or_404,
+                              render, redirect)
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -92,3 +93,11 @@ def logout_user(request):
 
 def login_picker(request):
     return render(request, 'users/login_picker.html')
+
+
+def user_not_active(request):
+    user = request.user
+    if user.is_authenticated() and user.is_active:
+        return redirect('index')
+    
+    return render(request, "users/user_not_active.html")
