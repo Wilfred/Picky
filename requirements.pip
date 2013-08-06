@@ -3,7 +3,9 @@ Django==1.4.5
 Fabric==1.5.1
 Genshi==0.7
 South==0.7.6
+argparse==1.2.1
 beautifulsoup4==4.2.1
+coverage==3.6
 django-nose==1.1
 django-social-auth==0.7.25
 docutils==0.9.1
