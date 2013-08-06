@@ -12,7 +12,11 @@ from .forms import UserForm
 
 @login_required
 def all_users(request):
-    template_vars = {'users': User.objects.order_by('email')}
+    active_users = User.objects.filter(is_active=True).order_by('email')
+    inactive_users = User.objects.filter(is_active=False).order_by('email')
+    
+    template_vars = {'active_users': active_users,
+                     'inactive_users': inactive_users}
     return render_to_response("users/all_users.html", template_vars,
                               RequestContext(request))
 
