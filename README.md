@@ -227,8 +227,13 @@ display uploaded images on articles.
 #### User Interface
 
 The interface should be as simple as possible. A wiki is fundamentally
-about reading and editing text, so the design should reflect
-this. Editing should be effortless.
+about reading and editing text, so the design should reflect this.
+
+This emphasis on text will require good typographic stylic, with
+adequately sized fonts and line lengths kept comfortable (code
+snippets, however should be free to have longer lines).
+
+Editing should be effortless.
 
 The interface should encourage users to make positive contributions,
 but discourage flamewars and vandalism.
