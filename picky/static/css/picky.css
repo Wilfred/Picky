@@ -160,4 +160,6 @@ pre, code {
     margin: 0 0 24px 0;
     background-color: transparent;
     color: inherit;
+    overflow-x: scroll;
+    white-space: pre;
 }
