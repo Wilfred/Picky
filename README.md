@@ -4,6 +4,30 @@ GPLv2 license. Django. Python. Meeting real needs.
 
 [![Build Status](https://secure.travis-ci.org/Wilfred/Picky.png?branch=master)](http://travis-ci.org/Wilfred/Picky)
 
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+	- [Development](#development)
+	- [Deploying](#deploying)
+	- [Known bugs](#known-bugs)
+	- [Philosophy/Aims](#philosophyaims)
+		- [Purpose](#purpose)
+		- [Syntax](#syntax)
+		- [External Links](#external-links)
+		- [Internal Links](#internal-links)
+		- [Changes](#changes)
+		- [Error pages](#error-pages)
+		- [Users](#users)
+		- [Technology](#technology)
+		- [Editing](#editing)
+		- [Discussions](#discussions)
+		- [Media](#media)
+		- [User Interface](#user-interface)
+		- [Tags](#tags)
+		- [Longevity](#longevity)
+		- [Hypertext](#hypertext)
+		- [Search](#search)
+		- [Maintenance](#maintenance)
+
 ### Development
 
 Picky uses Postgresql. Create an account and a database:
@@ -57,24 +81,6 @@ Live preview currently does not label nonexistent pages.
 
 This sections sets out the design goals of Picky. Not all these
 features have been implemented yet.
-
-1. Purpose
-2. Syntax
-3. External Links
-4. Internal Links
-5. Changes
-6. Error Pages
-7. Users
-8. Technology
-9. Editing
-10. Discussions
-11. Media
-12. User Interface
-13. Tags
-14. Longevity
-15. Hypertext
-16. Search
-17. Maintenance
 
 #### Purpose
 
