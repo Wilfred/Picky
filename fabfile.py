@@ -1,28 +1,27 @@
-from fabric.api import env, cd, run
+from fabric.api import env, cd, sudo
 
 
-env.hosts = ['wilfred.webfactional.com']
-env.directory = "~/webapps/django/picky" # FIXME: this is a lousy folder name
-env.activate   = "source ~/.virtualenvs/picky/bin/activate"
+env.hosts = ['wilfred@wiki.wilfred.me.uk']
+env.directory = "/home/picky/src/Picky"
+env.activate   = "source /home/picky/.envs/picky/bin/activate"
 
 
-def virtualenv(command):
-    run(env.activate + ' && ' + command)
+def virtualenv(command, user="picky"):
+    sudo(env.activate + ' && ' + command, user=user)
     
 
 def deploy():
     with cd(env.directory):
-        run('git pull origin master')
+        sudo('git pull origin master', user="picky")
         virtualenv('pip install -r requirements.pip')
 
         with cd("picky"):
             virtualenv('python manage.py syncdb')
             virtualenv('python manage.py migrate')
-            virtualenv('python manage.py collectstatic --noinput')
 
     restart()
 
 
 def restart():
-    run("~/webapps/django/apache2/bin/restart")
+    sudo("supervisorctl restart picky")
 
