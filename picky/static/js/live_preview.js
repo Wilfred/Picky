@@ -1,5 +1,7 @@
 (function(){
     "use strict";
+    var $preview = $("#preview"),
+        knownUrls = [];
     
     function creoleToHtml(creoleSource) {
         /* Return the creole source rendered to html.
@@ -34,13 +36,31 @@
 
         var $preview = $("#preview");
         $preview.html(creoleToHtml(pageSource));
-
-        $preview.trigger('previewChanged');
     }
 
-    // add favicons after the preview is rendered
-    var $preview = $("#preview");
+    /* Asychronously update our known URLs, as other pages may have
+     * been created whilst we're editing.
+     */
+    function updateKnownUrls() {
+        $.ajax("/all_pages/urls/").done(function(urls) {
+            knownUrls = urls;
+
+            $preview.trigger('previewChanged');
+        });
+    }
+
+    // get the known URLs, and update them every 30 seconds
+    updateKnownUrls();
+    setInterval(updateKnownUrls, 30*1000);
+
+    function endsWith(str, suffix) {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+
     $preview.on('previewChanged', function() {
+        showPreview();
+        
+        // add favicons after the preview is rendered
         $('#preview a').each(function() {
             var $a = $(this),
                 url = $a.attr('href'),
@@ -50,14 +70,32 @@
                 iconUrl = "//getfavicon.appspot.com/" + encodeURIComponent(url);
                 $a.before('<img class="favicon" src="' + iconUrl + '">');
             }
-
         });
+
+        // highlight nonexistent urls
+        $('#preview a').each(function() {
+            var $a = $(this),
+                url = $a.attr('href');
+
+            if (!endsWith(url, "/")) {
+                url = url + "/";
+            }
+
+            if (!isExternal(url) && !_.contains(knownUrls, url) && !_.isEmpty(knownUrls)) {
+                $a.addClass('nonexistent');
+            } else {
+                $a.removeClass('nonexistent');
+            }
+        });
+
     });
 
     // render the content on initial pageload
-    showPreview();
+    $preview.trigger('previewChanged');
 
     // update the preview whenever the source changes
-    $("#id_content").keyup(showPreview);
+    $("#id_content").keyup(function() {
+        $preview.trigger('previewChanged');
+    });
 
 })();
