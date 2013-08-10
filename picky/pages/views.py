@@ -1,4 +1,6 @@
-from django.http import HttpResponseRedirect
+import json
+
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404, redirect, render
 from django.core.urlresolvers import reverse
@@ -135,6 +137,14 @@ def view_page_history(request, page_slug):
                      'all_revisions': all_revisions}
     return render_to_response("pages/view_page_history.html", template_vars,
                               RequestContext(request))
+
+
+@login_required
+def all_page_names(request):
+    """Used by JS to work out which page URLs exist."""
+    page_urls = list(Page.objects.all_urls())
+    return HttpResponse(json.dumps(page_urls),
+                        content_type="application/json")
 
 
 def page_404(request, page_slug):

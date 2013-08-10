@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
+import json
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
@@ -163,3 +164,17 @@ class IndexTest(UserTest):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "pages/view_page.html")
+
+class AjaxTest(UserTest):
+    def test_all_urls(self):
+        page = milkman.deliver(Page, name="Foo")
+
+        response = self.client.get(reverse('all_page_names'))
+
+        # expect a valid JSOn response
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response._headers['content-type'],
+                         ('Content-Type', 'application/json'))
+
+        expected = [reverse('view_page', args=[page.name_slug])]
+        self.assertEqual(json.loads(response.content), expected)
