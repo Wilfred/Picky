@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 import re
 
 from django.test import TestCase
@@ -58,7 +56,7 @@ class RenderingTest(TestCase):
         content = u"Tú"
         page = milkman.deliver(Page, content=content)
         self.assertEqualIgnoringWhitespace(
-            page.get_rendered_content(), "<p>Tú</p>")
+            page.get_rendered_content(), u"<p>Tú</p>")
 
     def test_nonexistent_url_rendering(self):
         page = milkman.deliver(Page, content="[[no_such_page]]")
