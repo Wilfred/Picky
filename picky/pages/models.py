@@ -1,11 +1,27 @@
 from django.db import models
 from django.utils.text import truncate_words
+from django.core.urlresolvers import reverse
 
 from .utils import slugify
 from .rendering import render_creole
 
 
+class PageManager(models.Manager):
+    def all_urls(self):
+        urls = set()
+        for page in self.all():
+            # Since we can link to both slugs and original names, we
+            # consider both.
+            urls.add(reverse('view_page', args=[page.name]))
+            urls.add(reverse('view_page', args=[page.name_slug]))
+
+        return urls
+
+
+
 class Page(models.Model):
+    objects = PageManager()
+    
     name = models.CharField(max_length=200, unique=True)
     name_slug = models.CharField(max_length=200, editable=False, unique=True)
     name_lower = models.CharField(max_length=200, editable=False)

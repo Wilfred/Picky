@@ -38,12 +38,7 @@ def render_creole(source):
     from .models import Page
 
     # build a set of all possible internal links
-    page_urls = set()
-    for page in Page.objects.all():
-        # Since we can link to both slugs and original names, we
-        # consider both.
-        page_urls.add(reverse('view_page', args=[page.name]))
-        page_urls.add(reverse('view_page', args=[page.name_slug]))
+    page_urls = Page.objects.all_urls()
 
     # add a class to links to nonexistent pages
     for a_tag in soup.find_all('a'):
