@@ -30,7 +30,7 @@ GPLv2 license. Django. Python. Meeting real needs.
 
 ### Development
 
-Picky uses Postgresql. Create an account and a database:
+Picky currently uses Postgresql. Create an account and a database:
 
     $ sudo -u postgres psql template1
     psql (9.1.4)
@@ -40,6 +40,11 @@ Picky uses Postgresql. Create an account and a database:
     CREATE ROLE
     template1=# create database picky owner picky;
     CREATE DATABASE
+
+The Python Postgresql client is a C library that requires headers. On
+Ubuntu:
+
+    $ sudo apt-get install libpq-dev python-dev
 
 You also need to install the dependencies:
 
