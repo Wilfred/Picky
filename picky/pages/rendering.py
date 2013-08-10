@@ -19,12 +19,12 @@ def is_external(url):
 
 def render_creole(source):
     dialect = create_dialect(creole10_base, wiki_links_base_url="/page/")
-    parser = Parser(dialect=dialect, method='html')
+    parser = Parser(dialect=dialect, method='html', encoding=None)
 
     html = parser.render(source)
 
     # add favicons to external URLs
-    soup = BeautifulSoup(html, from_encoding='utf-8')
+    soup = BeautifulSoup(html)
     for a_tag in soup.find_all('a'):
         url = a_tag['href']
         if is_external(url):
