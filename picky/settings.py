@@ -210,6 +210,8 @@ LOGGING = {
     }
 }
 
+WSGI_APPLICATION = "picky.wsgi.application"
+
 try:
     from live_settings import *
 except ImportError:
