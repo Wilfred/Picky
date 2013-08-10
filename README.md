@@ -69,6 +69,17 @@ to modify this for your own production instance.
 
    $ fab deploy
 
+I run picky with gunicorn as the HTTP server and supervisord
+monitoring the process. Here's my configuration:
+
+    [program:picky]
+    command=/home/picky/.envs/picky/bin/gunicorn_django -b 127.0.0.1:9000 --workers=3
+    directory=/home/picky/src/Picky
+    user=picky
+    autostart=True
+    autorestart=True
+    redirect_stderr=True
+
 ### Known bugs
 
 Live preview renders links `ftp://foo` as anchor tags but server-side
