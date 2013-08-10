@@ -29,10 +29,19 @@
         return false;
     }
 
-    function addFavicons(htmlSource) {
-        var $html = $(htmlSource);
+    function showPreview() {
+        var pageSource =  $("#id_content").val();
 
-        $html.find('a').each(function() {
+        var $preview = $("#preview");
+        $preview.html(creoleToHtml(pageSource));
+
+        $preview.trigger('previewChanged');
+    }
+
+    // add favicons after the preview is rendered
+    var $preview = $("#preview");
+    $preview.on('previewChanged', function() {
+        $('#preview a').each(function() {
             var $a = $(this),
                 url = $a.attr('href'),
                 iconUrl;
@@ -41,23 +50,14 @@
                 iconUrl = "//getfavicon.appspot.com/" + encodeURIComponent(url);
                 $a.before('<img class="favicon" src="' + iconUrl + '">');
             }
+
         });
-
-        return $html.html();
-    }
-
-    function showPreview() {
-        var pageSource =  $("#id_content").val();
-
-        var $preview = $("#preview");
-        $preview.html(addFavicons(creoleToHtml(pageSource)));
-    }
+    });
 
     // render the content on initial pageload
     showPreview();
-    
-    $(document).ready(function() {
-        $("#id_content").keyup(showPreview);
-    });
+
+    // update the preview whenever the source changes
+    $("#id_content").keyup(showPreview);
 
 })();
