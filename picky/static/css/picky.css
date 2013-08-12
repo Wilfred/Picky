@@ -114,6 +114,16 @@ ul ul, ul ol, ol ul, ol ol {
     float: left;
     color: gray;
 }
+/* we use more muted link colors for the preview */
+#preview a {
+    color: #4084a6;
+}
+#preview a:visited {
+    color: #804080
+}
+#preview a.nonexistent {
+    color: #c04040;
+}
 
 /* PAGES */
 .page > :last-child {
