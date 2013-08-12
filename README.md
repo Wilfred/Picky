@@ -1,32 +1,38 @@
-Picky: An opinionated wiki
-
-GPLv2 license. Django. Python. Meeting real needs.
-
-[![Build Status](https://secure.travis-ci.org/Wilfred/Picky.png?branch=master)](http://travis-ci.org/Wilfred/Picky)
-
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
+- [Introduction](#introduction)
 - [Development](#development)
 - [Deploying](#deploying)
 - [Known bugs](#known-bugs)
 - [Philosophy/Aims](#philosophyaims)
-    - [Purpose](#purpose)
-    - [Syntax](#syntax)
-    - [External Links](#external-links)
-    - [Internal Links](#internal-links)
-    - [Changes](#changes)
-    - [Error pages](#error-pages)
-    - [Users](#users)
-    - [Technology](#technology)
-    - [Editing](#editing)
-    - [Discussions](#discussions)
-    - [Media](#media)
-    - [User Interface](#user-interface)
-    - [Tags](#tags)
-    - [Longevity](#longevity)
-    - [Hypertext](#hypertext)
-    - [Search](#search)
-    - [Maintenance](#maintenance)
+	- [Purpose](#purpose)
+	- [Syntax](#syntax)
+	- [External Links](#external-links)
+	- [Internal Links](#internal-links)
+	- [Changes](#changes)
+	- [Error pages](#error-pages)
+	- [Users](#users)
+	- [Technology](#technology)
+	- [Editing](#editing)
+	- [Discussions](#discussions)
+	- [Media](#media)
+	- [User Interface](#user-interface)
+	- [Tags](#tags)
+	- [Longevity](#longevity)
+	- [Hypertext](#hypertext)
+	- [Search](#search)
+	- [Maintenance](#maintenance)
+
+### Introduction
+
+Picky is a wiki implemented with Python and Django. It aims to explore
+designing a site that encourages thorough, high quality,
+community-developed content through careful feature choice and UI
+design.
+
+GPLv2 license.
+
+[![Build Status](https://secure.travis-ci.org/Wilfred/Picky.png?branch=master)](http://travis-ci.org/Wilfred/Picky)
 
 ### Development
 
