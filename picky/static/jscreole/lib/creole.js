@@ -97,7 +97,7 @@ var creole = function(options) {
         _namedLink: { _regex: '\\[\\[(' + rx._link + ')\\|(' + rx._linkText + ')\\]\\]',
             _build: function(node, r, options) {
                 var link = document.createElement('a');
-                var target = r[1].replace(/~(.)/g, '$1').replace(" ", "_");
+                var target = r[1].replace(/~(.)/g, '$1').replace(/\s+/g, "_");
 
                 link.href = options && options.linkFormat
                     ? formatLink(target, options.linkFormat)
