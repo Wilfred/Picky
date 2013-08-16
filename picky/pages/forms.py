@@ -9,6 +9,14 @@ class PageForm(ModelForm):
         model = Page
         widgets = {'content': Textarea(attrs={'rows': 22})}
 
+    def save(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        
+        kwargs['commit'] = False
+        page = super(PageForm, self).save(*args, **kwargs)
+
+        return page.save(user=user)
+
     def clean_name(self):
         """Check that this name doesn't match any other name when converted to
         a slug. We also check that this page name won't introduce a
