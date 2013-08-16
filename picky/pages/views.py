@@ -147,6 +147,14 @@ def all_page_names(request):
                         content_type="application/json")
 
 
+@login_required
+def recent_changes(request):
+    latest_revisions = PageRevision.objects.order_by('time')[:10]
+
+    template_vars = {'latest_revisions': latest_revisions}
+    return render(request, 'pages/recent_changes.html', template_vars)
+
+
 def page_404(request, page_slug):
     """Return a helpful 404 if the user was looking for a page that
     doesn't exist.

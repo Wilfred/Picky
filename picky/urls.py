@@ -33,6 +33,7 @@ urlpatterns = patterns('',
     # todo: organise URLs into pages/, meta/, and ajax/
     url(r'^settings/$', 'site_config.views.configure_site', name='configure_site'),
     url(r'^meta/$', 'site_config.views.view_meta', name='meta'),
+    url(r'^meta/recent_changes/$', 'pages.views.recent_changes', name='recent_changes'),
 
     # todo: move to /user/social/login
     url(r'', include('social_auth.urls')),

@@ -178,3 +178,10 @@ class AjaxTest(UserTest):
 
         expected = [reverse('view_page', args=[page.name_slug])]
         self.assertEqual(json.loads(response.content), expected)
+
+
+class RecentChangesTest(UserTest):
+    def test_recent_changes_renders(self):
+        response = self.client.get(reverse('recent_changes'))
+        self.assertEqual(response.status_code, 200)
+        
