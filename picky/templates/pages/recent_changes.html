@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load relative_time %}
 
 {% block content %}
 <h1>Recent Changes</h1>
@@ -18,7 +19,9 @@
                 <a href="{% url view_page revision.page.name_slug %}">{{ revision.page.name }}</a>
             </td>
             <td>{{ revision.author|default:"Anonymous" }}</td>
-            <td>{{ revision.time }}</td>
+            <td>
+                <span class="timestamp" title="{{ revision.time|date:"d M Y H:i" }}">{{ revision.time|relative_time }}</span>
+            </td>
         </tr>
 	{% empty %}
         <tr>
