@@ -18,7 +18,6 @@ class PageManager(models.Manager):
         return urls
 
 
-
 class Page(models.Model):
     objects = PageManager()
     
@@ -86,4 +85,4 @@ class PageRevision(models.Model):
     time = models.DateTimeField(auto_now_add=True, null=True)
 
     def __unicode__(self):
-        return u"%s at %s" %(self.page.name, self.time)
+        return u"%s at %s" % (self.page.name, self.time)
