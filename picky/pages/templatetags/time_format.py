@@ -40,3 +40,11 @@ def relative_time(dt):
         return "%d weeks ago" % (timesince.total_seconds() / (60 * 60 * 24 * 7))
 
     return "%d months ago" % (timesince.total_seconds() / (60 * 60 * 24 * 7 * 30))
+
+
+@register.filter
+def absolute_time(dt):
+    if not dt:
+        return "never"
+
+    return dt.strftime("%Y %B %d, %H:%M")

@@ -2,7 +2,7 @@
 
 {% block page_comments_state %}active{% endblock %}
 
-{% load relative_time %}
+{% load time_format %}
 
 {% block inner-content %}
 
@@ -14,7 +14,7 @@
 
     <div class="meta-links footer">
         <p>{{ comment.user.username }},
-            <span class="timestamp" title="{{ comment.time|date:"d M Y H:i" }}">{{ comment.time|relative_time }}</span>
+            <span class="timestamp" title="{{ comment.time|absolute_time }}">{{ comment.time|relative_time }}</span>
         </p>
     </div>
 </div>

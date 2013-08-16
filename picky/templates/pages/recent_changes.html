@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load relative_time %}
+{% load time_format %}
 
 {% block content %}
 <h1>Recent Changes</h1>
@@ -20,7 +20,7 @@
             </td>
             <td>{{ revision.author|default:"Anonymous" }}</td>
             <td>
-                <span class="timestamp" title="{{ revision.time|date:"d M Y H:i" }}">{{ revision.time|relative_time }}</span>
+                <span class="timestamp" title="{{ revision.time|absolute_time }}">{{ revision.time|relative_time }}</span>
             </td>
         </tr>
 	{% empty %}
