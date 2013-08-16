@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import truncate_words
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 from .utils import slugify
 from .rendering import render_creole
@@ -83,6 +84,7 @@ class PageRevision(models.Model):
     page = models.ForeignKey('Page')
     version = models.IntegerField(default=1, editable=False)
     time = models.DateTimeField(auto_now_add=True, null=True)
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     def __unicode__(self):
         return u"%s at %s" % (self.page.name, self.time)

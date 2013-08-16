@@ -32,7 +32,7 @@ def create_page(request, page_slug=None):
         form = PageForm(request.POST)
 
         if form.is_valid():
-            page = form.save()
+            page = form.save(user=request.user)
             return HttpResponseRedirect(reverse('view_page', args=[page.name_slug]))
     else:
         # todo: unslugify
@@ -52,7 +52,7 @@ def edit_page(request, page_slug):
         form = PageForm(request.POST, instance=page)
 
         if form.is_valid():
-            form.save()
+            form.save(user=request.user)
             return HttpResponseRedirect(reverse('view_page', args=[page.name_slug]))
     else:
         form = PageForm(instance=page)
