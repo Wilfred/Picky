@@ -56,7 +56,7 @@ class Page(models.Model):
     def get_change_count(self):
         return self.pagerevision_set.count() - 1
 
-    def save(self):
+    def save(self, user):
         self.total_revisions += 1
 
         # We do the minimum modification possible to produce a
@@ -70,7 +70,8 @@ class Page(models.Model):
         super(Page, self).save()
 
         PageRevision.objects.create(
-            page=self, content=self.content, version=self.total_revisions)
+            page=self, content=self.content, version=self.total_revisions,
+            author=user)
 
     def __unicode__(self):
         return u"%s %s" % (self.name, truncate_words(self.content, 4))
