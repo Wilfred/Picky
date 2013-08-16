@@ -30,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^user/logout/$', 'users.views.logout_user', name="logout"),
     url(r'^user/not_active/$', 'users.views.user_not_active', name="user_not_active"),
 
+    # todo: organise URLs into pages/, meta/, and ajax/
     url(r'^settings/$', 'site_config.views.configure_site', name='configure_site'),
     url(r'^meta/$', 'site_config.views.view_meta', name='meta'),
 
