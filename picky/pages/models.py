@@ -56,7 +56,7 @@ class Page(models.Model):
     def get_change_count(self):
         return self.pagerevision_set.count() - 1
 
-    def save(self, user):
+    def save(self, user=None):
         self.total_revisions += 1
 
         # We do the minimum modification possible to produce a
