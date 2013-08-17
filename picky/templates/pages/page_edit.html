@@ -16,7 +16,23 @@
     <div class="editor column">
         <form method="post">
             {% csrf_token %}
-            {{ form }}
+
+            {{ form.non_field_errors }}
+
+            <div class="fieldWrapper">
+                {{ form.name.errors }}
+                {{ form.name.label_tag }}
+                
+                {{ form.name }}
+            </div>
+
+            <div class="fieldWrapper">
+                {{ form.content.errors }}
+                {{ form.content.label_tag }}
+                
+                {{ form.content }}
+            </div>
+
             <label></label><!-- grim hack to push button down -->
             <button type="submit" class="btn btn-primary">
 	        <i class="icon-ok-sign icon-white"></i>
