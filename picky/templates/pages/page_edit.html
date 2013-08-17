@@ -8,6 +8,8 @@
 <script src="{{ STATIC_URL }}jscreole/creole.min.js" rel="stylesheet"></script>
 <script src="{{ STATIC_URL }}js/jquery.outerhtml.js" rel="stylesheet"></script>
 <script src="{{ STATIC_URL }}js/live_preview.js" rel="stylesheet"></script>
+<script src="{{ STATIC_URL }}js/jquery.insertAtCaret.js" rel="stylesheet"></script>
+<script src="{{ STATIC_URL }}js/toolbar.js" rel="stylesheet"></script>
 {% endblock %}
 
 {% block whole-row-content %}
@@ -26,10 +28,13 @@
                 {{ form.name }}
             </div>
 
+            <div class="toolbar">
+                <button class="btn bold" type="button">B</button>
+                <button class="btn italic" type="button">I</button>
+            </div>
+
             <div class="fieldWrapper">
                 {{ form.content.errors }}
-                {{ form.content.label_tag }}
-                
                 {{ form.content }}
             </div>
 
