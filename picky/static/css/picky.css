@@ -135,6 +135,10 @@ ul ul, ul ol, ol ul, ol ol {
 .toolbar .italic {
     font-style: italic;
 }
+.toolbar .button-group {
+    display: inline;
+    margin-right: 20px;
+}
 
 /* PAGES */
 .page > :last-child {

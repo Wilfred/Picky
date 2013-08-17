@@ -20,4 +20,25 @@
         $content.trigger('keyup');
     });
 
+    $('.toolbar .h1').click(function() {
+        $content.insertAtCaret('= heading =');
+
+        // update the preview
+        $content.trigger('keyup');
+    });
+
+    $('.toolbar .h2').click(function() {
+        $content.insertAtCaret('== Sub-heading ==');
+
+        // update the preview
+        $content.trigger('keyup');
+    });
+
+    $('.toolbar .h3').click(function() {
+        $content.insertAtCaret('=== Sub-sub-heading ===');
+
+        // update the preview
+        $content.trigger('keyup');
+    });
+
 })();
