@@ -40,8 +40,6 @@ urlpatterns = patterns('',
     # todo: move to /user/social/login
     url(r'', include('social_auth.urls')),
 
-    (r'^hsearch/', include('haystack.urls')),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
