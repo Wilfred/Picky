@@ -124,20 +124,16 @@ ul ul, ul ol, ol ul, ol ol {
 #preview a.nonexistent {
     color: #c04040;
 }
-.toolbar {
-    /* the toolbar is only useful if JS is on, so we hide by default */
+.btn-toolbar {
+    /* the btn-toolbar is only useful if JS is on, so we hide by default */
     display: none;
-    margin-bottom: 5px;
+    margin: 0 0 5px 0;
 }
-.toolbar .bold {
+.btn-toolbar .bold {
     font-weight: bold;
 }
-.toolbar .italic {
+.btn-toolbar .italic {
     font-style: italic;
-}
-.toolbar .button-group {
-    display: inline;
-    margin-right: 20px;
 }
 
 /* PAGES */
