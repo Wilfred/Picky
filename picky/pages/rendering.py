@@ -1,7 +1,5 @@
 from urllib import quote
 
-from django.core.urlresolvers import reverse
-
 from creoleparser.dialects import create_dialect, creole10_base
 from creoleparser.core import Parser
 

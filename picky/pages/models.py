@@ -56,6 +56,9 @@ class Page(models.Model):
     def get_change_count(self):
         return self.pagerevision_set.count() - 1
 
+    def get_absolute_url(self):
+        return reverse('view_page', args=[self.name_slug])
+
     def save(self, user=None):
         self.total_revisions += 1
 
