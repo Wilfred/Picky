@@ -10,12 +10,17 @@ body {
     width: 500px;
 }
 
-.header {
-    margin-bottom: 50px;
-}
 .header .right-links {
     float: right;
 }
+
+.search {
+    margin-bottom: 50px;
+}
+.search form {
+    float: right;
+}
+
 .page-tools {
 }
 

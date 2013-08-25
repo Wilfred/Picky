@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
 from .models import Page, PageRevision
-from .forms import PageForm
+from .forms import PageForm, SearchForm
 from .utils import slugify
 from comments.forms import CommentForm
 
@@ -20,7 +20,8 @@ def index(request):
 @login_required
 def all_pages(request):
     pages = Page.objects.order_by('name_lower')
-    template_vars = {'pages': pages}
+    template_vars = {'pages': pages,
+                     'form': SearchForm()}
     return render_to_response("pages/all_pages.html", template_vars,
                               RequestContext(request))
 

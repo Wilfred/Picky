@@ -1,4 +1,5 @@
 from django.forms import ModelForm, ValidationError, Textarea
+from django import forms
 
 from .models import Page
 from .utils import slugify
@@ -42,3 +43,7 @@ class PageForm(ModelForm):
             raise ValidationError("That name clashes with another page's URL.")
 
         return name
+
+
+class SearchForm(forms.Form):
+    search_term = forms.CharField()
