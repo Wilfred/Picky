@@ -6,8 +6,11 @@ from django.shortcuts import render_to_response, get_object_or_404, redirect, re
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
+from haystack.query import SearchQuerySet
+from haystack.inputs import AutoQuery
+
 from .models import Page, PageRevision
-from .forms import PageForm, SearchForm
+from .forms import PageForm
 from .utils import slugify
 from comments.forms import CommentForm
 
@@ -20,8 +23,7 @@ def index(request):
 @login_required
 def all_pages(request):
     pages = Page.objects.order_by('name_lower')
-    template_vars = {'pages': pages,
-                     'form': SearchForm()}
+    template_vars = {'pages': pages}
     return render_to_response("pages/all_pages.html", template_vars,
                               RequestContext(request))
 
@@ -154,6 +156,19 @@ def recent_changes(request):
 
     template_vars = {'latest_revisions': latest_revisions}
     return render(request, 'pages/recent_changes.html', template_vars)
+
+
+# todo: create a separate app (maybe meta?)
+@login_required
+def search(request):
+    search_term = request.POST.get('search_term')
+    if search_term:
+        qs = SearchQuerySet().filter(content=AutoQuery(search_term))
+    else:
+        qs = SearchQuerySet().none()
+
+    return render(request, 'pages/search.html',
+                  {'results': qs})
 
 
 def page_404(request, page_slug):

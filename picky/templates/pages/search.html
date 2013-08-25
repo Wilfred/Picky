@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Search Results</h1>
+
+{% if results %}
+<ol>
+{% for result in results %}
+    <li><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></li>
+{% endfor %}
+</ol>
+{% else %}
+<p>No results found.</p>
+{% endif %}
+
+{% endblock %}
