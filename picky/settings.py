@@ -177,6 +177,7 @@ INSTALLED_APPS = (
     'django_nose',
     'raven.contrib.django.raven_compat',
     'social_auth',
+    'haystack',
 
     # picky apps
     'pages',
@@ -184,6 +185,13 @@ INSTALLED_APPS = (
     'users',
     'site_config',
 )
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
