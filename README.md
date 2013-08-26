@@ -17,10 +17,9 @@
 	- [Discussions](#discussions)
 	- [Media](#media)
 	- [User Interface](#user-interface)
-	- [Tags](#tags)
 	- [Longevity](#longevity)
 	- [Hypertext](#hypertext)
-	- [Search](#search)
+	- [Scaling Content](#scaling-content)
 	- [Maintenance](#maintenance)
 
 ### Introduction
