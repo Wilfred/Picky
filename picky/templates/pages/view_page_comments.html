@@ -5,6 +5,9 @@
 {% load time_format %}
 
 {% block inner-content %}
+<div class="meta-links">
+    <a href="{% url new_comment page.name_slug %}">new comment</a>
+</div>
 
 {% for comment in comments %}
 <div class="comment-wrapper">
@@ -13,20 +16,11 @@
     </div>
 
     <div class="meta-links footer">
-        <p>{{ comment.user.username }},
-            <span class="timestamp" title="{{ comment.time|absolute_time }}">{{ comment.time|relative_time }}</span>
-        </p>
+        <span>{{ comment.user.username }},</span>
+        <span class="timestamp" title="{{ comment.time|absolute_time }}">{{ comment.time|relative_time }}</span>
+        <a href="{% url new_comment page.name_slug comment.id %}">reply</a>
     </div>
 </div>
 {% endfor %}
-
-<form method="post" class="editor" action="{% url new_comment page.name_slug %}">
-    {% csrf_token %}
-    {{ form }}
-    <label></label><!-- grim hack to push button down -->
-    <button type="submit" class="btn btn-primary">
-	Add Comment
-    </button>
-</form>
 
 {% endblock %}

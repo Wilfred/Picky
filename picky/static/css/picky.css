@@ -148,6 +148,9 @@ ul ul, ul ol, ol ul, ol ol {
 }
 
 /* COMMENTS */
+.comment {
+    margin-top: 24px;
+}
 .comment > :last-child {
     margin-bottom: 0;
 }

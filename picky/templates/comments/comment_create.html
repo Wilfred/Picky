@@ -1,0 +1,17 @@
+{% extends 'pages/page_base.html' %}
+
+{% block page_comments_state %}active{% endblock %}
+
+{% block inner-content %}
+
+<form method="post" class="editor">
+    {% csrf_token %}
+    {{ form }}
+    <label></label><!-- grim hack to push button down -->
+    <button type="submit" class="btn btn-primary">
+	Add Comment
+    </button>
+</form>
+
+{% endblock %}
+

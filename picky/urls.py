@@ -20,6 +20,7 @@ urlpatterns = patterns('',
 
     url(r'^page/(?P<page_slug>[^/]+)/comments/$', 'pages.views.view_page_comments', name='view_page_comments'),
     url(r'^page/(?P<page_slug>[^/]+)/comments/new/$', 'comments.views.new_comment', name='new_comment'),
+    url(r'^page/(?P<page_slug>[^/]+)/comments/new/(?P<parent_id>\d+)/$', 'comments.views.new_comment', name='new_comment'),
 
     url(r'^search/$', 'pages.views.search', name='search'),
 

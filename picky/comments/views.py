@@ -1,21 +1,30 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_http_methods
 
 from .forms import CommentForm
+from .models import Comment
 from pages.models import Page
 
 
 @login_required
-@require_http_methods(["POST"])
-def new_comment(request, page_slug):
+def new_comment(request, page_slug, parent_id=None):
     page = get_object_or_404(Page, name_slug=page_slug)
-    
-    # todo: set page, user and parent comment
-    form = CommentForm(request.POST)
-    comment = form.save(commit=False)
-    comment.page = page
-    comment.user = request.user
-    comment.save()
+    if parent_id:
+        parent_comment = get_object_or_404(Comment, id=parent_id)
+    else:
+        parent_comment = None
 
-    return redirect('view_page_comments', page.name_slug)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        comment = form.save(commit=False)
+        comment.page = page
+        comment.user = request.user
+        comment.parent = parent_comment
+        comment.save()
+
+        return redirect('view_page_comments', page.name_slug)
+    else:
+        form = CommentForm()
+
+    return render(request, 'comments/comment_create.html',
+                  {'form': form, 'page': page})
