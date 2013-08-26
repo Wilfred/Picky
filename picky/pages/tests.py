@@ -185,3 +185,9 @@ class RecentChangesTest(UserTest):
         response = self.client.get(reverse('recent_changes'))
         self.assertEqual(response.status_code, 200)
         
+
+class SearchTest(UserTest):
+    def test_search_renders(self):
+        response = self.client.post(
+            reverse('search'), {'search_term': 'hello world'})
+        self.assertEqual(response.status_code, 200)
