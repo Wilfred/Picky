@@ -1,16 +1,19 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
+from django.core.urlresolvers import reverse
 
-Replace this with more appropriate tests for your application.
-"""
+from milkman.dairy import milkman
 
-from django.test import TestCase
+from pages.models import Page
+from users.test_base import UserTest
+from .models import Comment
 
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+class CreateCommentTest(UserTest):
+    def test_create(self):
+        page = milkman.deliver(Page)
+        
+        self.client.post(
+            reverse('new_comment', args=[page.name_slug]),
+            {'text': 'hello world'})
+
+        # we should now have a comment associated with this page
+        self.assertTrue(Comment.objects.filter(page=page))
