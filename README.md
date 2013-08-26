@@ -285,7 +285,9 @@ The wiki should be able to run for ten years without problem. This
 requires pure dependencies (e.g. pure Python dependencies rather than
 Python C modules). External dependencies (e.g. database) should be
 well-established, actively maintained tools. JavaScript should be
-hosted on the site itself. In addition to logging in with accounts
+hosted on the site itself.
+
+In addition to logging in with accounts
 from social networks, users should be able to create 'native' accounts
 that don't depend on the availability of other sites.
 
@@ -299,7 +301,12 @@ links, version control, and rights management.
 The wiki should therefore combat link rot, show reverse links ('what
 links to this page?'), allow previewing of links without visiting the
 page, have an explicit content license, and (of course!) store history
-of pages.
+of pages. Ideally, it would be possible to link to an arbitrary place
+in content, with the links surviving edits (cf Emacs markers).
+
+Transclusion is another hypertext feature that hasn't gained much
+traction in the web at large, although embedded tweets are a good
+example.
 
 Discovering existing content is very
 important. [Everything2](http://en.wikipedia.org/wiki/Everything2#Soft_links)
@@ -307,17 +314,32 @@ detects where users go next to calculate related pages. Stack Overflow
 displays similar question. The wiki should therefore show similar
 pages to help users discover or merge related pages.
 
-#### Search
+There are some git features that are desirable: a 'git blame'
+equivalent would be useful, as would the ability to move content
+between pages whilst still tracing the original author. GitHub style
+permalinks would also help: allowing linking to the visible version, rather than just linking
+to latest version.
+
+#### Scaling Content
+
+The larger the wiki is, the more tools are needed to help the user
+find what they want.
 
 The wiki must have a search feature that indexes the full text of
 pages, preferably including historical versions.
 
+The wiki must allow (automatically generated) tables of contents, to
+give an overview of larger pages. Note that Wikipedia makes these
+collapsible, since they can themselves become large. We may want to
+allow the user to control the depth of the table of contents
+(e.g. just H1 and H2s, or including H3s and H4s too).
+
 #### Maintenance
 
 The wiki should be easy to set up, to make it easy for people to set
-up the wiki for use within their organisation. Therefore the wiki code
-should be as self-contained as possible, with minimal server
-dependencies.
+up the wiki for use within their organisation (even skunkworks
+projects). Therefore the wiki code should be as self-contained as
+possible, with minimal server dependencies.
 
 Once set up, the wiki should require very little maintenance, so the
 users are as self-sufficient as possible.
