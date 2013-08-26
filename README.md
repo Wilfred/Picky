@@ -206,7 +206,7 @@ necessary.
 Anything associated with a user (comments, changes) should prominently
 display an avatar, to visually group actions by the same user.
 
-Users should be able to have a page about themselves.
+Users should be able to have an editable page about themselves.
 
 #### Technology
 
@@ -274,10 +274,13 @@ Whenever a username is shown, an avatar should be alongside to make it
 easy to skim through to find things from the same user (even anonymous
 editors).
 
-#### Tags
+When showing history, relevant metadata should be shown. Who made each
+change, how much of the page changed.
 
-It should be possible to tag pages. A tag a simple string associated
-with a page that enables users to view other page that have the same tag.
+It should be possible to see all changes, changes of a specific page
+or changes by a specific user. It should also be possible to watch
+users or pages and only see these changes. All this data should be
+available as RSS feeds.
 
 #### Longevity
 
@@ -287,9 +290,9 @@ Python C modules). External dependencies (e.g. database) should be
 well-established, actively maintained tools. JavaScript should be
 hosted on the site itself.
 
-In addition to logging in with accounts
-from social networks, users should be able to create 'native' accounts
-that don't depend on the availability of other sites.
+In addition to logging in with accounts from social networks, users
+should be able to create 'native' accounts that don't depend on the
+availability of other sites.
 
 #### Hypertext
 
@@ -312,7 +315,8 @@ Discovering existing content is very
 important. [Everything2](http://en.wikipedia.org/wiki/Everything2#Soft_links)
 detects where users go next to calculate related pages. Stack Overflow
 displays similar question. The wiki should therefore show similar
-pages to help users discover or merge related pages.
+pages to help users discover or merge related pages. For example, most
+linked to, most edited, most wanted, longest, most viewed.
 
 There are some git features that are desirable: a 'git blame'
 equivalent would be useful, as would the ability to move content
@@ -333,6 +337,9 @@ give an overview of larger pages. Note that Wikipedia makes these
 collapsible, since they can themselves become large. We may want to
 allow the user to control the depth of the table of contents
 (e.g. just H1 and H2s, or including H3s and H4s too).
+
+The wiki must allow content to be tagged. These need editable names
+and descriptions (naturally).
 
 #### Maintenance
 
