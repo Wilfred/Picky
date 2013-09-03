@@ -30,7 +30,7 @@ class RenderingTest(TestCase):
 
     def test_h1_rendered(self):
         page = milkman.deliver(Page, content="= foo")
-        self.assertEqualIgnoringWhitespace(page.get_rendered_content(), '<h1>foo</h1>')
+        self.assertEqualIgnoringWhitespace(page.get_rendered_content(), '<h1 id="foo">foo</h1>')
 
     def test_h2_rendered(self):
         page = milkman.deliver(Page, content="""
@@ -42,8 +42,8 @@ class RenderingTest(TestCase):
 
 """)
 
-        self.assertIn('<h2>foo 1</h2>', page.get_rendered_content())
-        self.assertIn('<h2>foo 2</h2>', page.get_rendered_content())
+        self.assertIn('<h2 id="foo-1">foo 1</h2>', page.get_rendered_content())
+        self.assertIn('<h2 id="foo-2">foo 2</h2>', page.get_rendered_content())
 
     def test_newline_rendering(self):
         page = milkman.deliver(Page, content="hello\nworld")

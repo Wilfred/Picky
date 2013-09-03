@@ -16,7 +16,8 @@ def is_external(url):
 
 
 def render_creole(source):
-    dialect = create_dialect(creole10_base, wiki_links_base_url="/page/")
+    dialect = create_dialect(creole10_base, wiki_links_base_url="/page/",
+                             add_heading_ids="")
     parser = Parser(dialect=dialect, method='html', encoding=None)
 
     html = parser.render(source)
