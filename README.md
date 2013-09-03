@@ -35,23 +35,7 @@ GPLv2 license.
 
 ### Development
 
-Picky currently uses Postgresql. Create an account and a database:
-
-    $ sudo -u postgres psql template1
-    psql (9.1.4)
-    Type "help" for help.
-
-    template1=# create role picky superuser login password '5de9522f713d30d7e5155c';
-    CREATE ROLE
-    template1=# create database picky owner picky;
-    CREATE DATABASE
-
-The Python Postgresql client is a C library that requires headers. On
-Ubuntu:
-
-    $ sudo apt-get install libpq-dev python-dev
-
-You also need to install the dependencies:
+You will need to install the dependencies:
 
     $ virtualenv ~/.py_envs/picky -p python2.7
     $ . ~/.py_envs/picky/bin/activate
@@ -72,7 +56,7 @@ your local settings won't have the necessary keys.
 There's a Fabric file that deploys my personal instance. You'll need
 to modify this for your own production instance.
 
-   $ fab deploy
+    $ fab deploy
 
 I run picky with gunicorn as the HTTP server and supervisord
 monitoring the process. Here's my configuration:

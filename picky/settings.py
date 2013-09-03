@@ -15,12 +15,8 @@ PROJECT_ROOT = os.path.dirname(__file__)
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'picky',
-        'USER': 'picky',
-        'PASSWORD': '5de9522f713d30d7e5155c',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_ROOT, 'picky.db'),
     }
 }
 
