@@ -1,18 +1,18 @@
-from fabric.api import env, cd, sudo
+from fabric.api import env, cd, run, sudo
 
 
-env.hosts = ['wilfred@wiki.wilfred.me.uk']
+env.hosts = ['picky@wiki.wilfred.me.uk']
 env.directory = "/home/picky/src/Picky"
 env.activate   = "source /home/picky/.envs/picky/bin/activate"
 
 
-def virtualenv(command, user="picky"):
-    sudo(env.activate + ' && ' + command, user=user)
+def virtualenv(command):
+    run(env.activate + ' && ' + command)
     
 
 def deploy():
     with cd(env.directory):
-        sudo('git pull origin master', user="picky")
+        run('git pull origin master')
         virtualenv('pip install -r requirements.pip')
 
         with cd("picky"):
