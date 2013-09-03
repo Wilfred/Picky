@@ -1,7 +1,11 @@
+import re
+
 from django.db import models
 from django.utils.text import truncate_words
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+
+from creoleparser import text2html
 
 from .utils import slugify
 from .rendering import render_creole
@@ -41,6 +45,46 @@ class Page(models.Model):
             return revision.content
         else:
             return self.content
+
+    def get_toc(self):
+        """Render a table of contents for this content."""
+        content = self.get_content()
+
+        # Extract anything that looks like a heading.
+        headings = []
+        for row in content.splitlines():
+            row = row.strip()
+            match = re.match(r'(=+)(.*?)=*$', row)
+
+            if match:
+                depth = len(match.groups()[0])
+                name = match.groups()[1].strip()
+                headings.append((depth, name))
+
+        # Don't bother showing a TOC if there aren't any headings.
+        if not headings:
+            return ""
+
+        # Ensure the lowest depth is 1.
+        min_depth = None
+        for (depth, name) in headings:
+            if min_depth is None:
+                min_depth = depth
+            elif depth < min_depth:
+                min_depth = depth
+
+        headings = [(depth + 1 - min_depth, name)
+                    for (depth, name) in headings]
+
+        # Write headings as a nested bulleted list.
+        headings_creole = []
+        for depth, name in headings:
+            link = "#%s" % (name.lower().replace(' ', '-'))
+            headings_creole.append("%s [[%s|%s]]" % ("*" * depth, link, name))
+
+        toc_template = "=== Table Of Contents\n%s" % "\n".join(headings_creole)
+
+        return text2html(toc_template)
 
     def get_creation_time(self):
         first_revision = self.pagerevision_set.order_by('version')[0]

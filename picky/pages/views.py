@@ -113,7 +113,8 @@ def view_page(request, page_slug):
         version_specified = None
 
     content = page.get_rendered_content(version_specified)
-    template_vars = {'page': page, 'content': content,
+    toc = page.get_toc()
+    template_vars = {'page': page, 'toc': toc, 'content': content,
                      'version_specified': version_specified}
     
     return render_to_response("pages/view_page.html", template_vars,
