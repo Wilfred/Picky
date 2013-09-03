@@ -182,12 +182,19 @@ INSTALLED_APPS = (
     'site_config',
 )
 
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
-    },
-}
+if os.getenv('DUMMY_SEARCH', False):
+    HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+        },
+    }
+else:
+    HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+            'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+        },
+    }
 
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
