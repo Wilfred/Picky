@@ -23,8 +23,9 @@ class Migration(SchemaMigration):
                       keep_default=False)
 
         # save every page to create their first revision
-        for page in orm.Page.objects.all():
-            page.save()
+        if not db.dry_run:
+            for page in orm.Page.objects.all():
+                page.save()
 
     def backwards(self, orm):
         raise RuntimeError("You can't safely switch off versioning!")
