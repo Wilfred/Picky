@@ -333,3 +333,7 @@ possible, with minimal server dependencies.
 
 Once set up, the wiki should require very little maintenance, so the
 users are as self-sufficient as possible.
+
+#### Similar projects
+
+Diigo has been developed with some similar ideas in mind.
