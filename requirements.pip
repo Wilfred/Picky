@@ -1,4 +1,6 @@
-Creoleparser==0.7.4
+# creoleparser fork that fixes http://code.google.com/p/creoleparser/issues/detail?id=52
+git+https://github.com/Wilfred/creoleparser.git@c855a30a1baa3db50009dee311b7bb54926e9ce7
+
 Django==1.4.5
 Fabric==1.5.1
 Genshi==0.7
