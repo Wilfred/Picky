@@ -195,3 +195,11 @@ pre, code {
     overflow-x: auto;
     white-space: pre;
 }
+
+/* COLLAPSIBLE TABLE OF CONTENTS */
+.table-of-contents h3 a:hover {
+    border-bottom-style: none;
+}
+.table-of-contents h3 i {
+    color: inherit;
+}
