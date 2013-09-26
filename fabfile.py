@@ -1,4 +1,4 @@
-from fabric.api import env, cd, run, sudo
+from fabric.api import env, cd, run
 
 
 env.hosts = ['picky@wiki.wilfred.me.uk']
@@ -24,5 +24,5 @@ def deploy():
 
 
 def restart():
-    sudo("supervisorctl restart picky")
+    run("sudo supervisorctl restart picky")
 
