@@ -203,3 +203,6 @@ pre, code {
 .table-of-contents h3 i {
     color: inherit;
 }
+.table-of-contents li {
+    list-style-type: none;
+}
