@@ -117,7 +117,8 @@ class Page(models.Model):
         super(Page, self).save()
 
         PageRevision.objects.create(
-            page=self, content=self.content, version=self.total_revisions,
+            page=self, content=self.content, name=self.name,
+            version=self.total_revisions,
             author=user)
 
     def __unicode__(self):
@@ -129,6 +130,7 @@ class PageRevision(models.Model):
         ordering = ["-version"]
 
     content = models.TextField()
+    name = models.CharField(max_length=200, null=True)
     page = models.ForeignKey('Page')
     version = models.IntegerField(default=1, editable=False)
     time = models.DateTimeField(auto_now_add=True, null=True)
