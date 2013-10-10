@@ -1,4 +1,6 @@
-from fabric.api import env, cd, run
+from datetime import datetime
+
+from fabric.api import env, cd, run, get
 
 
 env.hosts = ['picky@wiki.wilfred.me.uk']
@@ -12,6 +14,11 @@ def virtualenv(command):
 
 def deploy():
     with cd(env.directory):
+        # backup the production database to our current system
+        now = datetime.now()
+        backup_name = "%s-backup.db" % (now.strftime("%Y-%m-%d--%H-%M-%S"))
+        get('picky/picky.db', backup_name)
+
         run('git pull origin master')
         virtualenv('pip install -r requirements.pip')
 
