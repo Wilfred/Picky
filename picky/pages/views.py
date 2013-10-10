@@ -178,5 +178,11 @@ def page_404(request, page_slug):
 
     """
     page_name = page_slug.replace('_', ' ')
+
+    renamed_pages = set()
+    for revision in PageRevision.objects.filter(name=page_name).order_by('-time'):
+        renamed_pages.add(revision.page)
+    
     return render(request, "pages/no_such_page.html",
-                  {'page_name': page_name}, status=404)
+                  {'page_name': page_name, 'renamed_pages': renamed_pages},
+                  status=404)

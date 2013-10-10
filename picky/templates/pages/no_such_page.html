@@ -8,4 +8,15 @@
 <p>There's no page called '{{ page_name }}'. Would you like to
 <a href="{% url create_page page_name %}">create it</a>?</p>
 
+{% if renamed_pages %}
+<h3>Pages previously called '{{ page_name }}'</h3>
+
+{% for page in renamed_pages %}
+<ul>
+    <li><a href="{% url view_page page.name_slug %}">{{ page.name }}</a></li>
+</ul>
+{% endfor %}
+
+{% endif %}
+
 {% endblock %}
