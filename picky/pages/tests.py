@@ -191,3 +191,9 @@ class SearchTest(UserTest):
         response = self.client.post(
             reverse('search'), {'search_term': 'hello world'})
         self.assertEqual(response.status_code, 200)
+
+
+class DebugTest(UserTest):
+    def test_debug_renders(self):
+        response = self.client.get(reverse('debug'))
+        self.assertEqual(response.status_code, 200)

@@ -1,5 +1,8 @@
 import json
+import sys
+from subprocess import check_output, CalledProcessError
 
+import django
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404, redirect, render
@@ -172,6 +175,22 @@ def search(request):
                   {'results': qs})
 
 
+# todo: also move to the meta app
+@login_required
+def debug(request):
+    python_version = sys.version
+    django_version = django.VERSION
+    try:
+        git_commit = check_output(["git", "log", "-1"])
+    except (OSError, CalledProcessError):
+        git_commit = "(unknown)"
+
+    return render(request, 'pages/debug.html',
+                  {'python_version': python_version,
+                   'django_version': django_version,
+                   'git_commit': git_commit})
+
+    
 def page_404(request, page_slug):
     """Return a helpful 404 if the user was looking for a page that
     doesn't exist.
