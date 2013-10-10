@@ -17,7 +17,7 @@ django-social-auth==0.7.25
 git+https://github.com/Wilfred/dj-static.git@da654fccf08a211fc0a3812aa0705ed3e82f9ed3#egg=dj-static==0.0.5
 
 docutils==0.9.1
-gunicorn==17.5
+gunicorn==18.0
 html5lib==1.0b2
 httplib2==0.8
 ipdb==0.7
