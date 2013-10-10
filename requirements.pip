@@ -21,7 +21,7 @@ gunicorn==17.5
 html5lib==1.0b2
 httplib2==0.8
 ipdb==0.7
-ipython==0.13.2
+ipython==1.1.0
 milkman==0.4.5
 nose==1.2.1
 oauth2==1.5.211
