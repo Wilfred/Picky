@@ -108,6 +108,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -174,6 +175,7 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
     'social_auth',
     'haystack',
+    'debug_toolbar',
 
     # picky apps
     'pages',
@@ -181,6 +183,10 @@ INSTALLED_APPS = (
     'users',
     'site_config',
 )
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}
 
 if os.getenv('DUMMY_SEARCH', False):
     HAYSTACK_CONNECTIONS = {
@@ -222,6 +228,8 @@ LOGGING = {
         },
     }
 }
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 WSGI_APPLICATION = "picky.wsgi.application"
 
