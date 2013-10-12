@@ -26,6 +26,7 @@ def deploy():
             virtualenv('python manage.py collectstatic --noinput')
             virtualenv('python manage.py syncdb')
             virtualenv('python manage.py migrate')
+            virtualenv('python manage.py rebuild_index --noinput')
 
     restart()
 
