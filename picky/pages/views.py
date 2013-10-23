@@ -200,7 +200,10 @@ def page_404(request, page_slug):
 
     renamed_pages = set()
     for revision in PageRevision.objects.filter(name=page_name).order_by('-time'):
-        renamed_pages.add(revision.page)
+        page = revision.page
+
+        if not page.deleted:
+            renamed_pages.add(revision.page)
     
     return render(request, "pages/no_such_page.html",
                   {'page_name': page_name, 'renamed_pages': renamed_pages},

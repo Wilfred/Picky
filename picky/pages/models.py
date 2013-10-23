@@ -12,6 +12,10 @@ from .rendering import render_creole
 
 
 class PageManager(models.Manager):
+    def get_query_set(self):
+        qs = super(PageManager, self).get_query_set()
+        return qs.filter(deleted=False)
+    
     def all_urls(self):
         urls = set()
         for page in self.all():
@@ -25,12 +29,15 @@ class PageManager(models.Manager):
 
 class Page(models.Model):
     objects = PageManager()
+    all_objects = models.Manager()
     
-    name = models.CharField(max_length=200, unique=True)
-    name_slug = models.CharField(max_length=200, editable=False, unique=True)
-    name_lower = models.CharField(max_length=200, editable=False)
+    name = models.CharField(max_length=200, unique=True, null=True)
+    name_slug = models.CharField(max_length=200, editable=False, unique=True, null=True)
+    name_lower = models.CharField(max_length=200, editable=False, null=True)
 
     content = models.TextField()
+
+    deleted = models.BooleanField(default=False)
 
     total_revisions = models.IntegerField(default=0, editable=False)
 
@@ -103,6 +110,18 @@ class Page(models.Model):
     def get_absolute_url(self):
         return reverse('view_page', args=[self.name_slug])
 
+    def delete(self):
+        self.deleted = True
+
+        # Since we require name attributes to be unique, we need to
+        # remove these attributes so we can create new pages with
+        # these names.
+        self.name = None
+        self.name_slug = None
+        self.name_lower = None
+        
+        self.save()
+
     def save(self, user=None):
         self.total_revisions += 1
 
@@ -112,7 +131,10 @@ class Page(models.Model):
 
         # Since we sort pages case insensitively, we store the
         # lowercase name.
-        self.name_lower = self.name.lower()
+        if self.name:
+            self.name_lower = self.name.lower()
+        else:
+            self.name_lower = None
         
         super(Page, self).save()
 
@@ -137,4 +159,4 @@ class PageRevision(models.Model):
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     def __unicode__(self):
-        return u"%s at %s" % (self.page.name, self.time)
+        return u"%s at %s" % (self.name, self.time)

@@ -6,6 +6,9 @@ def slugify(value):
     spaces with underscores.
 
     """
+    if not value:
+        return value
+    
     # we don't want /, # or ? in our URL
     value = value.replace('/', '').replace('#', '').replace('?', '')
 
