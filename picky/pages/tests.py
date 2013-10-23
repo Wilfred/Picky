@@ -1,28 +1,12 @@
 # -*- coding: utf-8 -*-
 import re
 import json
-import string
-import random
 
-from django.test import TestCase
 from django.core.urlresolvers import reverse
 
-from milkman.dairy import milkman
-
 from .models import Page
+from .test_mixins import PageTest
 from users.test_base import UserTest
-
-
-class PageTest(TestCase):
-    def create_page(self, **kwargs):
-        letters = list(string.letters)
-        random.shuffle(letters)
-        random_name = ''.join(letters[:10])
-
-        page_kwargs = {'name' : random_name}
-        page_kwargs.update(kwargs)
-        
-        return milkman.deliver(Page, **page_kwargs)
 
 
 class RenderingTest(PageTest):

@@ -1,15 +1,13 @@
 from django.core.urlresolvers import reverse
 
-from milkman.dairy import milkman
-
-from pages.models import Page
+from pages.test_mixins import PageTest
 from users.test_base import UserTest
 from .models import Comment
 
 
-class CreateCommentTest(UserTest):
+class CreateCommentTest(UserTest, PageTest):
     def test_create(self):
-        page = milkman.deliver(Page)
+        page = self.create_page()
         
         self.client.post(
             reverse('new_comment', args=[page.name_slug]),
