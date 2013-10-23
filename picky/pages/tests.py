@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import re
 import json
+import string
+import random
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
@@ -11,7 +13,19 @@ from .models import Page
 from users.test_base import UserTest
 
 
-class RenderingTest(TestCase):
+class PageTest(TestCase):
+    def create_page(self, **kwargs):
+        letters = list(string.letters)
+        random.shuffle(letters)
+        random_name = ''.join(letters[:10])
+
+        page_kwargs = {'name' : random_name}
+        page_kwargs.update(kwargs)
+        
+        return milkman.deliver(Page, **page_kwargs)
+
+
+class RenderingTest(PageTest):
     def assertEqualIgnoringWhitespace(self, string1, string2):
         """Assert that strings are equal, other than whitespace differences."""
         # remove leading/trailing whitespace
@@ -25,15 +39,15 @@ class RenderingTest(TestCase):
         self.assertEqual(string1, string2)
     
     def test_basic_rendering(self):
-        page = milkman.deliver(Page, content="hello world")
+        page = self.create_page(content="hello world")
         self.assertEqualIgnoringWhitespace(page.get_rendered_content(), "<p>hello world</p>")
 
     def test_h1_rendered(self):
-        page = milkman.deliver(Page, content="= foo")
+        page = self.create_page(content="= foo")
         self.assertEqualIgnoringWhitespace(page.get_rendered_content(), '<h1 id="foo">foo</h1>')
 
     def test_h2_rendered(self):
-        page = milkman.deliver(Page, content="""
+        page = self.create_page(content="""
 = bar
 
 == foo 1
@@ -46,27 +60,27 @@ class RenderingTest(TestCase):
         self.assertIn('<h2 id="foo-2">foo 2</h2>', page.get_rendered_content())
 
     def test_newline_rendering(self):
-        page = milkman.deliver(Page, content="hello\nworld")
+        page = self.create_page(content="hello\nworld")
         self.assertEqualIgnoringWhitespace(page.get_rendered_content(), "<p>hello world</p>")
 
     def test_br_rendering(self):
-        page = milkman.deliver(Page, content="hello\\\\world")
+        page = self.create_page(content="hello\\\\world")
         self.assertEqualIgnoringWhitespace(page.get_rendered_content(), "<p>hello<br/>world</p>")
 
     def test_unicode_rendering(self):
         content = u"Tú"
-        page = milkman.deliver(Page, content=content)
+        page = self.create_page(content=content)
         self.assertEqualIgnoringWhitespace(
             page.get_rendered_content(), u"<p>Tú</p>")
 
     def test_nonexistent_url_rendering(self):
-        page = milkman.deliver(Page, content="[[no_such_page]]")
+        page = self.create_page(content="[[no_such_page]]")
         self.assertEqualIgnoringWhitespace(
             page.get_rendered_content(),
             '<p><a class="nonexistent" href="/page/no_such_page">no_such_page</a></p>')
 
 
-class PageCreationTest(UserTest):
+class PageCreationTest(UserTest, PageTest):
     def test_page_creation(self):
         self.client.post(reverse('create_page'),
                          {'name': 'foo', 'content': 'bar'})
@@ -75,7 +89,7 @@ class PageCreationTest(UserTest):
         self.assertEqual(response.status_code, 200)
         
     def test_duplicate_page_name(self):
-        milkman.deliver(Page, name='foo')
+        self.create_page(name='foo')
 
         self.client.post(reverse('create_page'),
                          {'name': 'foo', 'content': 'bar'})
@@ -83,17 +97,17 @@ class PageCreationTest(UserTest):
         self.assertEqual(Page.objects.count(), 1)
 
 
-class PageDeletingTest(UserTest):
+class PageDeletingTest(UserTest, PageTest):
     def test_page_delete(self):
-        page = milkman.deliver(Page)
+        page = self.create_page()
 
         self.client.post(reverse('delete_page', args=[page.name_slug]))
         self.assertFalse(Page.objects.filter(id=page.id).exists())
         
 
-class PageVersioningTest(UserTest):
+class PageVersioningTest(UserTest, PageTest):
     def test_page_edit(self):
-        page = milkman.deliver(Page, content='foo')
+        page = self.create_page(content='foo')
 
         page.content = 'bar'
         page.save()
@@ -104,7 +118,7 @@ class PageVersioningTest(UserTest):
         self.assertEqual(page.get_content(1), 'foo')
 
     def test_view_shows_latest(self):
-        page = milkman.deliver(Page, name='foo', content='foo')
+        page = self.create_page(name='foo', content='foo')
 
         page.content = 'bar'
         page.save()
@@ -113,7 +127,7 @@ class PageVersioningTest(UserTest):
         self.assertEqual(response.context['page'], page)
 
     def test_view_old_version(self):
-        page = milkman.deliver(Page, name='foo', content='foo')
+        page = self.create_page(name='foo', content='foo')
 
         page.content = 'bar'
         page.save()
@@ -122,7 +136,7 @@ class PageVersioningTest(UserTest):
         response = self.client.get(reverse('view_page', args=[page.name_slug]) + '?version=1')
         self.assertEqual(response.context['content'], page_v1_content)
 
-class PageViewTest(UserTest):
+class PageViewTest(UserTest, PageTest):
     def test_nonexistent_page(self):
         response = self.client.get(
             reverse('view_page', args=["no-page-with-this-name"]))
@@ -131,7 +145,7 @@ class PageViewTest(UserTest):
         self.assertTemplateUsed(response, "pages/no_such_page.html")
 
     def test_page_history(self):
-        page = milkman.deliver(Page, name='foo', content='foo')
+        page = self.create_page(name='foo', content='foo')
         response = self.client.get(
             reverse('view_page_history', args=[page.name_slug]))
 
@@ -141,14 +155,14 @@ class PageViewTest(UserTest):
 
     def test_page_slugifies(self):
         """Check that we redirect unslugified page URLs."""
-        page = milkman.deliver(Page, name="Foo Bar")
+        page = self.create_page(name="Foo Bar")
         
         response = self.client.get(
             reverse('view_page', args=[page.name]), follow=True)
         self.assertEqual(response.status_code, 200)
 
 
-class IndexTest(UserTest):
+class IndexTest(UserTest, PageTest):
     def test_index_render_404(self):
         """If there's no home page yet, we should get a helpful 404."""
         response = self.client.get(reverse('index'), follow=True)
@@ -158,16 +172,16 @@ class IndexTest(UserTest):
 
     def test_index_renders(self):
         """If we do have a home page, we should display it."""
-        milkman.deliver(Page, name="Home", name_slug="home")
+        self.create_page(name="Home", name_slug="home")
         
         response = self.client.get(reverse('index'), follow=True)
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "pages/view_page.html")
 
-class AjaxTest(UserTest):
+class AjaxTest(UserTest, PageTest):
     def test_all_urls(self):
-        page = milkman.deliver(Page, name="Foo")
+        page = self.create_page(name="Foo")
 
         response = self.client.get(reverse('all_page_names'))
 
