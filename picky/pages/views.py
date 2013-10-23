@@ -169,7 +169,7 @@ def search(request):
     if search_term:
         qs = SearchQuerySet().filter(content=AutoQuery(search_term))
     else:
-        qs = SearchQuerySet().none()
+        qs = None
 
     return render(request, 'pages/search.html',
                   {'results': qs})
