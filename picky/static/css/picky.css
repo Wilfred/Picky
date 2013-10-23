@@ -116,20 +116,13 @@ ul ul, ul ol, ol ul, ol ol {
     color: black;
     font-size: 16px;
 }
+#preview-wrapper {
+    display: none;
+}
 #preview {
     float: left;
-    color: gray;
 }
-/* we use more muted link colors for the preview */
-#preview a {
-    color: #4084a6;
-}
-#preview a:visited {
-    color: #804080
-}
-#preview a.nonexistent {
-    color: #c04040;
-}
+
 .btn-toolbar {
     /* the btn-toolbar is only useful if JS is on, so we hide by default */
     display: none;

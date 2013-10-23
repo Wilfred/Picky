@@ -36,6 +36,8 @@
 
         var $preview = $("#preview");
         $preview.html(creoleToHtml(pageSource));
+
+        $('#preview-wrapper').show();
     }
 
     /* Asychronously update our known URLs, as other pages may have
