@@ -10,15 +10,20 @@ env.activate   = "source /home/picky/.envs/picky/bin/activate"
 
 def virtualenv(command):
     run(env.activate + ' && ' + command)
-    
 
-def deploy():
+
+def backup():
+    """Backup the production database to our current system."""
     with cd(env.directory):
-        # backup the production database to our current system
         now = datetime.now()
         backup_name = "%s-backup.db" % (now.strftime("%Y-%m-%d--%H-%M-%S"))
         get('picky/picky.db', backup_name)
 
+
+def deploy():
+    backup()
+    
+    with cd(env.directory):
         run('git pull origin master')
         virtualenv('pip install -r requirements.pip')
 
