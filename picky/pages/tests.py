@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 import re
 import json
+from datetime import datetime, timedelta
 
 from django.core.urlresolvers import reverse
+from django.test import TestCase
 
 from .models import Page
 from .test_mixins import PageTest
+from .templatetags.time_format import relative_time
 from users.test_base import UserTest
 
 
@@ -195,3 +198,14 @@ class DebugTest(UserTest):
     def test_debug_renders(self):
         response = self.client.get(reverse('debug'))
         self.assertEqual(response.status_code, 200)
+
+
+class TimestampTest(TestCase):
+    def test_three_months(self):
+        three_months_ago = datetime.now() - timedelta(days=95)
+        self.assertEqual(
+            relative_time(three_months_ago),
+            "3 months ago")
+
+    def test_none(self):
+        self.assertEqual(relative_time(None), "never")
