@@ -39,7 +39,7 @@ def relative_time(dt):
     elif timesince < timedelta(days=90):
         return "%d weeks ago" % (timesince.total_seconds() / (60 * 60 * 24 * 7))
 
-    return "%d months ago" % (timesince.total_seconds() / (60 * 60 * 24 * 7 * 30))
+    return "%d months ago" % (timesince.total_seconds() / (60 * 60 * 24 * 30))
 
 
 @register.filter
