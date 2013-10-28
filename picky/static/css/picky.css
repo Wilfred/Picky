@@ -10,13 +10,16 @@ body {
     width: 500px;
 }
 
+.header > a {
+    letter-spacing: 5px;
+}
 .header .right-links {
     float: right;
 }
-
-.search {
-    margin-bottom: 10px;
+.header {
+    margin-bottom: 5px;
 }
+
 .search form {
     margin: 0;
     float: right;
