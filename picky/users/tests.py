@@ -33,7 +33,6 @@ class UserDeleteTest(SuperuserTest):
         user_to_delete = User.objects.create_user('delete_me', 'test@example.com', 'testpassword')
         
         response = self.client.post(reverse('delete_user', args=[user_to_delete.id]))
-        print response.content
         
         self.assertFalse(User.objects.filter(id=user_to_delete.id).exists())
 
