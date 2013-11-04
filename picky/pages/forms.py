@@ -9,6 +9,12 @@ class PageForm(ModelForm):
         model = Page
         widgets = {'content': Textarea(attrs={'rows': 22})}
 
+    def __init__(self, *args, **kwargs):
+        super(PageForm, self).__init__(*args, **kwargs)
+
+        self.fields['name'].widget.attrs['class'] = "warn-on-unload"
+        self.fields['content'].widget.attrs['class'] = "warn-on-unload"
+
     def save(self, *args, **kwargs):
         user = kwargs.pop('user')
         
