@@ -42,3 +42,8 @@ class UserDeleteTest(SuperuserTest):
         
         self.assertTemplateUsed(response, "site_config/404.html")
 
+class AllUsersTest(UserTest):
+    def test_view_all_users(self):
+        response = self.client.post(reverse('all_users'))
+        self.assertEqual(response.status_code, 200)
+
