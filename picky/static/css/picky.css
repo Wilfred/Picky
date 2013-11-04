@@ -211,7 +211,10 @@ pre, code {
     white-space: pre;
 }
 
-/* COLLAPSIBLE TABLE OF CONTENTS */
+/* TABLE OF CONTENTS */
+.table-of-contents ul {
+    margin-bottom: 0;
+}
 .table-of-contents h3 a:hover {
     border-bottom-style: none;
 }
