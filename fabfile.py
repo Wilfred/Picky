@@ -24,7 +24,10 @@ def deploy():
     backup()
     
     with cd(env.directory):
-        run('git pull origin master')
+        run('git checkout master')        
+        run('git fetch')
+        run('git reset --hard origin/master')
+
         virtualenv('pip install -r requirements.pip')
 
         with cd("picky"):
