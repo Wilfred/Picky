@@ -18,8 +18,8 @@
 {% load time_format %}
 
 <div class="meta-links footer">
-    <p>created <span class="timestamp" title="{{ page.get_creation_time|absolute_time }}">{{ page.get_creation_time|relative_time }}</span>,
-        updated <span class="timestamp" title="{{ page.get_last_edit_time|absolute_time }}">{{ page.get_last_edit_time|relative_time }}</span>
+    <p>created <time datetime="{{ page.get_creation_time.isoformat }}" title="{{ page.get_creation_time|absolute_time }}">{{ page.get_creation_time|relative_time }}</time>,
+        updated <time datetime="{{ page.get_last_edit_time.isoformat }}" title="{{ page.get_last_edit_time|absolute_time }}">{{ page.get_last_edit_time|relative_time }}</time>
     </p>
 </div>
 

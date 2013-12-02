@@ -20,7 +20,7 @@
             </td>
             <td>{{ revision.author|default:"Anonymous" }}</td>
             <td>
-                <span class="timestamp" title="{{ revision.time|absolute_time }}">{{ revision.time|relative_time }}</span>
+                <time datetime="{{ revision.time.isoformat }}" title="{{ revision.time|absolute_time }}">{{ revision.time|relative_time }}</time>
             </td>
         </tr>
 	{% empty %}

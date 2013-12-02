@@ -107,7 +107,7 @@ ul ul, ul ol, ol ul, ol ol {
 .meta-links .active {
     border-bottom: 1px solid gray;
 }
-.timestamp {
+[title] {
     border-bottom: 1px dotted gray;
 }
 
