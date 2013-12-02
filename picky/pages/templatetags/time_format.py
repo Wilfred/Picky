@@ -10,36 +10,47 @@ register = template.Library()
 
 @register.filter
 def relative_time(dt):
+    """Return a string describing how long ago this datetime is. Uses the
+    same strings as timeago.js so the relative time is correct on page
+    load.
+
+    """
     if not dt:
         return "never"
     
     timesince = now() - dt
     
     if timesince < timedelta(minutes=1):
-        return "moments ago"
+        return "less than a minute ago"
 
     elif timesince < timedelta(minutes=2):
-        return "1 minute ago"
+        return "about a minute ago"
 
     elif timesince < timedelta(hours=1):
         return "%d minutes ago" % (timesince.total_seconds() / 60)
 
     elif timesince < timedelta(hours=2):
-        return "1 hour ago"
+        return "about an hour ago"
 
     elif timesince < timedelta(days=1):
         return "%d hours ago" % (timesince.total_seconds() / (60 * 60))
 
     elif timesince < timedelta(days=2):
-        return "1 day ago"
+        return "a day ago"
 
-    elif timesince < timedelta(days=15):
+    elif timesince < timedelta(days=30):
         return "%d days ago" % (timesince.total_seconds() / (60 * 60 * 24))
 
-    elif timesince < timedelta(days=90):
-        return "%d weeks ago" % (timesince.total_seconds() / (60 * 60 * 24 * 7))
+    elif timesince < timedelta(days=60):
+        return "about a month ago"
 
-    return "%d months ago" % (timesince.total_seconds() / (60 * 60 * 24 * 30))
+    elif timesince < timedelta(days=365):
+        return "%d months ago" % (timesince.total_seconds() / (60 * 60 * 24 * 30))
+
+    elif timesince < timedelta(days=365 * 2):
+        return "about a year ago"
+
+    return "%d years ago" % (timesince.total_seconds() / (60 * 60 * 24 * 365))
 
 
 @register.filter
