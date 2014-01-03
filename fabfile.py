@@ -42,3 +42,12 @@ def deploy():
 def restart():
     run("sudo supervisorctl restart picky")
 
+
+def update_settings():
+    url = raw_input("URL for live settings: ")
+
+    with cd(env.directory):
+        with cd('picky'):
+            run("wget -N '%s'" % url)
+
+    restart()
