@@ -44,7 +44,7 @@ def restart():
 
 
 def update_settings():
-    url = raw_input("URL for live settings: ")
+    url = raw_input("URL for live settings: ").strip()
 
     with cd(env.directory):
         with cd('picky'):
