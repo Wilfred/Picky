@@ -6,7 +6,7 @@
 
 {% block inner-content %}
 <div class="meta-links">
-    <a href="{% url new_comment page.name_slug %}">new comment</a>
+    <a href="{% url 'new_comment' page.name_slug %}">new comment</a>
 </div>
 
 {% for comment in comments %}
@@ -18,7 +18,7 @@
     <div class="meta-links footer">
         <span>{{ comment.user.username }},</span>
         <time datetime="{{ comment.time.isoformat }}" title="{{ comment.time|absolute_time }}">{{ comment.time|relative_time }}</time>
-        <a href="{% url new_comment page.name_slug comment.id %}">reply</a>
+        <a href="{% url 'new_comment' page.name_slug comment.id %}">reply</a>
     </div>
 </div>
 {% endfor %}

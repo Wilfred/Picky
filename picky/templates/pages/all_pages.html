@@ -15,7 +15,7 @@
 	{% for page in pages %}
         <tr>
             <td>
-                <a href="{% url view_page page.name_slug %}">{{ page.name }}</a>
+                <a href="{% url 'view_page' page.name_slug %}">{{ page.name }}</a>
             </td>
             <td>{{ page.get_latest_revision.time }}</td>
             <td>{{ page.get_latest_revision.version }}</td>

@@ -7,19 +7,19 @@
 <h2>Activity</h2>
 
 <ul>
-    <li><a href="{% url recent_changes %}">Recent Changes</a></li>
+    <li><a href="{% url 'recent_changes' %}">Recent Changes</a></li>
 </ul>
 <h2>Pages</h2>
 
 <ul>
-    <li><a href="{% url all_pages %}">All Pages</a></li>
+    <li><a href="{% url 'all_pages' %}">All Pages</a></li>
 </ul>
 
 <h2>Admin</h2>
 <ul>
-    <li><a href="{% url all_users %}">Users</a></li>
-    <li><a href="{% url configure_site %}">Site Settings</a></li>
-    <li><a href="{% url debug %}">Debug</a></li>
+    <li><a href="{% url 'all_users' %}">Users</a></li>
+    <li><a href="{% url 'configure_site' %}">Site Settings</a></li>
+    <li><a href="{% url 'debug' %}">Debug</a></li>
 </ul>
 
 {% endblock %}

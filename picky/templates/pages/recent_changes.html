@@ -16,7 +16,7 @@
 	{% for revision in latest_revisions %}
         <tr>
             <td>
-                <a href="{% url view_page revision.page.name_slug %}">{{ revision.page.name }}</a>
+                <a href="{% url 'view_page' revision.page.name_slug %}">{{ revision.page.name }}</a>
             </td>
             <td>{{ revision.author|default:"Anonymous" }}</td>
             <td>

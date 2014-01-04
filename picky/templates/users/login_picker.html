@@ -3,7 +3,6 @@
 {% block content %}
 <h1>Login</h1>
 
-{% load url from future %}
 <ul>
     <li><a href="{% url 'socialauth_begin' 'google' %}">Google</a></li>
     <li><a href="{% url 'socialauth_begin' 'twitter' %}">Twitter</a></li>
