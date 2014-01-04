@@ -3,20 +3,35 @@
 {% block content %}
 <h1>Debug</h1>
 
+<h2>Versions</h2>
+
 <table class="table table-striped table-bordered">
     <tbody>
-            <tr>
-                <th>Python</th>
-                <td>{{ python_version }}</td>
-            </tr>
-            <tr>
-                <th>Django</th>
-                <td>{{ django_version }}</td>
-            </tr>
-            <tr>
-                <th>Git Commit</th>
-                <td><pre>{{ git_commit }}</pre></td>
-            </tr>
+        <tr>
+            <th>Python</th>
+            <td>{{ python_version }}</td>
+        </tr>
+        <tr>
+            <th>Django</th>
+            <td>{{ django_version }}</td>
+        </tr>
+        <tr>
+            <th>Git Commit</th>
+            <td><pre>{{ git_commit }}</pre></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>HTTP Headers</h2>
+
+<table class="table table-striped table-bordered">
+    <tbody>
+        {% for name, value in headers %}
+        <tr>
+            <th>{{ name }}</th>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
     </tbody>
 </table>
 

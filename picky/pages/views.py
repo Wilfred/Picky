@@ -185,10 +185,14 @@ def debug(request):
     except (OSError, CalledProcessError):
         git_commit = "(unknown)"
 
-    return render(request, 'pages/debug.html',
-                  {'python_version': python_version,
-                   'django_version': django_version,
-                   'git_commit': git_commit})
+    headers = sorted(request.META.items())
+
+    return render(request, 'pages/debug.html', {
+        'python_version': python_version,
+        'django_version': django_version,
+        'git_commit': git_commit,
+        'headers': headers,
+    })
 
     
 def page_404(request, page_slug):
