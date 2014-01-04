@@ -28,6 +28,8 @@ def deploy():
         run('git fetch')
         run('git reset --hard origin/master')
 
+        run("find . -name '*.pyc' -delete")
+
         virtualenv('pip install -r requirements.pip')
 
         with cd("picky"):
