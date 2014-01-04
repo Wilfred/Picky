@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 from creoleparser import text2html
 
-from .utils import slugify
+from .utils import slugify, creole_slugify
 from .rendering import render_creole
 
 
@@ -86,7 +86,7 @@ class Page(models.Model):
         # Write headings as a nested bulleted list.
         headings_creole = []
         for depth, name in headings:
-            link = "#%s" % (name.lower().replace(' ', '-'))
+            link = "#%s" % (creole_slugify(name))
             headings_creole.append("%s [[%s|%s]]" % ("*" * depth, link, name))
 
         toc_template = "=== Table Of Contents\n%s" % "\n".join(headings_creole)

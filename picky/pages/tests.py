@@ -67,6 +67,20 @@ class RenderingTest(PageTest):
             '<p><a class="nonexistent" href="/page/no_such_page">no_such_page</a></p>')
 
 
+class TocTest(PageTest):
+    def test_basic_toc(self):
+        page = self.create_page(content="== hello world")
+        self.assertIn('<a href="#hello-world">', page.get_toc())
+
+    def test_toc_funky_chars(self):
+        page = self.create_page(content="== 123, 456!")
+        self.assertIn('<a href="#123-456">', page.get_toc())
+
+    def test_empty_toc(self):
+        page = self.create_page(content="hello world")
+        self.assertEqual(page.get_toc(), "")
+
+
 class PageCreationTest(UserTest, PageTest):
     def test_page_creation(self):
         self.client.post(reverse('create_page'),

@@ -14,3 +14,23 @@ def slugify(value):
 
     # replace whitespace with underscores
     return re.sub('[-\s]+', '_', value)
+
+
+def creole_slugify(value):
+    """Convert the given string to a slug consistent with heading IDs used
+    by our creole parser.
+
+    >>> creole_slugify("Only 20%!")
+    "only-20"
+
+    """
+    if not value:
+        return value
+
+    # Only keep alphanumeric and space characters.
+    value = re.sub(r"[^a-zA-Z0-9 ]+", "", value)
+
+    # replace whitespace with underscores
+    value = re.sub('[-\s]+', '-', value)
+
+    return value.lower()
