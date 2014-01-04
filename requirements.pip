@@ -9,14 +9,11 @@ Whoosh==2.5.2
 argparse==1.2.1
 beautifulsoup4==4.2.1
 coverage==3.6
+dj-static==0.0.5
 django-debug-toolbar==0.9.4
 django-haystack==2.1.0
 django-nose==1.2
 django-social-auth==0.7.25
-
-# dj-static fork with Django 1.4 support
-git+https://github.com/Wilfred/dj-static.git@da654fccf08a211fc0a3812aa0705ed3e82f9ed3#egg=dj-static==0.0.5
-
 docutils==0.9.1
 gunicorn==17.5
 html5lib==1.0b2
@@ -31,4 +28,5 @@ pycrypto==2.6
 python-openid==2.2.5
 raven==3.3.12
 six==1.3.0
+static==0.4
 wsgiref==0.1.2
