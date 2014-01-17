@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from fabric.api import env, cd, run, get
+from fabric.api import env, cd, run, get, sudo
 
 
 env.hosts = ['picky@wiki.wilfred.me.uk']
@@ -42,7 +42,7 @@ def deploy():
 
 
 def restart():
-    run("sudo supervisorctl restart picky")
+    sudo("supervisorctl restart picky", shell=False)
 
 
 def update_settings():
