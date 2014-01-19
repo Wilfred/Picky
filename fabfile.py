@@ -40,6 +40,11 @@ def deploy():
 
     restart()
 
+    with cd(env.directory):
+        run('cp configuration/wiki.wilfred.me.uk /etc/nginx/sites-enabled/')
+
+    sudo("service nginx reload", shell=False)
+
 
 def restart():
     sudo("supervisorctl restart picky", shell=False)
