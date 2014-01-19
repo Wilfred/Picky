@@ -35,7 +35,7 @@ class Page(models.Model):
     name_slug = models.CharField(max_length=200, editable=False, unique=True, null=True)
     name_lower = models.CharField(max_length=200, editable=False, null=True)
 
-    content = models.TextField()
+    content = models.TextField(blank=True)
 
     deleted = models.BooleanField(default=False)
 

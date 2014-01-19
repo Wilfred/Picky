@@ -89,6 +89,14 @@ class PageCreationTest(UserTest, PageTest):
         response = self.client.get(reverse('view_page', args=['foo']))
         self.assertEqual(response.status_code, 200)
         
+    def test_empty_page_creation(self):
+        """We should be able to create pages even with empty content."""
+        self.client.post(reverse('create_page'),
+                         {'name': 'foo', 'content': ''})
+
+        response = self.client.get(reverse('view_page', args=['foo']))
+        self.assertEqual(response.status_code, 200)
+        
     def test_duplicate_page_name(self):
         self.create_page(name='foo')
 
