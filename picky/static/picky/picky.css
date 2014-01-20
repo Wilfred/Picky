@@ -15,6 +15,17 @@
     top: 0;
     margin: 20px;
 }
+.sidebar {
+    position: absolute;
+    left: -170px;
+    width: 150px;
+    background: white;
+    padding: 10px 0 0 0;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 5px;
+}
 
 /* BASIC UI COLOURS */
 body {

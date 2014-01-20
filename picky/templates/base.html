@@ -28,8 +28,10 @@
                 {% csrf_token %}
                 <input name="search_term" type="search" placeholder="Search">
             </form>
-            
-            {% block tab_bar %}{% endblock %}
+
+            <div class="sidebar">
+                {% block sidebar %}{% endblock %}
+            </div>
             
 	    {% block content %}{% endblock %}
             
