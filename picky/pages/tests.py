@@ -221,6 +221,10 @@ class DebugTest(UserTest):
         response = self.client.get(reverse('debug'))
         self.assertEqual(response.status_code, 200)
 
+    def test_debug_styling_renders(self):
+        response = self.client.get(reverse('debug_styling'))
+        self.assertEqual(response.status_code, 200)
+
 
 class TimestampTest(TestCase):
     def test_three_months(self):

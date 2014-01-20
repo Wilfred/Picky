@@ -195,6 +195,12 @@ def debug(request):
     })
 
     
+# todo: also move to the meta app
+@login_required
+def debug_styling(request):
+    return render(request, 'pages/debug_styling.html')
+
+    
 def page_404(request, page_slug):
     """Return a helpful 404 if the user was looking for a page that
     doesn't exist.

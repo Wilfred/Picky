@@ -38,6 +38,7 @@ urlpatterns = patterns('',
     url(r'^meta/$', 'site_config.views.view_meta', name='meta'),
     url(r'^meta/recent_changes/$', 'pages.views.recent_changes', name='recent_changes'),
     url(r'^meta/debug/$', 'pages.views.debug', name='debug'),
+    url(r'^meta/debug_styling/$', 'pages.views.debug_styling', name='debug_styling'),
 
     # todo: move to /user/social/login
     url(r'', include('social_auth.urls')),
