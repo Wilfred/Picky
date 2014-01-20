@@ -87,7 +87,13 @@ ul, ol {
     margin-right: 20px;
 }
 
-/* META */
+/* METADATA */
+.metadata {
+    color: gray;
+}
+.metadata * {
+    margin: 0;
+}
 
 /* TOOLTIPS */
 [title] {
