@@ -1,31 +1,27 @@
 /* POSITIONING */
-body {
-    margin: 5px 0 0 80px;
-}
-.main {
-    margin-right: 50px;
-}
+.main-container {
+    margin: 5px 0 20px 200px;
+    padding: 20px;
 
-.column {
-    width: 500px;
-}
-
-.header > a {
-    letter-spacing: 5px;
-}
-.header .right-links {
-    float: right;
+    position: relative;
+    width: 600px;
 }
 .header {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+}
+.site-search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 20px;
 }
 
-.search form {
-    margin: 0;
-    float: right;
+/* BASIC UI COLOURS */
+body {
+    background: #ddd;
 }
-
-.page-tools {
+.main-container {
+    background: white;
 }
 
 /* TYPOGRAPHY */
@@ -40,9 +36,6 @@ p, ul, ol, h1, h2, h3, h4, h5, h6 {
 }
 p, ul, ol {
     margin-bottom: 24px;
-}
-h1, h2, h3, h4, h5, h6 {
-    color: inherit;
 }
 h1 {
     font-size: 36px;
@@ -72,41 +65,31 @@ h1, h2, h3, h4, h5, h6 {
 ul {
     list-style-type: square;
 }
-/* Don't indent the outer list, but indent all other rows according to
- * their nesting level.
- */
 ul, ol {
-    margin-left: 0;
-}
-ul ul, ul ol, ol ul, ol ol {
     margin-left: 25px;
 }
 
-/* META */
-.meta-links * {
+/* TOOLBARS */
+.toolbar a {
     text-transform: uppercase;
-    color: gray;
-    font-size: 13px;
-}
-.meta-links a {
-    margin-left: 16px;
-    border-bottom: 0;
-}
-.meta-links a:first-child {
-    margin-left: 0;
-}
-.meta-links a:visited {
-    color: gray;
-}
-.meta-links a:hover {
     color: black;
-    text-decoration: none;
     border-bottom: 1px solid black;
-    background-color: transparent;
 }
-.meta-links .active {
-    border-bottom: 1px solid gray;
+.toolbar a:visited {
+    color: black;
+    border-bottom: 1px solid black;
 }
+.toolbar a:hover, .toolbar a:hover:visited, .toolbar .active {
+    color: black;
+    background-color: #f8f8f8;
+}
+.site-toolbar a {
+    margin-right: 20px;
+}
+
+/* META */
+
+/* TOOLTIPS */
 [title] {
     border-bottom: 1px dotted gray;
 }
