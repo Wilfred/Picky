@@ -1,5 +1,6 @@
 import json
 import sys
+import time
 from subprocess import check_output, CalledProcessError
 
 import django
@@ -198,7 +199,10 @@ def debug(request):
 # todo: also move to the meta app
 @login_required
 def debug_styling(request):
-    return render(request, 'pages/debug_styling.html')
+    current_time = time.time()
+    return render(request, 'pages/debug_styling.html', {
+        'time': current_time,
+    })
 
     
 def page_404(request, page_slug):
