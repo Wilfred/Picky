@@ -140,17 +140,9 @@ ul, ol {
     font-style: italic;
 }
 
-/* PAGES */
-.page > :last-child {
-    margin-bottom: 0;
-}
-
 /* COMMENTS */
 .comment {
     margin-top: 24px;
-}
-.comment > :last-child {
-    margin-bottom: 0;
 }
 
 /* HYPERLINKS */
