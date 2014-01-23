@@ -208,17 +208,3 @@ pre, code {
     overflow-x: auto;
     white-space: pre;
 }
-
-/* TABLE OF CONTENTS */
-.table-of-contents ul {
-    margin-bottom: 0;
-}
-.table-of-contents h3 a:hover {
-    border-bottom-style: none;
-}
-.table-of-contents h3 i {
-    color: inherit;
-}
-.table-of-contents li {
-    list-style-type: none;
-}
