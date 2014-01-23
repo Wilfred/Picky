@@ -2,6 +2,15 @@
 
 {% block page_view_state %}active{% endblock %}
 
+{% block sidebar %}
+{{ block.super }}
+
+<div class="toolbar block">
+    <h2>Contents</h2>
+    {{ toc|safe }}
+</div>
+{% endblock %}
+
 {% block inner-content %}
 
 {% if version_specified %}
@@ -9,9 +18,6 @@
 {% endif %}
 
 <div class="page">
-    <div class="meta-links table-of-contents">
-        {{ toc|safe }}
-    </div>
     {{ content|safe }}
 </div>
 

@@ -87,9 +87,9 @@ class Page(models.Model):
         headings_creole = []
         for depth, name in headings:
             link = "#%s" % (creole_slugify(name))
-            headings_creole.append("%s [[%s|%s]]" % ("*" * depth, link, name))
+            headings_creole.append("%s [[%s|%s]]" % ("#" * depth, link, name))
 
-        toc_template = "=== Table Of Contents\n%s" % "\n".join(headings_creole)
+        toc_template = "\n".join(headings_creole)
 
         return text2html(toc_template)
 
