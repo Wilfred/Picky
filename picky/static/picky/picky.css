@@ -17,14 +17,18 @@
 }
 .sidebar {
     position: absolute;
-    left: -170px;
-    width: 150px;
-    background: white;
-    padding: 10px 0 0 0;
+    left: -180px;
+    width: 160px;
 }
 .sidebar h2 {
     text-align: center;
     margin-bottom: 5px;
+}
+
+/* UI blocks */
+.block {
+    background-color: white;
+    padding: 10px;
 }
 
 /* BASIC UI COLOURS */

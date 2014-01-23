@@ -3,8 +3,8 @@
 {% block title %}{{ block.super }} | {{ page.name }}{% endblock %}
 
 {% block sidebar %}
-<h2>Tools</h2>
-<div class="toolbar">
+<div class="toolbar block">
+    <h2>Tools</h2>
     <ul>
         <li><a href="{% url 'view_page' page.name_slug %}" class="{% block page_view_state %}{% endblock %}">view</a></li>
         <li><a href="{% url 'edit_page' page.name_slug %}" class="{% block page_edit_state %}{% endblock %}">edit</a></li>
