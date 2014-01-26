@@ -45,6 +45,9 @@ def deploy():
 
     sudo("service nginx reload", shell=False)
 
+    with cd(env.directory):
+        run('cp configuration/picky.conf /etc/supervisor/conf.d/')
+
 
 def restart():
     sudo("supervisorctl restart picky", shell=False)
