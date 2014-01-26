@@ -1,44 +1,53 @@
-/* POSITIONING */
-.main-container {
-    margin: 5px 0 20px 200px;
-    padding: 20px;
-
+/* GRID */
+.grid-row {
+    width: 870px;
     position: relative;
+}
+.grid-row:after { 
+   content: "";
+   display: block; 
+   clear: both;
+}
+.left-column, .main-column {
+}
+.left-column {
+    width: 220px;
+    float: left;
+    margin: 0 0 0 20px;
+}
+.main-column {
+    float: right;
     width: 600px;
 }
-.header {
-    margin-bottom: 10px;
-}
+
+/* POSITIONING */
 .site-search {
     position: absolute;
     right: 0;
     top: 0;
-    margin: 20px;
+    margin: 10px;
 }
-.sidebar {
-    position: absolute;
-    left: -180px;
-    width: 160px;
+
+/* HEADER */
+.header {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
-.sidebar h2 {
-    text-align: center;
-    margin-bottom: 5px;
+.header a, .header a:visited {
+    color: black;
+    border: 0;
 }
 
 /* UI blocks */
 .block {
     background-color: white;
     padding: 10px;
-
-    margin: 0 0 20px 0;
+    margin: 10px 0 0 0;
 }
 
 /* BASIC UI COLOURS */
 body {
     background: #ddd;
-}
-.main-container {
-    background: white;
 }
 
 /* TYPOGRAPHY */
