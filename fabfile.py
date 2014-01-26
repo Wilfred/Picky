@@ -38,6 +38,9 @@ def deploy():
             virtualenv('python manage.py migrate')
             virtualenv('python manage.py rebuild_index --noinput')
 
+        # Copy across our supervisor configuration, as it may have changed.
+        run('cp configuration/picky.conf /etc/supervisor/conf.d/')
+
     restart()
 
     with cd(env.directory):
@@ -45,11 +48,9 @@ def deploy():
 
     sudo("service nginx reload", shell=False)
 
-    with cd(env.directory):
-        run('cp configuration/picky.conf /etc/supervisor/conf.d/')
-
 
 def restart():
+    sudo("supervisorctl reread", shell=False)
     sudo("supervisorctl restart picky", shell=False)
 
 
