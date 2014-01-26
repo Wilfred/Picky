@@ -35,6 +35,7 @@
 .header a, .header a:visited {
     color: black;
     border: 0;
+    text-decoration: none;
 }
 
 /* UI blocks */
@@ -105,6 +106,7 @@ ul, ol {
 }
 .toolbar a {
     text-transform: uppercase;
+    text-decoration: none;
     color: black;
     border-bottom: 1px solid black;
 }
@@ -176,11 +178,11 @@ img.favicon {
 a {
     color: blue;
     border-bottom: 1px solid blue;
+    text-decoration: none;
 }
 a:hover {
     color: blue;
     background-color: #f2f7fc;
-    text-decoration: none;
 }
 a:visited {
     color: #800080;
