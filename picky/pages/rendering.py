@@ -31,7 +31,7 @@ def render_creole(source):
             favicon['src'] = "//getfavicon.appspot.com/" + quote(url)
             favicon['class'] = 'favicon'
 
-            a_tag.insert_before(favicon)
+            a_tag.insert_after(favicon)
 
     # circular import fix
     from .models import Page

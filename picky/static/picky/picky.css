@@ -163,9 +163,9 @@ ul, ol {
 
 /* HYPERLINKS */
 img.favicon {
-    vertical-align: sub;
+    vertical-align: middle;
     max-height: 16px;
-    padding-right: 3px;
+    padding-left: 1px;
 }
 a {
     color: blue;
