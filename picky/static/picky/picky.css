@@ -8,8 +8,6 @@
    display: block; 
    clear: both;
 }
-.left-column, .main-column {
-}
 .left-column {
     width: 220px;
     float: left;
