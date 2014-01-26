@@ -17,6 +17,7 @@
 }
 .main-column {
     float: right;
+    position: relative;
     width: 600px;
 }
 
