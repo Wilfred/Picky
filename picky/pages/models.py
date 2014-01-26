@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 from creoleparser import text2html
 
-from .utils import slugify, creole_slugify
+from .utils import slugify, creole_slugify, remove_links
 from .rendering import render_creole
 
 
@@ -66,7 +66,7 @@ class Page(models.Model):
             if match:
                 depth = len(match.groups()[0])
                 name = match.groups()[1].strip()
-                headings.append((depth, name))
+                headings.append((depth, remove_links(name)))
 
         # Don't bother showing a TOC if there aren't any headings.
         if not headings:

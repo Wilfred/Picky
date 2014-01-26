@@ -80,6 +80,14 @@ class TocTest(PageTest):
         page = self.create_page(content="hello world")
         self.assertEqual(page.get_toc(), "")
 
+    def test_toc_named_links(self):
+        page = self.create_page(content="== [[http://example.com|hello world]]")
+        self.assertIn('<a href="#hello-world">', page.get_toc())
+
+    def test_toc_simple_links(self):
+        page = self.create_page(content="== [[hello world]]")
+        self.assertIn('<a href="#hello-world">', page.get_toc())
+
 
 class PageCreationTest(UserTest, PageTest):
     def test_page_creation(self):

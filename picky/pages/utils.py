@@ -34,3 +34,26 @@ def creole_slugify(value):
     value = re.sub('[-\s]+', '-', value)
 
     return value.lower()
+
+
+def remove_links(creole):
+    """Remove all links in a given piece of creole text.
+
+    >>> remove_links("[[foo]] [[http://bar|baz]]")
+    "foo baz"
+
+    """
+    named_link = re.compile(r"""\[\[    # opening [[
+                                [^]|]+? # anything that isn't | or ]
+                                \|      # the | separator
+                                ([^]]+) # name of the link, anything that isn't ]
+                                \]\]    # closing ]]
+                                """, re.VERBOSE)
+
+    simple_link = re.compile(r"""\[\[    # opening [[
+                                 ([^]]+) # inside the link, anything that isn't ]
+                                 /]/]    # closing ]]
+                                 """, re.VERBOSE)
+
+    creole = re.sub(named_link, r"\1", creole)
+    return re.sub(simple_link, r"\1", creole)
