@@ -94,7 +94,15 @@ ul, ol {
     margin-left: 25px;
 }
 
+/* TABLE OF CONTENTS */
+.table-of-contents ul, .table-of-contents ol {
+    margin-bottom: 0;
+}
+
 /* TOOLBARS */
+.toolbar ul, .toolbar ol {
+    margin-bottom: 0;
+}
 .toolbar a {
     text-transform: uppercase;
     color: black;
