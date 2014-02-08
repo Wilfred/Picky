@@ -37,6 +37,9 @@
     border: 0;
     text-decoration: none;
 }
+.header a:hover, .header a:hover:visited, .header .active {
+    background-color: #f8f8f8;
+}
 
 /* UI blocks */
 .block {
