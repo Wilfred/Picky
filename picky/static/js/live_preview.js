@@ -70,7 +70,7 @@
 
             if (isExternal(url)) {
                 iconUrl = "//getfavicon.appspot.com/" + encodeURIComponent(url);
-                $a.before('<img class="favicon" src="' + iconUrl + '">');
+                $a.after('<img class="favicon" src="' + iconUrl + '">');
             }
         });
 
