@@ -11,25 +11,25 @@
     }
 
     // We only show the toolbar if JS is available.
-    $('.btn-toolbar').show();
+    $('.button-toolbar').show();
 
-    $('.btn-toolbar .bold').click(function() {
+    $('.button-toolbar .bold').click(function() {
         insert('**bold text**');
     });
 
-    $('.btn-toolbar .italic').click(function() {
+    $('.button-toolbar .italic').click(function() {
         insert('//italic text//');
     });
 
-    $('.btn-toolbar .h1').click(function() {
+    $('.button-toolbar .h1').click(function() {
         insert('= heading =');
     });
 
-    $('.btn-toolbar .h2').click(function() {
+    $('.button-toolbar .h2').click(function() {
         insert('== Sub-heading ==');
     });
 
-    $('.btn-toolbar .h3').click(function() {
+    $('.button-toolbar .h3').click(function() {
         insert('=== Sub-sub-heading ===');
     });
 

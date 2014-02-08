@@ -159,16 +159,21 @@ ul, ol {
     float: left;
 }
 
-.btn-toolbar {
-    /* the btn-toolbar is only useful if JS is on, so we hide by default */
+.button-toolbar {
+    /* the button-toolbar is only useful if JS is on, so we hide by default */
     display: none;
     margin: 0 0 5px 0;
 }
-.btn-toolbar .bold {
+.button-toolbar .bold {
     font-weight: bold;
 }
-.btn-toolbar .italic {
+.button-toolbar .italic {
     font-style: italic;
+}
+
+.button-group {
+    display: inline-block;
+    margin-right: 20px;
 }
 
 /* COMMENTS */
