@@ -38,7 +38,7 @@
     text-decoration: none;
 }
 .header a:hover, .header a:hover:visited, .header .active {
-    background-color: #f8f8f8;
+    background-color: #f0f0f0;
 }
 
 /* UI blocks */
@@ -123,7 +123,7 @@ ul, ol {
 }
 .toolbar a:hover, .toolbar a:hover:visited, .toolbar .active {
     color: black;
-    background-color: #f8f8f8;
+    background-color: #f0f0f0;
 }
 .site-toolbar a {
     margin-right: 20px;
