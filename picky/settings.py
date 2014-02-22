@@ -199,7 +199,8 @@ LOGGING = {
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler'
+            'class': 'django.utils.log.AdminEmailHandler',
+            'filters': ['require_debug_false'],
         }
     },
     'loggers': {
@@ -209,7 +210,12 @@ LOGGING = {
             'filters': ['require_debug_false'],
             'propagate': True,
         },
-    }
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
 }
 
 INTERNAL_IPS = ('127.0.0.1',)
