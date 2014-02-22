@@ -2,12 +2,16 @@
 
 {% block page_history_state %}active{% endblock %}
 
+{% load time_format %}
+
 {% block inner-content %}
 <table class="table table-striped table-bordered">
     <thead>
             <tr>
                 <th>Name</th>
                 <th>Version</th>
+                <th>Date</th>
+                <th>Author</th>
             </tr>
     </thead>
     <tbody>
@@ -19,6 +23,10 @@
 			(<a href="{% url 'view_page' page.name_slug %}?version={{ revision.version }}">view
 			this revision</a>)
 		</td>
+                <td>
+                    <time datetime="{{ revision.time.isoformat }}" title="{{ revision.time|absolute_time }}">{{ revision.time|relative_time }}</time>
+                </td>
+                <td>{{ revision.author }}</td>
             </tr>
 	    {% endfor %}
     </tbody>
