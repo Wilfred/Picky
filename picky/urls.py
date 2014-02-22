@@ -13,7 +13,7 @@ urlpatterns = patterns('',
                        
     url(r'^page/(?P<page_slug>[^/]+)/$', 'pages.views.view_page', name='view_page'),
     url(r'^page/(?P<page_slug>[^/]+)/edit/$', 'pages.views.edit_page', name='edit_page'),
-    url(r'^page/(?P<page_slug>[^/]+)/history/$', 'pages.views.view_page_history', name='view_page_history'),
+    url(r'^page/(?P<page_slug>[^/]+)/changes/$', 'pages.views.view_page_history', name='view_page_history'),
 
     url(r'^page/(?P<page_slug>[^/]+)/actions/$', 'pages.views.view_page_actions', name='view_page_actions'),
     url(r'^page/(?P<page_slug>[^/]+)/actions/delete/$', 'pages.views.delete_page', name='delete_page'),
@@ -42,12 +42,6 @@ urlpatterns = patterns('',
 
     # todo: move to /user/social/login
     url(r'', include('social_auth.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
 )
 
 handler404 = 'site_config.views.not_found'
