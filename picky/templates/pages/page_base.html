@@ -9,7 +9,7 @@
         <li><a href="{% url 'view_page' page.name_slug %}" class="{% block page_view_state %}{% endblock %}">view</a></li>
         <li><a href="{% url 'edit_page' page.name_slug %}" class="{% block page_edit_state %}{% endblock %}">edit</a></li>
         <li><a href="{% url 'view_page_comments' page.name_slug %}" class="{% block page_comments_state %}{% endblock %}">{{ page.comment_set.count }} comment{{ page.comment_set.count|pluralize }}</a></li>
-        <li><a href="{% url 'view_page_history' page.name_slug %}" class="{% block page_history_state %}{% endblock %}">{{ page.get_change_count }} change{{ page.get_change_count|pluralize }}</a></li>
+        <li><a href="{% url 'view_page_changes' page.name_slug %}" class="{% block page_history_state %}{% endblock %}">{{ page.get_change_count }} change{{ page.get_change_count|pluralize }}</a></li>
         <li><a href="{% url 'view_page_actions' page.name_slug %}" class="{% block page_actions_state %}{% endblock %}">actions</a></li>
     </ul>
 </div>

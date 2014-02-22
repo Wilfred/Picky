@@ -164,7 +164,7 @@ class PageViewTest(UserTest, PageTest):
     def test_page_history(self):
         page = self.create_page(name='foo', content='foo')
         response = self.client.get(
-            reverse('view_page_history', args=[page.name_slug]))
+            reverse('view_page_changes', args=[page.name_slug]))
 
         self.assertEqual(response.status_code, 200)
 

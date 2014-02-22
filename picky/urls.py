@@ -13,7 +13,7 @@ urlpatterns = patterns('pages.views',
                        
     url(r'^page/(?P<page_slug>[^/]+)/$', 'view_page', name='view_page'),
     url(r'^page/(?P<page_slug>[^/]+)/edit/$', 'edit_page', name='edit_page'),
-    url(r'^page/(?P<page_slug>[^/]+)/changes/$', 'view_page_history', name='view_page_history'),
+    url(r'^page/(?P<page_slug>[^/]+)/changes/$', 'view_page_changes', name='view_page_changes'),
 
     url(r'^page/(?P<page_slug>[^/]+)/actions/$', 'view_page_actions', name='view_page_actions'),
     url(r'^page/(?P<page_slug>[^/]+)/actions/delete/$', 'delete_page', name='delete_page'),

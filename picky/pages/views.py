@@ -137,14 +137,13 @@ def view_page_comments(request, page_slug):
 
 
 @login_required
-def view_page_history(request, page_slug):
+def view_page_changes(request, page_slug):
     page = get_object_or_404(Page, name_slug=page_slug)
     all_revisions = PageRevision.objects.filter(page=page)
 
     template_vars = {'page': page,
                      'all_revisions': all_revisions}
-    return render_to_response("pages/view_page_history.html", template_vars,
-                              RequestContext(request))
+    return render(request, "pages/view_page_changes.html", template_vars)
 
 
 @login_required
