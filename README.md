@@ -336,4 +336,6 @@ users are as self-sufficient as possible.
 
 #### Similar projects
 
-Diigo has been developed with some similar ideas in mind.
+Diigo has been developed with some similar ideas in mind. There's also
+comprehensive list of wiki features at
+[WikiMatrix](http://www.wikimatrix.org/wiki/mediawiki:intro).
