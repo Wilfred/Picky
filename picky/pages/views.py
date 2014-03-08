@@ -172,7 +172,7 @@ def search(request):
         qs = None
 
     return render(request, 'pages/search.html',
-                  {'results': qs})
+                  {'results': qs, 'search_term': search_term})
 
 
 # todo: also move to the meta app

@@ -13,4 +13,10 @@
 <p>No results found.</p>
 {% endif %}
 
+{% if search_term %}
+<p>Alternatively,
+    <a href="{% url 'create_page' search_term %}">create a page called '{{ search_term }}'</a>.
+</p>
+{% endif %}
+
 {% endblock %}
