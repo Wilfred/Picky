@@ -165,7 +165,7 @@ def recent_changes(request):
 # todo: create a separate app (maybe meta?)
 @login_required
 def search(request):
-    search_term = request.POST.get('search_term')
+    search_term = request.GET.get('keywords')
     if search_term:
         qs = SearchQuerySet().filter(content=AutoQuery(search_term))
     else:

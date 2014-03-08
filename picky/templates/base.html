@@ -24,9 +24,8 @@
 		    {% endif %}
                 </div>
 
-                <form class="site-search" method="post" action="{% url 'search' %}">
-                    {% csrf_token %}
-                    <input name="search_term" type="search" placeholder="Search">
+                <form class="site-search" action="{% url 'search' %}">
+                    <input name="keywords" type="search" placeholder="Search">
                 </form>
 
             </div>
