@@ -1,0 +1,7 @@
+# Picky aims to be a pure python website. However, I like to use
+# Fabric for deploys, which has C library dependencies. So we
+# separate those dependencies into this file.
+
+paramiko==1.9.0
+pycrypto==2.6.1
+Fabric==1.5.1
