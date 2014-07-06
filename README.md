@@ -32,6 +32,7 @@ design.
 GPLv2 license.
 
 [![Build Status](https://secure.travis-ci.org/Wilfred/Picky.png?branch=master)](http://travis-ci.org/Wilfred/Picky)
+[![Requirements Status](https://requires.io/github/Wilfred/Picky/requirements.png?branch=master)](https://requires.io/github/Wilfred/Picky/requirements/?branch=master)
 
 ### Development
 
