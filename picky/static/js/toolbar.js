@@ -10,7 +10,7 @@
         $content.trigger('keyup');
     }
 
-    // We only show the toolbar if JS is available.
+    // We only show the editing toolbar if JS is available.
     $('.button-toolbar').show();
 
     $('.button-toolbar .bold').click(function() {
