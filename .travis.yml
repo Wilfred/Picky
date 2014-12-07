@@ -4,6 +4,7 @@ python:
 install:
   - pip install -r requirements.pip --use-mirrors
   - pip install -r test_requirements.pip --use-mirrors
-script: DUMMY_SEARCH=y python picky/manage.py test --with-coverage --cover-package=picky,comments,pages,site_config,users
+script:
+  - DUMMY_SEARCH=y python manage.py test --with-coverage --cover-package=picky
 after_success:
   coveralls
