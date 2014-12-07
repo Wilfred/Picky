@@ -1,14 +1,22 @@
 import re
 
 from django.db import models
-from django.utils.text import truncate_words
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.utils.text import Truncator
+from django.utils.functional import allow_lazy
+from django.utils import six
 
 from creoleparser import text2html
 
 from .utils import slugify, creole_slugify, remove_links
 from .rendering import render_creole
+
+
+def truncate_words(s, num, end_text='...'):
+    truncate = end_text and ' %s' % end_text or ''
+    return Truncator(s).words(num, truncate=truncate)
+truncate_words = allow_lazy(truncate_words, six.text_type)
 
 
 class PageManager(models.Manager):
