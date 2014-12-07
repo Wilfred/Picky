@@ -164,10 +164,6 @@ INSTALLED_APPS = (
     'site_config',
 )
 
-DEBUG_TOOLBAR_CONFIG = {
-    'INTERCEPT_REDIRECTS': False,
-}
-
 if os.getenv('DUMMY_SEARCH', False):
     HAYSTACK_CONNECTIONS = {
         'default': {
