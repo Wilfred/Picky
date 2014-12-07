@@ -9,17 +9,20 @@
 
 <h4>I am an h4</h4>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur.
+<p>I am a long paragraph.Lorem ipsum dolor sit amet, consectetur
+adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur.
 </p>
 
-<p>Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+<p>I am a medium paragraph. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.
 </p>
+
+<p>I am a short paragraph.</p>
 
 <p>Links: <a href="/?{{ time }}">unvisited</a>,
     <a href="{% url 'debug_styling' %}">visited</a>,
@@ -27,17 +30,17 @@ culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
 <ul>
-    <li>Lorem ipsum</li>
-    <li>Lorem ipsum</li>
-    <li>Lorem ipsum</li>
-    <li>Lorem ipsum</li>
+    <li>Bullet</li>
+    <li>Bullet</li>
+    <li>Bullet</li>
+    <li>Bullet</li>
 </ul>
 
 <ol>
-    <li>Lorem ipsum</li>
-    <li>Lorem ipsum</li>
-    <li>Lorem ipsum</li>
-    <li>Lorem ipsum</li>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+    <li>Four</li>
 </ol>
 
 <table>
@@ -76,5 +79,12 @@ class HelloWorldApp {
 <p>this is a time:
     <time datetime="2013-07-15T22:44:22.797000" title="2013 July 15, 22:44">some time ago</time>
 </p>
+
+<div class="metadata">
+    <p>some metadata goes here
+    </p>
+</div>
+
+
 
 {% endblock %}
