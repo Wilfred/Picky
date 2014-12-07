@@ -2,8 +2,8 @@ language: python
 python:
   - 2.7
 install:
-  - pip install -r requirements.pip --use-mirrors
-  - pip install -r test_requirements.pip --use-mirrors
+  - pip install -r requirements.pip
+  - pip install -r test_requirements.pip
 script:
   - DUMMY_SEARCH=y python manage.py test --with-coverage --cover-package=picky
 after_success:
