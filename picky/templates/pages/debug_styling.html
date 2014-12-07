@@ -3,13 +3,7 @@
 {% block content %}
 <h1>Debug Styling</h1>
 
-<h2>I am an h2</h2>
-
-<h3>I am an h3</h3>
-
-<h4>I am an h4</h4>
-
-<p>I am a long paragraph.Lorem ipsum dolor sit amet, consectetur
+<p>I am a long paragraph. Lorem ipsum dolor sit amet, consectetur
 adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
@@ -24,9 +18,20 @@ laborum.
 
 <p>I am a short paragraph.</p>
 
+<h2>I am an h2</h2>
+
+<p>I am a short paragraph.</p>
+
+<h2>I am an h2</h2>
+
+<h3>I am an h3</h3>
+
+<h4>I am an h4</h4>
+
 <p>Links: <a href="/?{{ time }}">unvisited</a>,
     <a href="{% url 'debug_styling' %}">visited</a>,
     <a href="" class="nonexistent">nonexistent</a>.
+    Don't forget to hover!
 </p>
 
 <ul>
