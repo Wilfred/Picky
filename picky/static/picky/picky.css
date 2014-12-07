@@ -53,7 +53,7 @@ body {
 }
 
 /* TYPOGRAPHY */
-body {
+.main-column {
     text-align: justify;
 }
 body, p, pre, code {
