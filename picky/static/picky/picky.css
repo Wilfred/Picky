@@ -234,6 +234,7 @@ tbody tr:nth-child(2n+1) {
 }
 td, th {
     border-top: 1px solid rgb(221, 221, 221);
+    padding: 5px;
 }
 td + td, th + th, td + th, th + td {
     border-left: 1px solid rgb(221, 221, 221);
