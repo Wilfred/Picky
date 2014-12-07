@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import CommentForm
 from .models import Comment
-from pages.models import Page
+from picky.pages.models import Page
 
 
 @login_required

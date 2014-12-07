@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 
-from pages.test_mixins import PageTest
-from users.test_base import UserTest
+from picky.pages.test_mixins import PageTest
+from picky.users.test_base import UserTest
 from .models import Comment
 
 

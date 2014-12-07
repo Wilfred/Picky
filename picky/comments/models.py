@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from pages.rendering import render_creole
+from picky.pages.rendering import render_creole
 
 
 class Comment(models.Model):

@@ -16,7 +16,7 @@ from haystack.inputs import AutoQuery
 from .models import Page, PageRevision
 from .forms import PageForm
 from .utils import slugify
-from comments.forms import CommentForm
+from picky.comments.forms import CommentForm
 
 
 @login_required

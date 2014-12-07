@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse
 
-from users.test_base import UserTest
+from picky.users.test_base import UserTest
 
 
 class SiteSettingsTest(UserTest):

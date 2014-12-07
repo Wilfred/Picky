@@ -9,7 +9,7 @@ from django.test import TestCase
 from .models import Page
 from .test_mixins import PageTest
 from .templatetags.time_format import relative_time
-from users.test_base import UserTest
+from picky.users.test_base import UserTest
 
 
 class RenderingTest(PageTest):

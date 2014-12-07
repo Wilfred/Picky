@@ -96,7 +96,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
-    "site_config.context_processors.include_config",
+    "picky.site_config.context_processors.include_config",
 )
 
 
@@ -158,10 +158,10 @@ INSTALLED_APPS = (
     'debug_toolbar',
 
     # picky apps
-    'pages',
-    'comments',
-    'users',
-    'site_config',
+    'picky.pages',
+    'picky.comments',
+    'picky.users',
+    'picky.site_config',
 )
 
 if os.getenv('DUMMY_SEARCH', False):
