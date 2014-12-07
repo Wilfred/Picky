@@ -20,6 +20,9 @@
 }
 
 /* POSITIONING */
+body {
+    padding-top: 10px;
+}
 .site-search {
     position: absolute;
     right: 0;
@@ -44,18 +47,15 @@
 /* UI blocks */
 .block {
     background-color: white;
-    padding: 10px;
-    margin: 10px 0 0 0;
-
-    border-radius: 10px;
-}
-
-/* BASIC UI COLOURS */
-body {
-    background: #ddd;
+    padding: 0 10px 0 10px;
+    margin: 0 0 20px 0;
+    border-left: 1px solid black;
 }
 
 /* TYPOGRAPHY */
+body {
+    text-align: justify;
+}
 body, p, pre, code {
     font-size: 16px;
 }
@@ -63,18 +63,18 @@ body, p {
     font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
 }
 p, ul, ol, h1, h2, h3, h4, h5, h6 {
-    line-height: 24px;
+    line-height: 1.0;
     margin: 0;
 }
 p, ul, ol {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 ul, ol {
     padding: 0;
 }
 h1 {
     font-size: 36px;
-    line-height: 48px;
+    margin-bottom: 5px;
 }
 h2 {
     font-size: 22px;
@@ -83,13 +83,14 @@ h3 {
     font-size: 18px;
 }
 h4, h5, h6 {
-    font-size: 16px;
+    font-size: 18px;
+    font-style: italic;
 }
 h5, h6 {
     font-style: italic;
 }
 p, ul, ol, li, pre, code  {
-    line-height: 24px;
+    line-height: 22px;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Bree Serif', Georgia, serif !important;
@@ -98,16 +99,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* LISTS */
 ul {
-    list-style-type: square;
+    list-style: square;
 }
 ul, ol {
-    margin-left: 25px;
+    margin-left: 16px;
 }
 
 /* TABLE OF CONTENTS */
 .table-of-contents ul, .table-of-contents ol {
-    margin-bottom: 0;
     list-style: none;
+    margin-bottom: 0;
 }
 .table-of-contents > ol {
     margin: 0;
@@ -115,8 +116,8 @@ ul, ol {
 
 /* TOOLBARS */
 .toolbar ul, .toolbar ol {
-    margin: 0;
     list-style: none;
+    margin: 0;
 }
 .toolbar a {
     text-transform: uppercase;
@@ -139,6 +140,7 @@ ul, ol {
 /* METADATA */
 .metadata {
     color: gray;
+    text-align: right;
 }
 .metadata * {
     margin: 0;
