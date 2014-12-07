@@ -229,7 +229,7 @@ table {
 
     border: 1px solid rgb(221, 221, 221);
 }
-tr:nth-child(2n) {
+tbody tr:nth-child(2n+1) {
     background: #f5f5f5;
 }
 td, th {
