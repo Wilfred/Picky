@@ -61,6 +61,7 @@ body, p, pre, code {
 }
 body, p {
     font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
+    color: #222;
 }
 p, ul, ol, h1, h2, h3, h4, h5, h6 {
     line-height: 1.0;
@@ -77,24 +78,19 @@ h1 {
     margin-bottom: 5px;
 }
 h2 {
-    font-size: 22px;
+    font-size: 24px;
 }
 h3 {
-    font-size: 18px;
+    font-size: 20px;
 }
 h4, h5, h6 {
     font-size: 18px;
-    font-style: italic;
 }
 h5, h6 {
     font-style: italic;
 }
 p, ul, ol, li, pre, code  {
     line-height: 22px;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bree Serif', Georgia, serif !important;
-    font-weight: normal;
 }
 
 /* LISTS */
@@ -106,6 +102,10 @@ ul, ol {
 }
 
 /* TABLE OF CONTENTS */
+.table-of-contents h2 {
+    font-size: 20px;
+    padding-bottom: 5px;
+}
 .table-of-contents ul, .table-of-contents ol {
     list-style: none;
     margin-bottom: 0;
@@ -115,6 +115,10 @@ ul, ol {
 }
 
 /* TOOLBARS */
+.toolbar h2 {
+    font-size: 20px;
+    padding-bottom: 5px;
+}
 .toolbar ul, .toolbar ol {
     list-style: none;
     margin: 0;
@@ -139,16 +143,18 @@ ul, ol {
 
 /* METADATA */
 .metadata {
-    color: gray;
+    color: #999;
+    font-style: italic;
     text-align: right;
 }
 .metadata * {
+    color: #999;
     margin: 0;
 }
 
 /* TOOLTIPS */
 [title] {
-    border-bottom: 1px dotted gray;
+    border-bottom: 1px dotted #999;
 }
 
 /* EDITING */
