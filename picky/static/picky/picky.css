@@ -106,7 +106,7 @@ ul, ol {
     font-size: 20px;
     padding-bottom: 5px;
 }
-.table-of-contents ul, .table-of-contents ol {
+.table-of-contents ol {
     list-style: none;
     margin-bottom: 0;
 }
@@ -255,4 +255,9 @@ pre, code {
     color: inherit;
     overflow-x: auto;
     white-space: pre;
+}
+
+ul.link-list, ol.list-style {
+    list-style: none;
+    margin: 0 0 20px 0;
 }
