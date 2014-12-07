@@ -32,11 +32,10 @@ def deploy():
 
         virtualenv('pip install -r requirements.pip')
 
-        with cd("picky"):
-            virtualenv('python manage.py collectstatic --noinput')
-            virtualenv('python manage.py syncdb')
-            virtualenv('python manage.py migrate')
-            virtualenv('python manage.py rebuild_index --noinput')
+        virtualenv('python manage.py collectstatic --noinput')
+        virtualenv('python manage.py syncdb')
+        virtualenv('python manage.py migrate')
+        virtualenv('python manage.py rebuild_index --noinput')
 
         # Copy across our supervisor configuration, as it may have changed.
         run('cp configuration/picky.conf /etc/supervisor/conf.d/')
