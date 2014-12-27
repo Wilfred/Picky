@@ -66,6 +66,11 @@ class RenderingTest(PageTest):
             page.get_rendered_content(),
             '<p><a class="nonexistent" href="/page/no_such_page">no_such_page</a></p>')
 
+    def test_favicons(self):
+        page = self.create_page(content="http://www.google.com")
+        self.assertIn('<img class="favicon" src="//www.google.com/s2/favicons?domain=http%3A//www.google.com"/>',
+                      page.get_rendered_content())
+
 
 class TocTest(PageTest):
     def test_basic_toc(self):

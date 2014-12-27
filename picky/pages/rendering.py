@@ -28,7 +28,7 @@ def render_creole(source):
         url = a_tag['href']
         if is_external(url):
             favicon = soup.new_tag('img')
-            favicon['src'] = "//getfavicon.appspot.com/" + quote(url)
+            favicon['src'] = "//www.google.com/s2/favicons?domain=" + quote(url)
             favicon['class'] = 'favicon'
 
             a_tag.insert_after(favicon)
