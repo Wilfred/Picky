@@ -5,10 +5,13 @@
 {% block sidebar %}
 {{ block.super }}
 
+{% if toc %}
 <div class="table-of-contents block">
     <h2>Contents</h2>
     {{ toc|safe }}
 </div>
+{% endif %}
+
 {% endblock %}
 
 {% block inner-content %}
