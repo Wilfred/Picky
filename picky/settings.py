@@ -156,6 +156,7 @@ INSTALLED_APPS = (
     'social_auth',
     'haystack',
     'debug_toolbar',
+    'django_extensions',
 
     # picky apps
     'picky.pages',

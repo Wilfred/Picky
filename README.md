@@ -47,7 +47,7 @@ Running the app is then simply:
     $ cd picky
     $ python manage.py syncdb
     $ python manage.py migrate
-    $ python manage.py runserver
+    $ python manage.py runserver_plus
 
 You will need to remove the Twitter login on login_picker.html, as
 your local settings won't have the necessary keys.
