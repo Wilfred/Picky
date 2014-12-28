@@ -12,12 +12,15 @@
         </tr>
     </thead>
     <tbody>
-	{% for page in pages %}
+        {% load time_format %}
+        {% for page in pages %}
         <tr>
             <td>
                 <a href="{% url 'view_page' page.name_slug %}">{{ page.name }}</a>
             </td>
-            <td>{{ page.get_latest_revision.time }}</td>
+            <td>
+                <time datetime="{{ page.get_last_edit_time.isoformat }}" title="{{ page.get_last_edit_time|absolute_time }}">{{ page.get_last_edit_time|relative_time }}</time>
+            </td>
             <td>{{ page.get_latest_revision.version }}</td>
         </tr>
 	{% empty %}
