@@ -69,7 +69,7 @@
                 iconUrl;
 
             if (isExternal(url)) {
-                iconUrl = "//getfavicon.appspot.com/" + encodeURIComponent(url);
+                iconUrl = "//www.google.com/s2/favicons?domain=" + encodeURIComponent(url);
                 $a.after('<img class="favicon" src="' + iconUrl + '">');
             }
         });
