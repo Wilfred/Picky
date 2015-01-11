@@ -80,16 +80,32 @@ class Page(models.Model):
         if not headings:
             return ""
 
-        # Ensure the lowest depth is 1.
-        min_depth = None
-        for (depth, name) in headings:
-            if min_depth is None:
-                min_depth = depth
-            elif depth < min_depth:
-                min_depth = depth
-
+        # Ensure the lowest depth is 1, so:
+        # == foo
+        # === bar
+        # becomes [(1, 'foo',), (2, 'bar')]
+        min_depth = min(depth for (depth, name) in headings)
         headings = [(depth + 1 - min_depth, name)
                     for (depth, name) in headings]
+
+        # Ensure that the initial depth is 1, so:
+        # === foo
+        # == bar
+        # === baz
+        # becomes [(1, 'foo'), (1, 'bar'), (2, 'baz')]
+        first_depth, _ = headings[0]
+        if first_depth != 1:
+            excess = first_depth - 1
+
+            for index, (depth, name) in enumerate(headings):
+                if depth == 1:
+                    break
+                headings[index] = (depth - excess, name)
+
+        # FIXME:
+        # = foo
+        # === bar
+        # should be [(1, 'foo',), (2, 'bar')]
 
         # Write headings as a nested bulleted list.
         headings_creole = []

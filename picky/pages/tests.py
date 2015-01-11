@@ -77,6 +77,19 @@ class TocTest(PageTest):
         page = self.create_page(content="== hello world")
         self.assertIn('<a href="#hello-world">', page.get_toc())
 
+    def test_subsubheading_only_toc(self):
+        page = self.create_page(content="=== hello world")
+        self.assertIn('<a href="#hello-world">', page.get_toc())
+
+    def test_heading_then_subheading(self):
+        page = self.create_page(content="== foo\n=== hello world")
+        self.assertIn('<a href="#hello-world">', page.get_toc())
+
+    def test_subheading_then_heading(self):
+        # Regression test: we had a bug where we'd get an unwanted <code> taga.
+        page = self.create_page(content="=== hello world\n== foo")
+        self.assertNotIn('<code>', page.get_toc())
+
     def test_toc_funky_chars(self):
         page = self.create_page(content="== 123, 456!")
         self.assertIn('<a href="#123-456">', page.get_toc())
