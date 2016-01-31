@@ -37,10 +37,9 @@ GPLv2 license.
 
 ### Development
 
-You will need to install the dependencies:
+You need Python 2, virtualenv and virtualenvwrapper, then:
 
-    $ virtualenv ~/.py_envs/picky -p python2.7
-    $ . ~/.py_envs/picky/bin/activate
+    $ mkvirtualenv picky -p python2.7
     $ pip install -r requirements.pip
     
 Running the app is then simply:
