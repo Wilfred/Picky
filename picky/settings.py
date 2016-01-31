@@ -150,7 +150,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # third party apps
-    'south',
     'django_nose',
     'raven.contrib.django.raven_compat',
     'social_auth',
