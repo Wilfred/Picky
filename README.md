@@ -51,6 +51,10 @@ Running the app is then simply:
 You will need to remove the Twitter login on login_picker.html, as
 your local settings won't have the necessary keys.
 
+To create a first user:
+
+    $ python manage.py createsuperuser
+
 ### Deploying
 
 There's a Fabric file that deploys my personal instance. You'll need
