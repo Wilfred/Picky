@@ -14,6 +14,7 @@ django-extensions==1.6.1
 django-haystack==2.4.1
 django-nose==1.4.3
 django-social-auth==0.7.28
+django_test_mixins==1.10
 docutils==0.12
 gunicorn==19.4.5
 html5lib==1.0b8

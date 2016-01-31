@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+from django_test_mixins import HttpCodeTestCase
+
 from .test_base import UserTest, SuperuserTest
 
 
@@ -26,6 +28,18 @@ class SuperuserOnlyTest(UserTest):
     def test_delete_user(self):
         response = self.client.get(reverse('delete_user', args=[self.test_user.id]))
         self.assertTemplateUsed(response, "users/permission_denied.html")
+
+
+class UserCreateTest(SuperuserTest, HttpCodeTestCase):
+    def test_create_user_renders(self):
+        response = self.client.get(reverse('create_user'))
+        self.assertHttpOK(response)
+
+    def test_create_user(self):
+        self.client.post(reverse('create_user'),
+                         {'username': 'someuser', 'email': 'some@example.com'})
+
+        self.assertTrue(User.objects.get(username='someuser'))
 
 
 class UserDeleteTest(SuperuserTest):
