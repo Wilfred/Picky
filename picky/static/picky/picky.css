@@ -261,3 +261,11 @@ ul.link-list, ol.list-style {
     list-style: none;
     margin: 0 0 20px 0;
 }
+
+/* FORMS */
+button {
+    display: block;
+}
+.helptext {
+    display: block;
+}
