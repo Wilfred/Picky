@@ -23,7 +23,7 @@ def render_creole(source):
     html = parser.render(source)
 
     # add favicons to external URLs
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html, "html5lib")
     for a_tag in soup.find_all('a'):
         url = a_tag['href']
         if is_external(url):
