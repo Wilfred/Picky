@@ -33,7 +33,6 @@ GPLv2 license.
 
 [![Build Status](https://secure.travis-ci.org/Wilfred/Picky.png?branch=master)](http://travis-ci.org/Wilfred/Picky)
 [![Requirements Status](https://requires.io/github/Wilfred/Picky/requirements.png?branch=master)](https://requires.io/github/Wilfred/Picky/requirements/?branch=master)
-[![Build Status](https://drone.io/github.com/Wilfred/Picky/status.png)](https://drone.io/github.com/Wilfred/Picky/latest)
 
 ### Development
 
