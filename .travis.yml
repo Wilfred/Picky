@@ -6,6 +6,6 @@ install:
   - pip install -r requirements.pip
   - pip install -r test_requirements.pip
 script:
-  - DUMMY_SEARCH=y python manage.py test --with-coverage --cover-package=picky
+  - DUMMY_SEARCH=y coverage run --source="." manage.py test
 after_success:
   coveralls
