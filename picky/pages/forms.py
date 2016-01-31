@@ -7,6 +7,7 @@ from .utils import slugify
 class PageForm(ModelForm):
     class Meta:
         model = Page
+        fields = '__all__'
         widgets = {'content': Textarea(attrs={'rows': 22})}
 
     def __init__(self, *args, **kwargs):

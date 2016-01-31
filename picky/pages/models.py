@@ -20,8 +20,8 @@ truncate_words = allow_lazy(truncate_words, six.text_type)
 
 
 class PageManager(models.Manager):
-    def get_query_set(self):
-        qs = super(PageManager, self).get_query_set()
+    def get_queryset(self):
+        qs = super(PageManager, self).get_queryset()
         return qs.filter(deleted=False)
     
     def all_urls(self):
