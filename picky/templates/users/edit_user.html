@@ -3,11 +3,10 @@
 {% block content %}
 <h1>Updating details for {{ user.username }}</h1>
 
-<form method="post" class="well">
+<form method="post">
 {% csrf_token %}
 {{ form }}
-<label></label><!-- grim hack to push button down -->
-<button type="submit" class="btn btn-primary">
+<button type="submit">
 	Save Details
 </button>
 </form>

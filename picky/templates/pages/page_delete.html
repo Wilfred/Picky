@@ -3,13 +3,13 @@
 {% block page_actions_state %}active{% endblock %}
 
 {% block inner-content %}
-<form method="post" class="well">
+<form method="post">
 {% csrf_token %}
 
 <p>You are about to delete {{ page.name }}.
 </p>
 	
-<button type="submit" class="btn btn-danger">
+<button type="submit">
 	Delete {{ page.name }}
 </button>
 </form>
