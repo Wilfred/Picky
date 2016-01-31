@@ -96,7 +96,9 @@ def logout_user(request):
 
 
 def login_picker(request):
-    return render(request, 'users/login_picker.html')
+    next_url = request.GET.get('next')
+    return render(request, 'users/login_picker.html',
+                  {'next': next_url})
 
 
 def user_not_active(request):

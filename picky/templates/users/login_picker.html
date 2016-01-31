@@ -4,9 +4,12 @@
 <h1>Login</h1>
 
 <ul>
-    <li><a href="{% url 'socialauth_begin' 'google' %}">Google</a></li>
-    <li><a href="{% url 'socialauth_begin' 'twitter' %}">Twitter</a></li>
-    <li><a href="{% url 'login' %}">{{ config.site_name }} Account</a></li>
+    <li><a href="{% url 'socialauth_begin' 'google' %}{% if next %}?next={{next}}{% endif %}">Google</a>
+    </li>
+    <li><a href="{% url 'socialauth_begin' 'twitter' %}{% if next %}?next={{next}}{% endif %}">Twitter</a>
+    </li>
+    <li><a href="{% url 'login' %}{% if next %}?next={{next}}{% endif %}">{{ config.site_name }} Account</a>
+    </li>
 </ul>
 
 {% endblock %}
