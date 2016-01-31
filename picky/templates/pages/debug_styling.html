@@ -101,10 +101,15 @@ class HelloWorldApp {
 <form>
     <label for="id_foo">Foo: </label>
     <input id="id_foo">
+    <br><!-- django generates a br here -->
     <span class="helptext">info about foo</span>
+
+    <label for="id_baz">Baz: </label>
+    <input id="id_baz">
 
     <label for="id_bar">Bar: </label>
     <input id="id_bar">
+    <br><!-- django generates a br here -->
     <span class="helptext">info about bar</span>
 
     <button type="submit">

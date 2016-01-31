@@ -266,6 +266,10 @@ ul.link-list, ol.list-style {
 button {
     display: block;
 }
-.helptext {
+label::before {
+    content: " ";
     display: block;
+}
+label {
+    clear: both;
 }
