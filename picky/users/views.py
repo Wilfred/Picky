@@ -17,8 +17,7 @@ def all_users(request):
     
     template_vars = {'active_users': active_users,
                      'inactive_users': inactive_users}
-    return render_to_response("users/all_users.html", template_vars,
-                              RequestContext(request))
+    return render(request, "users/all_users.html", template_vars)
 
 
 @login_required
@@ -75,15 +74,11 @@ def delete_user(request, user_id):
         user.delete()
         return HttpResponseRedirect(reverse('all_users'))
     else:
-        template_vars = {'user': user}
-        return render_to_response("users/delete_user.html", template_vars,
-                                  RequestContext(request))
-
+        return render(request, "users/delete_user.html", {'user': user})
 
 
 def permission_denied(request):
-    response = render_to_response("users/permission_denied.html", {},
-                                  RequestContext(request))
+    response = render(request, "users/permission_denied.html")
     response.status = 403
     return response
 
