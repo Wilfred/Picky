@@ -4,7 +4,7 @@ git+https://github.com/Wilfred/creoleparser.git@49c538d33ee68cfe89d626a8ed5d884e
 Django==1.9.5
 Genshi==0.7
 Werkzeug==0.11.5
-Whoosh==2.7.3
+Whoosh==2.7.4
 argparse==1.4.0
 beautifulsoup4==4.4.1
 coverage==4.0.3
