@@ -4,4 +4,4 @@
 
 paramiko==1.16.0
 pycrypto==2.6.1
-Fabric==1.10.2
+Fabric==1.11.0
