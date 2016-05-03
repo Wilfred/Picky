@@ -10,7 +10,7 @@ beautifulsoup4==4.4.1
 coverage==4.0.3
 dj-static==0.0.6
 django-debug-toolbar==1.4
-django-extensions==1.6.3
+django-extensions==1.6.5
 django-haystack==2.4.1
 django-nose==1.4.3
 django-social-auth==0.7.28
