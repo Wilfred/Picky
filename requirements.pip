@@ -10,7 +10,7 @@ beautifulsoup4==4.5.3
 coverage==4.3.4
 dj-static==0.0.6
 django-debug-toolbar==1.6
-django-extensions==1.7.5
+django-extensions==1.7.6
 django-haystack==2.6.0
 django-nose==1.4.4
 django-social-auth==0.7.28
@@ -19,7 +19,7 @@ docutils==0.13.1
 gunicorn==19.6.0
 html5lib==1.0b10
 httplib2==0.9.2
-ipdb==0.10.1
+ipdb==0.10.2
 ipython==5.1.0
 milkman==0.5
 nose==1.3.7
