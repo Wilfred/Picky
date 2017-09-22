@@ -2,6 +2,6 @@
 # Fabric for deploys, which has C library dependencies. So we
 # separate those dependencies into this file.
 
-paramiko==2.3.0
+paramiko==2.3.1
 pycrypto==2.6.1
 Fabric==1.14.0
