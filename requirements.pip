@@ -1,7 +1,7 @@
 # creoleparser fork that fixes http://code.google.com/p/creoleparser/issues/detail?id=52
 git+https://github.com/Wilfred/creoleparser.git@49c538d33ee68cfe89d626a8ed5d884ee0a62606
 
-Django==2.0.1
+Django==2.0.2
 Genshi==0.7
 Werkzeug==0.14.1
 Whoosh==2.7.4
