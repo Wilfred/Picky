@@ -7,7 +7,7 @@ Werkzeug==0.14.1
 Whoosh==2.7.4
 argparse==1.4.0
 beautifulsoup4==4.7.1
-coverage==4.5.2
+coverage==4.5.3
 dj-static==0.0.6
 django-debug-toolbar==1.11
 django-extensions==2.1.6
