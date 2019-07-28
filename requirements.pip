@@ -18,7 +18,7 @@ django-test-mixins==1.11
 docutils==0.15.1
 gunicorn==19.9.0
 html5lib==1.0.1
-httplib2==0.13.0
+httplib2==0.13.1
 ipdb==0.12.1
 ipython==7.7.0
 milkman==0.5
