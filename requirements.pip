@@ -19,7 +19,7 @@ docutils==0.15.2
 gunicorn==20.0.4
 html5lib==1.0.1
 httplib2==0.14.0
-ipdb==0.12.2
+ipdb==0.12.3
 ipython==7.10.1
 milkman==0.5
 nose==1.3.7
