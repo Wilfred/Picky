@@ -14,7 +14,7 @@ RUN pip install -r requirements.pip
 COPY . .
 
 RUN python manage.py collectstatic --noinput && python manage.py syncdb
-#COPY live_settings_example.py live_settings.py
+COPY picky/live_settings_example.py picky/live_settings.py
 
 EXPOSE 9001
 # Loosely based on https://pythonspeed.com/articles/gunicorn-in-docker/
