@@ -13,7 +13,7 @@ def slugify(value):
     value = value.replace('/', '').replace('#', '').replace('?', '')
 
     # replace whitespace with underscores
-    return re.sub('[-\s]+', '_', value)
+    return re.sub('[-\\s]+', '_', value)
 
 
 def creole_slugify(value):
