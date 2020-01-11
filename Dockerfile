@@ -18,4 +18,4 @@ COPY picky/live_settings_example.py picky/live_settings.py
 
 EXPOSE 9001
 # Loosely based on https://pythonspeed.com/articles/gunicorn-in-docker/
-CMD ["gunicorn", "wsgi", "--worker-tmp-dir=/dev/shm", "-b", "0.0.0.0:9001", "--log-file=-", "--workers=2"]
+CMD ["gunicorn", "picky.wsgi", "--worker-tmp-dir=/dev/shm", "-b", "0.0.0.0:9001", "--log-file=-", "--workers=2"]
