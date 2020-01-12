@@ -57,6 +57,8 @@ To create a first user:
 
 ### Deploying
 
+The [image is on Docker Hub](https://hub.docker.com/r/wilfred/picky).
+
 Build the docker image:
 
     $ docker build -t picky .
