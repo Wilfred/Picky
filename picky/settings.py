@@ -213,6 +213,9 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 if os.getenv('VIRTUAL_HOST'):
     ALLOWED_HOSTS.append(os.getenv('VIRTUAL_HOST'))
 
+if os.getenv('LETSENCRYPT_HOST'):
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
+
 WSGI_APPLICATION = "picky.wsgi.application"
 
 try:
