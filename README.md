@@ -57,21 +57,14 @@ To create a first user:
 
 ### Deploying
 
-There's a Fabric file that deploys my personal instance. You'll need
-to modify this for your own production instance.
+Build the docker image:
 
-    $ fab deploy
+    $ docker build -t picky .
 
-I run picky with gunicorn as the HTTP server and supervisord
-monitoring the process. Here's my configuration:
+Test it locally:
 
-    [program:picky]
-    command=/home/picky/.envs/picky/bin/gunicorn_django -b 127.0.0.1:9000 --workers=3
-    directory=/home/picky/src/Picky
-    user=picky
-    autostart=True
-    autorestart=True
-    redirect_stderr=True
+    $ docker run -p 9001:9001 picky
+
 
 ### Known bugs
 
