@@ -65,6 +65,22 @@ Test it locally:
 
     $ docker run -p 9001:9001 picky
 
+Add a database:
+
+```
+$ docker volume create picky_storage
+
+$ docker run -v picky_storage:/ext -e DB_PATH=/ext/picky.db -p 9001:9001 picky
+```
+
+To copy a local `picky.db` into the container:
+
+```
+$ docker container create --name dummy -v picky_storage:/root hello-world
+$ docker cp picky.db dummy:/root/picky.db
+$ docker rm dummy
+```
+
 
 ### Known bugs
 
