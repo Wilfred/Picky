@@ -13,7 +13,7 @@ RUN pip install -r requirements.pip
 # force us to reinstall.
 COPY . .
 
-RUN python manage.py collectstatic --noinput && python manage.py syncdb
+RUN python manage.py collectstatic --noinput
 COPY picky/live_settings_example.py picky/live_settings.py
 
 EXPOSE 9001
