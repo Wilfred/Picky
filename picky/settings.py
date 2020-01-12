@@ -16,7 +16,7 @@ PROJECT_ROOT = os.path.dirname(__file__)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_ROOT, 'picky.db'),
+        'NAME': os.getenv('DB_PATH', os.path.join(PROJECT_ROOT, 'picky.db')),
     }
 }
 
