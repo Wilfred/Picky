@@ -1,4 +1,5 @@
 import os
+import logging.config
 from django.core.urlresolvers import reverse_lazy
 
 
@@ -184,7 +185,13 @@ HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
-LOGGING = {
+LOGGING_CONFIG = None
+
+LOG_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'info').upper()
+
+# Based on
+# https://www.digitalocean.com/community/tutorials/how-to-build-a-django-and-gunicorn-application-with-docker
+logging.config.dictConfig({
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
@@ -199,12 +206,13 @@ LOGGING = {
         },
     },
     'loggers': {
-        'django': {
+        '': {
+            'level': LOG_LEVEL,
             'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
         },
     },
-}
+})
+
 
 INTERNAL_IPS = ('127.0.0.1',)
 
