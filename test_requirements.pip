@@ -1,5 +1,5 @@
 coverage==5.2
-coveralls==2.0.0
+coveralls==2.1.0
 django-test-mixins==1.11
 docopt==0.6.2
 ipdb==0.13.3
