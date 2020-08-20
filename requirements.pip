@@ -11,7 +11,7 @@ dj-static==0.0.6
 django-debug-toolbar==2.2
 django-extensions==3.0.5
 django-haystack==2.8.1
-django-nose==1.4.6
+django-nose==1.4.7
 django-social-auth==0.7.28
 docutils==0.16
 gunicorn==20.0.4
